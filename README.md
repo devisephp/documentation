@@ -56,7 +56,7 @@ This will only appear for ninja bad-asses.
 ```
 
 ```html
-<div class="beginner markdown="1">
+<div class="beginner" markdown="1">
 
 This will only appear for new dudes.
 
