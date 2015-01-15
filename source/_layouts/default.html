@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/devise-marketing.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/highlightjs/monokai_sublime.css">
+
+    <script type="text/javascript" src="{{ site.url }}/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/lib/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/lib/highlight.pack.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/devise-documentation.js"></script>
+
+</head>
+
+<body id="documentation">
+    <header>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container navbar-inner">
+                <a href="/"><img src="{{ site.url }}/imgs/devise-logo-mini.gif" width="173" height="81">
+                <ul class="list-inline">
+                    <li class="ml sp50"><a href="#REPLACE_HREF" class="fg mid-gray important">GitHub</a></li>
+                    <li><a href="#REPLACE_HREF">API</a></li>
+                    <li><a href="#REPLACE_HREF">Learn</a></li>
+                    <li><a href="#REPLACE_HREF">Get Started</a></li>
+                    <li><a href="#REPLACE_HREF">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-offset-6 col-md-6 tar">
+                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <ul class="col-md-3" id="documentation-sidebar">
+                <li {% if page.url == '/docs' %} class="active" {% endif %}>
+                    <a href="/docs">About Devise</a>
+                    <ul>
+                        <li><a href="/docs#what-is-it">What Is It?</a></li>
+                        <li><a href="/docs#couple-of-demos">Couple of Demos</a></li>
+                    </ul>
+                </li>
+                {% for doc in data.docs %}
+                <li{% if page.url == doc.url %} class="active"{% endif %}>
+                <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
+                    {% if doc.sections %}
+                        <ul>
+                            {% for section in doc.sections %}
+                                <li{% if doc.url == page.url %} class="active" {% endif %}><a href="{{ site.url }}{{ doc.url }}#{{section|replace({' ':'-'})|lower|url_encode}}">{{section}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="col-md-8 col-md-offset-1" id="documentation-content">
+                {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
+
+                {% if page.previous_doc or page.next_doc %}
+                    <nav class="article">
+                        <ul>
+                            {% if page.next_doc %}
+                                <li>Next: <a class="next" href="{{ site.url }}{{ page.next_doc.url }}" title="{{ page.next_doc.title }}"><span class="title">{{ page.next_doc.title }}</span></a></li>
+                            {% endif %}
+                            {% if page.previous_doc %}
+                                <li>Previous: <a class="previous" href="{{ site.url }}{{ page.previous_doc.url }}" title="{{ page.previous_doc.title }}"><span class="title">{{ page.previous_doc.title }}</span></a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="tar">
+        <div class="container open-sans tiny">
+            <img class="mb sp8" src="{{ site.url }}/imgs/devise-logo-mini-black.gif" width="114" height="39" alt="Devise" />
+            <p>Devise Logo and Devisephp.com<br>
+               Copyright &copy 2015 <a href="http://lbm.co" class="strong" target="_blank">LBM</a><br><br>
+
+               Devise content management system source code under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

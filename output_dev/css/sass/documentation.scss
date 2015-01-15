@@ -1,0 +1,134 @@
+$button-size:40px;
+
+#documentation {
+	padding-top:150px;
+
+	h1 { font-size:75px; margin:25px 0 0.25em;}
+	h2 { font-size:50px; line-height:50px }
+	h3 { font-size:32px;  }
+	h4 { font-size:24px; font-weight:400; }
+	h5 { font-size:18px;  }
+	h6 { font-size:16px; font-weight:400; }
+
+	blockquote {
+		background-color:$orange;
+		border-color:darken($orange, 20%);
+		color: #fff;
+		padding:10px 20px 25px 20px;
+		margin:20px 0 30px 0;
+
+		h1,h2,h3,h4,h5,h6 {
+			color:#fff;
+			font-weight:bold;
+		}
+
+		p {
+			color:#fff;
+			font-family: $open-sans;
+		}
+
+		blockquote {
+			margin:-10px -20px -30px -25px;
+			background-color:$green;
+			border-color:darken($green, 20%);
+		}
+	}
+
+	.advanced,
+	.beginner {
+		display:none;
+
+		&:before {
+			content: 'Advanced Documentation';
+			font-weight:bold;
+			font-size:16px;
+		}
+	}
+
+	pre {
+		background-color:#f5f5f5;
+		border-color:#f5f5f5;
+		margin:30px 0;
+	}
+
+	code {
+		font-size:14px;
+	}
+
+	.advanced {
+		&:before {
+			content: 'Advanced Documentation';
+		}
+	}
+
+	.beginner {
+		&:before {
+			content: 'Beginner Documentation'
+		}
+	}
+}
+
+
+#documentation-sidebar {
+
+	list-style:none;
+	padding-left:0;
+
+	&.sticky {
+		position:fixed;
+		top:0;
+	}
+
+	a {
+		color:$gray;
+	}
+
+	ul {
+		display:none;
+		list-style:none;
+		padding-left:15px;
+		padding-top:$button-size / 2;
+
+		li {
+			margin-bottom:20px;
+			font-family:$open-sans;
+			font-size: 14px;
+			line-height:18px;
+
+			&:last {
+				margin-bottom:none;
+			}
+
+			a {
+				color: lighten($gray, 15%);
+
+				&:hover {
+					color: $gray;
+				}
+			}
+		}
+	}
+
+	> li {
+		padding:$button-size / 2;
+		background-color:white;
+		border-bottom:1px solid $light-gray;
+		font-family:$open-sans;
+
+		&.child-active,
+		&.active {
+			border-top:1px solid #fff;
+			background-color:darken($white, 2%);
+
+			> ul {
+				display:block;
+			}
+		}
+	}
+}
+
+#documentation-content {
+	a {
+		color:desaturate($green, 20%);
+	}
+}

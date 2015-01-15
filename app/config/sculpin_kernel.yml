@@ -1,0 +1,8 @@
+sculpin_content_types:
+    docs:
+        permalink: docs/:title/
+        type: path
+        path: docs
+        singular_name: doc
+        layout: doc
+        enabled: true

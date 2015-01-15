@@ -1,0 +1,81 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin makespace($type) {
+  &.sp1 { #{$type}: 1px; }
+  &.sp2 { #{$type}: 2px; }
+  &.sp3 { #{$type}: 3px; }
+  &.sp5 { #{$type}: 5px; }
+  &.sp6 { #{$type}: 6px; }
+  &.sp8 { #{$type}: 8px; }
+  &.sp10 { #{$type}: 10px; }
+  &.sp12 { #{$type}: 12px; }
+  &.sp16 { #{$type}: 16px; }
+  &.sp18 { #{$type}: 18px; }
+  &.sp20 { #{$type}: 20px; }
+  &.sp25 { #{$type}: 25px; }
+  &.sp30 { #{$type}: 30px; }
+  &.sp35 { #{$type}: 35px; }
+  &.sp40 { #{$type}: 40px; }
+  &.sp50 { #{$type}: 50px; }
+  &.sp60 { #{$type}: 60px; }
+  &.sp75 { #{$type}: 70px; }
+  &.sp100 { #{$type}: 100px; }
+  &.sp150 { #{$type}: 150px; }
+  &.sp200 { #{$type}: 200px; }
+  &.sp300 { #{$type}: 300px; }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin background-size($value) {
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  -o-background-size: $value;
+  background-size: $value;
+}
+
+@mixin fg($color) {
+  color: $color;
+
+  &.important {
+    color: $color!important;
+  }
+}
+
+@mixin type-font-size($size) {
+  font-size:$size;
+  line-height: $size * 1.8;
+
+  p {
+    font-size: $size;
+    line-height: $size * 1.8;
+  }
+}
+
