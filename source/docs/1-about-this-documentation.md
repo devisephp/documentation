@@ -34,15 +34,20 @@ We have done two things in these documents that may be unfamiliar to you.
 
 If you've ever read a programming book you've undoubtedly seen these. If not, no worries. We're just trying to get your attention with them. We only use them when we really do have an important thing you should watch out for. There are three flavors:
 
-###Warnings and Tips
+###Tips
 
-> #### Careful, careful, careful
-> It's easy to make a mistake when you see one of these notifications. We have either made the mistake ourselves or have received feedback from other developers that it is easy to misunderstand or miss a step. Tread carefully.
+> #### Quick tips
+> Don't want our opinion on how to do things? Skip these. 
+
+###Warnings
+
+>> #### Careful, careful, careful
+>> It's easy to make a mistake when you see one of these notifications. We have either made the mistake ourselves or have received feedback from other developers that it is easy to misunderstand or miss a step. Tread carefully.
 
 ###Upcoming Features
 
->> #### New Upcoming Feature (10.1)
->> When a feature is brand new or maybe is just about to be released we will notate above it with this block. 
+>>> #### New Upcoming Feature (10.1)
+>>> When a feature is brand new or maybe is just about to be released we will notate above it with this block. 
 
 ##Beer!
 To make this novela a little easier to understand and use some real world examples we will use a fictitious narrative of a website about beer. We could have made a blog or a site about cats but this team loves beer. Good beer.

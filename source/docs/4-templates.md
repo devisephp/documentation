@@ -4,36 +4,58 @@ title: Templates
 use: [docs]
 converters: [markdown]
 sections:
-  - File Locations and Structures
+  - Creating New Templates
   - Introduction to Blade Syntax
-  - Creating new templates
-  - Creating arbitrary editable areas
-  - Editing your models
+  - Creating Rando Editable Areas
+  - Editing Your Models
+  - Workflows
   - Examples
 ---
 
 #Templates
-Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but easy no matter what. One of our major focuses was to give developers a super-easy way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable quickly and easily. 
+Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable quickly and easily. 
 
-##<a name="file-locations-and-structures" class="ia"></a>[#](#file-locations-and-structures)File Locations and Structures
+> ####A quick note about how we setup our templates 
+>There are limitless ways of organizing your templates but a lot of projects follow the structure we are suggesting here. That said, you can always branch out and try new ways of doing things. There is only two "rules" that we have for the system to operate correctly without tinkering with the Devise guts:
 
-> **A quick note about file organization**: There are limitless ways of organizing your templates but a lot of projects follow the structure we are suggesting here. That said, you can always branch out and try new ways of doing things. 
+  - We are expecting the templates you want to apply to pages to be in the ```/app/views/templates``` directory.
+  - Any blade files in the ```/app/views/templates``` directory that are prefixed with an underscore will be considered a partial. For example: ```/app/views/templates/_jumbotron.blade.php```
 
-We suggest breaking your templates out into two tiers: 
 
-  - **Layouts**: These are the 'wrapper' of the page. The ```<html>, <head>, <body>``` that needs to appear on all of your templates. This might also include your main menu or whatever else you have on all your pages. Maybe you need a few of these layouts but we like to think of these as 'wrapper' templates that all the other templates will extend. Again, you can get as complicated as you want with includes and extensions - this just works for us most of the time.
-  - **Templates**: This folder contains the *guts* of the layouts we will use throughout the site. For the documentation for devise I have the following templates:  
-    - Homepage
-    - Documentation
-    - Generic
+#<a name="creating-new-templates" class="ia"></a>[#](#creating-new-templates)Creating New Templates
 
-    All the pages at devisephp.com use one of those three templates. 
+Great, so you know some sweet Blade syntax. So, how do we take a design we've gotten from our hipster designers down the hall and actually apply it to a Devise page? It's simple - really.
 
-> Any template files that you prefix with an underscore in the filename will be considered partials which we expect you to ```@include()``` in one of your main templates.
+###1. Cut up the design
+
+Hire that off-shore company to slice-and-dice your design into HTML / CSS / JavaScript. Or, get the intern to do it. 
+
+###2. Divide the HTML into parts
+
+Just think to yourself: *"What is going to appear several sections of the site and what might be used on a subset of those pages?* The part that is going to appear across several different designs is your layout and the part that is specific to a design is your template. 
+
+Take a look at [Intro to Blade Syntax](#introduction-to-blade-syntax) below for more guidance on this.
+
+<div class="beginner" markdown="1">
+
+If you've never done this you'll make mistakes here but don't worry, shuffling parts of your markup around after the fact is not a big deal so just experiment. A lot of what determines where to put things is foresight on what's coming.
+
+A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably *layouts*. What parts of the design appear within different designs but appear in different locations? Those are probably *partials*. The rest of the designs are probably your main template files. 
+
+> ####A General Rule
+> I find that if my designer sends me 10 files I'll probably have 10 templates. 
+
+</div>
+
+###3. Add Any Blade Syntax or Devise Editable Areas
+
+
+
 
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
 
-> **A note about other templating engines**: Blade is the templating system bundled in Laravel. Some folks prefer using other systems which you are welcome to use. Milage may vary but I'm not quite sure why they wouldn't work in Devise. However, our team digs Blade and have developed Devise with Blade in mind. 
+> ####A note about other templating engines
+> Blade is the templating system bundled in Laravel. Some folks prefer using other systems which you are welcome to use. Milage may vary but I'm not quite sure why they wouldn't work in Devise. However, our team digs Blade and have developed Devise with Blade in mind. 
 
 Blade is *incredibly* easy to use - especially if you have any knowledge of basic programming operators. All it does is allow you to drop in some simple additional text into your HTML to make them more dynamic. Here is an example that will write out 10 list items. Simple.
 
@@ -49,7 +71,7 @@ Blade is *incredibly* easy to use - especially if you have any knowledge of basi
 </html>
 ```
 
-**Including and Extending**
+###Including and Extending
 
 Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates that contain things like menus or headers and footers that appear on every page, and when those things need to change, only modify one file to make a site-wide change. 
 
@@ -91,7 +113,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 @section('content')
 
-@include('_hero') <!-- See how we include the partial? -->
+@include('_jumbotron') <!-- Include the partial? -->
 
 <p>This is the content that is specific to this template</p>
 
@@ -100,17 +122,51 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ---
 
-**Partial**: /app/views/templates/_hero.blade.php
+**Partial**: /app/views/templates/_jumbotron.blade.php
 
 ```
-<div class="hero">
+<div class="jumbotron">
 <h1>{{ $page->title }}
 <p>{{ $page->meta_description }}</p>
-</div>
+</div>ds
+```
+
+###If / Else
+
+```
+@if($beers == 'amazing')
+<h2>Hey there!</h2>
+@else
+</h6>Get out...</h6>
+@endif
+```
+
+```
+@if($favoriteBeer == 'lambic')
+<h2>Me too!</h2>
+@elseif($favoriteBeer == 'stout')
+<h2>Respect</h2>
+@else
+<h2>That's cool</h2>
+@endif
+```
+
+###Loops
+
+```
+@for($i = 0; $i < 10; $i++)
+<h2>I guzzled {{ $i }} beers</h2>
+@endfor
+```
+
+```
+@foreach($beers as $beer)
+<li>{{ $beer->name }}</li>
+@endforeach
 ```
 
 
-**Other resources for learning Blade**
+###Other resources for learning Blade
 
 * [Laravel documentation on Blade](http://laravel.com/docs/4.2/templates#blade-templating)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)

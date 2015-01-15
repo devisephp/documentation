@@ -39,7 +39,9 @@ This allows you to still use the routes.php file or however you have done routin
 
 ##<a name="creating-new-pages" class="ia"></a>[#](#creating-new-pages)Creating New Pages
 
-Creating a page is easy. From the administration dashboard click on *ahem*... Pages. Click on 'Create New Page' in the top right-hand corner and you will be presented the Create A New Page form. Let's break down the options:
+Creating a page is easy. From the administration dashboard click on *ahem*... Pages. Click on 'Create New Page' in the top right-hand corner and you will be presented the Create A New Page form. 
+
+###Page Options
 
  **Title of the page**: The purpose of this field is to supply a label for the administrative list of pages. It really isn't meant for anything on the front-end. 
 
@@ -186,7 +188,9 @@ There are essentially two things you can do with a page once it has been created
 
 ##<a name="understanding-page-versions" class="ia"></a>[#](#understanding-page-versions)Understanding Page Versions
 
-Page versions are simply instances of a page. If a *page* is the URL itself the *page version* is the content *on* that page. You can find the page versions of a page by clicking *Expand page versions* under the title of each page on the *page index* of administration. So what can you do with page versions? Here are the key highlights:
+Page versions are simply instances of a page. If a *page* is the URL itself the *page version* is the content *on* that page. You can find the page versions of a page by clicking *Expand page versions* under the title of each page on the *page index* of administration. 
+
+###So what can you do with page versions?
 
   - Work on a page before it ever goes live.
   - Work on a new version of a page before it ever goes live.
@@ -194,7 +198,7 @@ Page versions are simply instances of a page. If a *page* is the URL itself the 
   - Share an unpublished version of a page with someone to review.
   - Copy a page version
 
-**Here are some rules to keep in mind:**
+###Here are some rules to keep in mind:
 
   - If there is not a page version currently published the page will return a 404 error.
   - If no end date is set the page version will be live forever.
