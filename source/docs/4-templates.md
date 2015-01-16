@@ -47,9 +47,21 @@ A good way to start is to spread out your entire design deck and identify what p
 
 </div>
 
-###3. Add Any Blade Syntax or Devise Editable Areas
+###3. Register that sucker
 
+We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the template. Log in to the administration of your application and click on *Templates* on the main menu. 
 
+Click on *Register Template* in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.
+
+###4. Apply the template to a page we can test on.
+
+In the administration head back to *Pages* and either create a page or edit an existing page and select the template we just registered. View or preview the page and we should see your design. 
+
+###5. Add Any Blade Syntax or Devise Editable Areas
+
+I know what you're thinking: *"Great, I've got a static page in Devise... amazing.... but it doesn't **do** anything!*
+
+Easy bro. Easy. 
 
 
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
@@ -69,6 +81,24 @@ Blade is *incredibly* easy to use - especially if you have any knowledge of basi
   </ul>
 </body>
 </html>
+```
+
+###Echoing out variables 
+
+```
+{{{ $i }}}
+```
+
+or unescaped
+
+```
+{{ $i }}
+```
+
+or give an alternative if the variable isn't set (thank you Laravel!)
+
+```
+{{{ $beer->name or 'Unknown' }}}
 ```
 
 ###Including and Extending
@@ -165,8 +195,15 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 @endforeach
 ```
 
+###Comments
+
+```
+{{-- Ain't nobody going to see this --}}
+```
 
 ###Other resources for learning Blade
+
+There is a bunch of other goodies in Blade. You can even extend it and your make your own ```@beerbong``` if you want. 
 
 * [Laravel documentation on Blade](http://laravel.com/docs/4.2/templates#blade-templating)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)

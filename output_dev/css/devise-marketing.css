@@ -702,7 +702,7 @@ footer {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Bebas Neue", "Open Sans", tahoma, arial, sans-serif;
   font-weight: 600;
-  color: #424242;
+  color: #565656;
   margin: 1em 0 0.5em; }
   h1 > small, h2 > small, h3 > small, h4 > small, h5 > small, h6 > small {
     font-size: 0.4em;
@@ -966,64 +966,90 @@ p.tiny {
   #resources {
     padding-bottom: 0px; } }
 #documentation {
+  background-color: #efefef;
   padding-top: 150px; }
   #documentation h1 {
     font-size: 75px;
     margin: 25px 0 0.25em; }
   #documentation h2 {
-    font-size: 50px;
-    line-height: 50px; }
+    font-size: 28px;
+    line-height: 50px;
+    margin-top: 50px; }
   #documentation h3 {
-    font-size: 32px; }
-  #documentation h4 {
     font-size: 24px;
-    font-weight: 400; }
+    font-weight: bold;
+    margin-top: 35px; }
+  #documentation h4 {
+    font-size: 18px;
+    font-weight: bold; }
   #documentation h5 {
-    font-size: 18px; }
-  #documentation h6 {
     font-size: 16px;
-    font-weight: 400; }
+    font-weight: bold; }
+  #documentation h6 {
+    font-size: 14px;
+    font-weight: bold; }
+  #documentation h2, #documentation h3, #documentation h4, #documentation h5, #documentation h6 {
+    font-family: "Open Sans", arial, tahoma, sans-serif; }
   #documentation blockquote {
-    background-color: #d96136;
-    border-color: #8e391b;
+    background-color: #5c9db2;
+    border-color: #366372;
     color: #fff;
     padding: 10px 20px 25px 20px;
     margin: 20px 0 30px 0; }
     #documentation blockquote h1, #documentation blockquote h2, #documentation blockquote h3, #documentation blockquote h4, #documentation blockquote h5, #documentation blockquote h6 {
       color: #fff;
-      font-weight: bold; }
+      font-weight: bold;
+      margin-top: 20px; }
     #documentation blockquote p {
       color: #fff;
       font-family: "Open Sans", arial, tahoma, sans-serif; }
     #documentation blockquote blockquote {
       margin: -10px -20px -30px -25px;
-      background-color: #7dbc5d;
-      border-color: #4d7f34; }
+      background-color: #d96136;
+      border-color: #8e391b; }
+      #documentation blockquote blockquote blockquote {
+        background-color: #7dbc5d;
+        border-color: #4d7f34; }
   #documentation .advanced,
   #documentation .beginner {
-    display: none; }
+    display: none;
+    margin-top: 60px; }
     #documentation .advanced:before,
     #documentation .beginner:before {
       content: 'Advanced Documentation';
-      font-weight: bold;
-      font-size: 16px; }
+      font-size: 11px;
+      font-family: "Open Sans", arial, tahoma, sans-serif;
+      background-color: #d96136;
+      padding: 4px 8px 6px;
+      border-radius: 3px;
+      color: #fff; }
   #documentation pre {
     background-color: #f5f5f5;
     border-color: #f5f5f5;
     margin: 30px 0; }
+    #documentation pre code {
+      padding: 30px; }
   #documentation code {
     font-size: 14px; }
-  #documentation .advanced:before {
-    content: 'Advanced Documentation'; }
   #documentation .beginner:before {
-    content: "Beginner Documentation"; }
+    content: 'Beginner Documentation';
+    background-color: #7dbc5d; }
+  #documentation ul {
+    margin-bottom: 20px; }
+
+#documentation-sidebar-wrapper {
+  background-color: #fcfcfc;
+  height: 100%;
+  width: 25%;
+  left: 5%;
+  position: fixed;
+  top: 0; }
 
 #documentation-sidebar {
   list-style: none;
-  padding-left: 0; }
-  #documentation-sidebar.sticky {
-    position: fixed;
-    top: 0; }
+  padding-left: 0;
+  position: fixed;
+  width: 25%; }
   #documentation-sidebar a {
     color: #5d5d5d; }
   #documentation-sidebar ul {
@@ -1053,5 +1079,10 @@ p.tiny {
       #documentation-sidebar > li.child-active > ul, #documentation-sidebar > li.active > ul {
         display: block; }
 
-#documentation-content a {
-  color: #84a574; }
+#documentation-content {
+  background-color: #f4f4f4; }
+  #documentation-content a {
+    color: #84a574; }
+
+#difficulty-buttons {
+  padding-top: 20px; }

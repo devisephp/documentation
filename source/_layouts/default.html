@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/devise-marketing.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/highlightjs/monokai_sublime.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/highlightjs/github.css">
 
     <script type="text/javascript" src="{{ site.url }}/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/lib/jquery.cookie.js"></script>
@@ -36,19 +36,9 @@
         </div>
     </header>
 
-    <div class="container">
+    <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
-        <div class="row">
-            <div class="col-md-offset-6 col-md-6 tar">
-                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <ul class="col-md-3" id="documentation-sidebar">
+            <ul id="documentation-sidebar">
                 <li {% if page.url == '/docs' %} class="active" {% endif %}>
                     <a href="/docs">About Devise</a>
                     <ul>
@@ -70,21 +60,42 @@
                 {% endfor %}
             </ul>
 
-            <div class="col-md-8 col-md-offset-1" id="documentation-content">
-                {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
+    </div>
 
-                {% if page.previous_doc or page.next_doc %}
-                    <nav class="article">
-                        <ul>
-                            {% if page.next_doc %}
-                                <li>Next: <a class="next" href="{{ site.url }}{{ page.next_doc.url }}" title="{{ page.next_doc.title }}"><span class="title">{{ page.next_doc.title }}</span></a></li>
-                            {% endif %}
-                            {% if page.previous_doc %}
-                                <li>Previous: <a class="previous" href="{{ site.url }}{{ page.previous_doc.url }}" title="{{ page.previous_doc.title }}"><span class="title">{{ page.previous_doc.title }}</span></a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                {% endif %}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-content">
+
+                <div class="row" id="difficulty-buttons">
+                    <div class="col-md-offset-6 col-md-6 tar">
+                        <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                        <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                        <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
+
+                        {% if page.previous_doc or page.next_doc %}
+                            <nav class="article">
+                                <ul>
+                                    {% if page.next_doc %}
+                                        <li>Previous: <a class="previous" href="{{ site.url }}{{ page.next_doc.url }}" title="{{ page.next_doc.title }}"><span class="title">{{ page.next_doc.title }}</span></a></li>
+                                    {% endif %}
+                                    {% if page.previous_doc %}
+                                        <li>Next: <a class="next" href="{{ site.url }}{{ page.previous_doc.url }}" title="{{ page.previous_doc.title }}"><span class="title">{{ page.previous_doc.title }}</span></a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        {% endif %}
+
+                    </div>
+                </div>
             </div>
 
         </div>

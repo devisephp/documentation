@@ -16,8 +16,11 @@ sections:
 Any site has pages. These pages might contain simple, static information like pictures and text or it might contain dynamic information from a database. In this section we will cover how to create simple pages, complex pages, pages that nobody can see, even drunk pages. Let's get started.
 
 ##<a name="pages-and-routing" class="ia"></a>[#](#pages-and-routing)Pages and Routing
+
 <div class="beginner" markdown="1">
-**New to routing?**
+
+###New to routing?
+
 So, if you are new to Laravel or new to the concept of routing you may want to read this: A route is how you, the developer, instruct the system where to go when a user requests a url or submits data to a url.
 
 So a route is usually similar to one of these examples:
@@ -26,15 +29,20 @@ So a route is usually similar to one of these examples:
 
 There are other things routes can return but for now just think of it as routes that return HTML and routes that receive and process data.
 
+> ###'Page' vs. 'Route'
 > Keep in mind that a 'page' in Devise is a route. You can interchange the terms 'page' and 'route' in context of Devise. They are the same. We decided to use the term 'Page' because we felt our customers would understand more easily. You're a developer. Man / Woman up. 
 </div>
 
 <div class="advanced" markdown="1">
+
+###How Devise routing works alongside Laravel
+
 If you're coming from the Laravel world you're probably familiar with routing and how it works in good 'ol Laravel. Devise works alongside the Laravel routing engine by simply bootstrapping our routes stored in the database. 
 
 This allows you to still use the routes.php file or however you have done routing in the past alongside Devise. 
 
->> Once Laravel 5 launches we will fully implement the route caching system into Devise to help accelerate load times and reduce queries.
+>>> ### About Laravel 5
+>>> Once Laravel 5 launches we will fully implement the route caching system into Devise to help accelerate load times and reduce queries.
 </div>
 
 ##<a name="creating-new-pages" class="ia"></a>[#](#creating-new-pages)Creating New Pages
@@ -63,7 +71,7 @@ Creating a page is easy. From the administration dashboard click on *ahem*... Pa
   -  Delete (DELETE): Typically this route type will delete things.
   -  Any Method: Users can access this page with any browser method.
 
-**So, for a quick example**: Let's say our beer site has a page that lists all the breweries in the world. We would create a page called 'Brewery List' with a **GET** route type. At the bottom of that page is a form that allows users to submit new breweries. That form would be pointed at another page with a **POST** route type. If we allowed users to edit we would use **PUT** and delete would use **Delete**. 
+**For a quick example**: Let's say our beer site has a page that lists all the breweries in the world. We would create a page called 'Brewery List' with a **GET** route type. At the bottom of that page is a form that allows users to submit new breweries. That form would be pointed at another page with a **POST** route type. If we allowed users to edit we would use **PUT** and delete would use **Delete**. 
 
 >> If a browser tries to access a page with a method you have not specified. For instance, you set a page as a regular GET page and someone tries to post data to it that user will experience a good 'ol fashioned 404.
 

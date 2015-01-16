@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
-    <link rel="stylesheet" type="text/css" href="/css/highlightjs/monokai_sublime.css">
+    <link rel="stylesheet" type="text/css" href="/css/highlightjs/github.css">
 
     <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="/js/lib/jquery.cookie.js"></script>
@@ -36,19 +36,9 @@
         </div>
     </header>
 
-    <div class="container">
+    <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
-        <div class="row">
-            <div class="col-md-offset-6 col-md-6 tar">
-                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <ul class="col-md-3" id="documentation-sidebar">
+            <ul id="documentation-sidebar">
                 <li >
                     <a href="/docs">About Devise</a>
                     <ul>
@@ -79,16 +69,43 @@
                                                             <li><a href="/docs/3-pages#creating-new-pages">Creating New Pages</a></li>
                                                             <li><a href="/docs/3-pages#managing-pages">Managing Pages</a></li>
                                                             <li><a href="/docs/3-pages#understanding-page-versions">Understanding page versions</a></li>
-                                                            <li><a href="/docs/3-pages#working-on-a-page-privately">Working on a page privately</a></li>
-                                                            <li><a href="/docs/3-pages#sharing-an-unpublished-page">Sharing an unpublished page</a></li>
-                                                            <li><a href="/docs/3-pages#publishing-a-page">Publishing a page</a></li>
-                                                            <li><a href="/docs/3-pages#working-with-the-calendar">Working with the calendar</a></li>
+                                                            <li><a href="/docs/3-pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                            <li><a href="/docs/3-pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/4-templates">Templates</a>
+                                            <ul>
+                                                            <li><a href="/docs/4-templates#creating-new-templates">Creating New Templates</a></li>
+                                                            <li><a href="/docs/4-templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                            <li><a href="/docs/4-templates#creating-rando-editable-areas">Creating Rando Editable Areas</a></li>
+                                                            <li><a href="/docs/4-templates#editing-your-models">Editing Your Models</a></li>
+                                                            <li><a href="/docs/4-templates#workflows">Workflows</a></li>
+                                                            <li><a href="/docs/4-templates#examples">Examples</a></li>
                                                     </ul>
                                     </li>
                             </ul>
 
-            <div class="col-md-8 col-md-offset-1" id="documentation-content">
-                <h1>Installation</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-content">
+
+                <div class="row" id="difficulty-buttons">
+                    <div class="col-md-offset-6 col-md-6 tar">
+                        <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                        <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                        <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <h1>Installation</h1>
 
 <h2>Installing through the command line</h2>
 
@@ -102,13 +119,16 @@
 
 <p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
 
-                                    <nav class="article">
-                        <ul>
-                                                            <li>Next: <a class="next" href="/docs/1-about-this-documentation" title="About this documentation"><span class="title">About this documentation</span></a></li>
-                                                                                        <li>Previous: <a class="previous" href="/docs/3-pages" title="Pages"><span class="title">Pages</span></a></li>
-                                                    </ul>
-                    </nav>
-                            </div>
+                                                    <nav class="article">
+                                <ul>
+                                                                            <li>Previous: <a class="previous" href="/docs/1-about-this-documentation" title="About this documentation"><span class="title">About this documentation</span></a></li>
+                                                                                                                <li>Next: <a class="next" href="/docs/3-pages" title="Pages"><span class="title">Pages</span></a></li>
+                                                                    </ul>
+                            </nav>
+                        
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
-    <link rel="stylesheet" type="text/css" href="/css/highlightjs/monokai_sublime.css">
+    <link rel="stylesheet" type="text/css" href="/css/highlightjs/github.css">
 
     <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="/js/lib/jquery.cookie.js"></script>
@@ -36,19 +36,9 @@
         </div>
     </header>
 
-    <div class="container">
+    <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
-        <div class="row">
-            <div class="col-md-offset-6 col-md-6 tar">
-                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <ul class="col-md-3" id="documentation-sidebar">
+            <ul id="documentation-sidebar">
                 <li >
                     <a href="/docs">About Devise</a>
                     <ul>
@@ -79,16 +69,43 @@
                                                             <li class="active" ><a href="/docs/3-pages#creating-new-pages">Creating New Pages</a></li>
                                                             <li class="active" ><a href="/docs/3-pages#managing-pages">Managing Pages</a></li>
                                                             <li class="active" ><a href="/docs/3-pages#understanding-page-versions">Understanding page versions</a></li>
-                                                            <li class="active" ><a href="/docs/3-pages#working-on-a-page-privately">Working on a page privately</a></li>
-                                                            <li class="active" ><a href="/docs/3-pages#sharing-an-unpublished-page">Sharing an unpublished page</a></li>
-                                                            <li class="active" ><a href="/docs/3-pages#publishing-a-page">Publishing a page</a></li>
-                                                            <li class="active" ><a href="/docs/3-pages#working-with-the-calendar">Working with the calendar</a></li>
+                                                            <li class="active" ><a href="/docs/3-pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                            <li class="active" ><a href="/docs/3-pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/4-templates">Templates</a>
+                                            <ul>
+                                                            <li><a href="/docs/4-templates#creating-new-templates">Creating New Templates</a></li>
+                                                            <li><a href="/docs/4-templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                            <li><a href="/docs/4-templates#creating-rando-editable-areas">Creating Rando Editable Areas</a></li>
+                                                            <li><a href="/docs/4-templates#editing-your-models">Editing Your Models</a></li>
+                                                            <li><a href="/docs/4-templates#workflows">Workflows</a></li>
+                                                            <li><a href="/docs/4-templates#examples">Examples</a></li>
                                                     </ul>
                                     </li>
                             </ul>
 
-            <div class="col-md-8 col-md-offset-1" id="documentation-content">
-                <h1>Pages</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-content">
+
+                <div class="row" id="difficulty-buttons">
+                    <div class="col-md-offset-6 col-md-6 tar">
+                        <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                        <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                        <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <h1>Pages</h1>
 
 <p>Any site has pages. These pages might contain simple, static information like pictures and text or it might contain dynamic information from a database. In this section we will cover how to create simple pages, complex pages, pages that nobody can see, even drunk pages. Let's get started.</p>
 
@@ -96,8 +113,9 @@
 
 <div class="beginner">
 
-<p><strong>New to routing?</strong>
-So, if you are new to Laravel or new to the concept of routing you may want to read this: A route is how you, the developer, instruct the system where to go when a user requests a url or submits data to a url.</p>
+<h3>New to routing?</h3>
+
+<p>So, if you are new to Laravel or new to the concept of routing you may want to read this: A route is how you, the developer, instruct the system where to go when a user requests a url or submits data to a url.</p>
 
 <p>So a route is usually similar to one of these examples:
     - beerzrule.com/top-10-beers: When a user goes to this page the route returns the HTML needed to draw out the beer list.
@@ -106,6 +124,8 @@ So, if you are new to Laravel or new to the concept of routing you may want to r
 <p>There are other things routes can return but for now just think of it as routes that return HTML and routes that receive and process data.</p>
 
 <blockquote>
+  <h3>'Page' vs. 'Route'</h3>
+  
   <p>Keep in mind that a 'page' in Devise is a route. You can interchange the terms 'page' and 'route' in context of Devise. They are the same. We decided to use the term 'Page' because we felt our customers would understand more easily. You're a developer. Man / Woman up.</p>
 </blockquote>
 
@@ -113,13 +133,19 @@ So, if you are new to Laravel or new to the concept of routing you may want to r
 
 <div class="advanced">
 
+<h3>How Devise routing works alongside Laravel</h3>
+
 <p>If you're coming from the Laravel world you're probably familiar with routing and how it works in good 'ol Laravel. Devise works alongside the Laravel routing engine by simply bootstrapping our routes stored in the database.</p>
 
 <p>This allows you to still use the routes.php file or however you have done routing in the past alongside Devise.</p>
 
 <blockquote>
   <blockquote>
-    <p>Once Laravel 5 launches we will fully implement the route caching system into Devise to help accelerate load times and reduce queries.</p>
+    <blockquote>
+      <h3>About Laravel 5</h3>
+      
+      <p>Once Laravel 5 launches we will fully implement the route caching system into Devise to help accelerate load times and reduce queries.</p>
+    </blockquote>
   </blockquote>
 </blockquote>
 
@@ -127,14 +153,201 @@ So, if you are new to Laravel or new to the concept of routing you may want to r
 
 <h2><a name="creating-new-pages" class="ia"></a><a href="#creating-new-pages">#</a>Creating New Pages</h2>
 
-<p>Creating a page is easy. Head to</p>
+<p>Creating a page is easy. From the administration dashboard click on <em>ahem</em>... Pages. Click on 'Create New Page' in the top right-hand corner and you will be presented the Create A New Page form.</p>
 
-                                    <nav class="article">
-                        <ul>
-                                                            <li>Next: <a class="next" href="/docs/2-installation" title="Installation"><span class="title">Installation</span></a></li>
-                                                                                </ul>
-                    </nav>
-                            </div>
+<h3>Page Options</h3>
+
+<p><strong>Title of the page</strong>: The purpose of this field is to supply a label for the administrative list of pages. It really isn't meant for anything on the front-end.</p>
+
+<hr />
+
+<p><strong>Short description of the page</strong>: A place to put any notes about what this pages is and what it's purpose is.</p>
+
+<hr />
+
+<p><strong>Language</strong>: This is the language of this page. We'll go more into languages in another section.</p>
+
+<hr />
+
+<p><strong>Route Type</strong>: The route type determines how the page can be accessed by a browser.d Let's break down your options and what they are typically used for.</p>
+
+<ul>
+<li>Regular Page (GET): These most likely represent the majority of your pages. They are pages that a user simply goes to load a page or some other response. </li>
+<li>Create (POST): Post pages are typically used for sending data to the server behind the scenes. If the page is accepting a contact form or a form that created some new thing we would use POST.</li>
+<li>Update (PUT): Pages that accept PUT's are typically used for updating a record in the database.</li>
+<li>Delete (DELETE): Typically this route type will delete things.</li>
+<li>Any Method: Users can access this page with any browser method.</li>
+</ul>
+
+<p><strong>For a quick example</strong>: Let's say our beer site has a page that lists all the breweries in the world. We would create a page called 'Brewery List' with a <strong>GET</strong> route type. At the bottom of that page is a form that allows users to submit new breweries. That form would be pointed at another page with a <strong>POST</strong> route type. If we allowed users to edit we would use <strong>PUT</strong> and delete would use <strong>Delete</strong>.</p>
+
+<blockquote>
+  <blockquote>
+    <p>If a browser tries to access a page with a method you have not specified. For instance, you set a page as a regular GET page and someone tries to post data to it that user will experience a good 'ol fashioned 404.</p>
+  </blockquote>
+</blockquote>
+
+<hr />
+
+<p><strong>Page Slug</strong>: The page slug is the url of the page. You can structure these however you like. So our breweries list page could be <code>/breweries-list</code> or <code>/breweries/list</code>. Structure your pages however you see fit. What if it's a view that is a little more complex like a page that shows the details of a specific brewery? Then you might do something like this:</p>
+
+<pre><code>/breweries/{breweryId}
+</code></pre>
+
+<p>That allows you to set a url parameter we can use to load the appropriate brewery.</p>
+
+<hr />
+
+<p><strong>Response Path</strong>: Response Path is only valid for any route type other than GET. Essentially, this is where we tell Devise what method to execute when the page is called. Simply add your class path to this field followed by a period and the method that it needs to execute.</p>
+
+<p><em>Example:</em> If the class we wanted to go to when we made the POST page to create a new brewery looked like the following:</p>
+
+<pre><code class="php">&lt;?php namespace BeerApp\Brewers;
+
+/**
+ * Manages the requests to modify the 
+ * Brewers model.
+ */
+class BrewersManager
+{
+    /**
+     * Adds a new brewery to the system
+     *
+     * @return bool
+     */
+    public function createBrewery() {
+    ...
+    }
+}
+</code></pre>
+
+<p>We would put the following in the response path field:</p>
+
+<pre><code>BeerApp\Brewers\BrewersManager.createBrewery
+</code></pre>
+
+<hr />
+
+<p><strong>Response Parameters</strong>: So, some what if your method needs us to pass something into it? Well, the response parameters field will allow you to pass in the parameters that are expected to the method. This can be a difficult concept to understand but stick with me.</p>
+
+<p>There are only two sources that we can pass to these methods: URL parameters and data input values.</p>
+
+<p><em>Params</em> are parameters that are in the slug, a URL that you defined in your slug up above. Remember this?</p>
+
+<pre><code>/breweries/{breweryId}
+</code></pre>
+
+<p>Ok, we can use that variable now and pass it into our method. So when someone goes to:</p>
+
+<pre><code>/breweries/10
+</code></pre>
+
+<p>and you put this into the response parameters field:</p>
+
+<pre><code>params.breweryId
+</code></pre>
+
+<p>Devise would pass a "10" as the first argument in your method.</p>
+
+<p><em>Input</em> values are the other source that we can pass to your methods. Input values are any values passed by a form to a URL. <em>Input</em> allows us to pass either all the inputs or a particular value in the input array. So you can do this:</p>
+
+<pre><code>params.breweryId, input 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>params.breweryId, input.name
+</code></pre>
+
+<p>If you do the first example it will come in as an array of all of the input values passed in.</p>
+
+<hr />
+
+<p><strong>View Template To Use</strong>: Templates are layouts you have placed in your <code>app/view/templates</code> directory. You can read more on how templates work in the <a href="Templates">templates</a> section of the documentation.</p>
+
+<hr />
+
+<p><strong>Publish on Save</strong>: This will make the page live when it is created.</p>
+
+<hr />
+
+<p><strong>Show Advanced Options</strong>: When toggled you get to see all the goodies!</p>
+
+<hr />
+
+<p><strong>Meta Title</strong>: This is the title that will populate the <code>&lt;title&gt;</code> of the template.</p>
+
+<hr />
+
+<p><strong>Meta Description / Meta Keywords</strong>: These are used to populate their respective meta tags.</p>
+
+<hr />
+
+<p><strong>Head Code</strong>: If your page needs any additional HTML or JavaScript inserted into the <head> section of the DOM you can place it here.</p>
+
+<hr />
+
+<p><strong>Footer Code</strong>: Likewise, footer code will be injected just before the </body> tag. This can be used for additional JavaScript inclusions, script calls, whatever.</p>
+
+<blockquote>
+  <blockquote>
+    <p>Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the <a href="Templates">templatefs</a> documentation to see how this should be formatted.</p>
+  </blockquote>
+</blockquote>
+
+<h2><a name="managing-pages" class="ia"></a><a href="#managing-pages">#</a>Managing Pages</h2>
+
+<p>There are essentially two things you can do with a page once it has been created:</p>
+
+<ul>
+<li><strong>Copy</strong>: This copies all settings of the page along with the page versions you select from the dialog.</li>
+<li><strong>Delete</strong>: This well... kills a page. Dead. Gone. Bye-bye.</li>
+</ul>
+
+<h2><a name="understanding-page-versions" class="ia"></a><a href="#understanding-page-versions">#</a>Understanding Page Versions</h2>
+
+<p>Page versions are simply instances of a page. If a <em>page</em> is the URL itself the <em>page version</em> is the content <em>on</em> that page. You can find the page versions of a page by clicking <em>Expand page versions</em> under the title of each page on the <em>page index</em> of administration.</p>
+
+<h3>So what can you do with page versions?</h3>
+
+<ul>
+<li>Work on a page before it ever goes live.</li>
+<li>Work on a new version of a page before it ever goes live.</li>
+<li>Schedule a page to go live.</li>
+<li>Share an unpublished version of a page with someone to review.</li>
+<li>Copy a page version</li>
+</ul>
+
+<h3>Here are some rules to keep in mind:</h3>
+
+<ul>
+<li>If there is not a page version currently published the page will return a 404 error.</li>
+<li>If no end date is set the page version will be live forever.</li>
+<li>The page version with the most recent start date will take priority.</li>
+</ul>
+
+<h2><a name="sharing-an-unpublished-page-with-a-non-admin" class="ia"></a><a href="#sharing-an-unpublished-page-with-a-non-admin">#</a>Sharing An Unpublished Page With A Non-Admin</h2>
+
+<p>One of the things that we, as developers, need to do is have our customers review new layouts and content without having it published for the public to see. Devise makes this very easy to do. From the <em>pages index</em> find the page that you wish to share. Click <em>Expand page versions</em> under the page title to show the page versions.</p>
+
+<p>Click the dropdown and select <em>enable sharing</em> and then click <em>ok</em> in the JavaScript alert.</p>
+
+<h2><a name="working-with-the-calendar" class="ia"></a><a href="#working-with-the-calendar">#</a>Working With The Calendar</h2>
+
+<p>The calendar gives you and your customers a great way of seeing when page versions will be published and which pages need to go live. To manage when pages go live you can either drag them around the calendar or click on any page version and edit their start or end time in the modal window.</p>
+
+<p>If you wish to remove a published page version from the calendar click on the entry and uncheck the <em>published</em> checkbox.</p>
+
+                                                    <nav class="article">
+                                <ul>
+                                                                            <li>Previous: <a class="previous" href="/docs/2-installation" title="Installation"><span class="title">Installation</span></a></li>
+                                                                                                                <li>Next: <a class="next" href="/docs/4-templates" title="Templates"><span class="title">Templates</span></a></li>
+                                                                    </ul>
+                            </nav>
+                        
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

@@ -1,25 +1,24 @@
 $(function() {
 	var windowHeight;
+	var navbarHeight;
 	var menuHeight;
-	var menuWidth;
 	var menuTop;
 	var scrollPosition;
-	var isSticky = false;
-	var difficultyLevel = 'beginner';
+	var difficultyLevel;
 
 	function setWindowHeight()
 	{
 		windowHeight = $(window).height();
 	}
 
+	function setNavbarHeight()
+	{
+		navbarHeight = $('.navbar').height();
+	}
+
 	function setMenuHeight()
 	{
 		menuHeight = $('#documentation-sidebar').height();
-	}
-
-	function setMenuWidth()
-	{
-		menuWidth = $('#documentation-sidebar').width();
 	}
 
 	function setMenuTop()
@@ -34,47 +33,20 @@ $(function() {
 		scrollPosition = $(window).scrollTop();
 	}
 
-	function applySticky()
-	{
-		isSticky = true;
-
-		var _classes = $('#documentation-sidebar').attr('class');
-		var _shim = $('<div id="documentation-sidebar-shim">').addClass(_classes);
-
-		_shim.removeClass('sticky');
-
-		var _position = ((menuHeight + menuTop) > windowHeight) ? -menuHeight + windowHeight : menuTop;
-
-		$('#documentation-sidebar').addClass('sticky').css({
-			width : menuWidth,
-			top   : _position
-		});
-		$('#documentation-sidebar').before(_shim);
-	}
-
-	function removeSticky()
-	{
-		isSticky = false;
-
-		$('#documentation-sidebar')
-			.removeClass('sticky')
-			.css({
-				width: null,
-				top: 'auto',
-			});
-		$('#documentation-sidebar-shim').remove();
-	}
-
 	function calculateSidebarState()
 	{
-		if ((menuHeight + menuTop) - windowHeight < scrollPosition) {
-			if (!isSticky) {
-				applySticky();
-			}
+		if (windowHeight - navbarHeight > menuHeight ) {
+			$('#documentation-sidebar').css({
+				top: navbarHeight
+			});
+		} else if((menuHeight + menuTop) - windowHeight + navbarHeight > scrollPosition) {
+			$('#documentation-sidebar').css({
+				top: -scrollPosition + navbarHeight
+			});
 		} else {
-			if (isSticky) {
-				removeSticky();
-			}
+			$('#documentation-sidebar').css({
+				top: -(menuHeight - windowHeight)
+			});
 		}
 	}
 
@@ -83,23 +55,33 @@ $(function() {
 		$.cookie("difficulty", difficulty, { expires : 10 });
 	}
 
-	function setDifficulty(difficulty)
+	function setDifficultyButtons(difficulty)
 	{
-		if (typeof difficulty == 'undefined') {
-			difficulty = 'beginner';
-		}
-
-		setDifficultyCookie(difficulty);
-
-		$('.difficulty').removeClass('btn-success');
+		$('.difficulty.btn').removeClass('btn-success');
 		$('#' + difficulty + '-btn').addClass('btn-success');
+	}
 
+	function setDifficultyDocumentation(difficulty)
+	{
 		if (difficulty !== 'all') {
 			$('.beginner, .advanced').css('display', 'none');
 			$('.' + difficulty).css('display', 'block');
 		} else {
 			$('.beginner, .advanced').css('display', 'block');
 		}
+	}
+
+	function setDifficulty(difficulty)
+	{
+		if (typeof difficulty === 'undefined' || difficulty === null || difficulty === '') {
+			difficulty = 'all';
+		}
+
+		setDifficultyCookie(difficulty);
+
+		setDifficultyButtons(difficulty);
+
+		setDifficultyDocumentation(difficulty);
 	}
 
 	function getDifficultyCookie()
@@ -114,6 +96,7 @@ $(function() {
 	{
 		$( window ).resize(function() {
 			setWindowHeight();
+			calculateSidebarState();
 		});
 	}
 
@@ -139,8 +122,8 @@ $(function() {
 	function init()
 	{
 		setWindowHeight();
+		setNavbarHeight();
 		setMenuHeight();
-		setMenuWidth();
 		setScrollPosition();
 		setMenuTop();
 

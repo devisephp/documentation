@@ -8,6 +8,8 @@ Contributing to this documentation
 
 We don't have too strict of a style-guide yet for the documentation but you will need to follow a few conventions to ensure some things are automatically generated correctly.
 
+This source contains everything needed to generate the documentation but the primary location you'll want to look to edit are the documents located in ```/source/docs```
+
 ###New sections
 
 Ensure that for any new sections you add the section to the top of the document in the sections... section. 
@@ -62,6 +64,9 @@ This will only appear for new dudes.
 
 </div>
 ```
+
+###New pages
+If you want to create completely new pages maybe reach out to the team do discuss what your game plan is first so we can be on the same... page. [mail
 
 Acknowledgements 
 ----------------------------
