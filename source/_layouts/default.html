@@ -81,24 +81,38 @@
 
                         {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-pagination">
+
+                <div class="row">
+
+                    <div class="col-md-8 col-md-offset-2">
                         {% if page.previous_doc or page.next_doc %}
                             <nav class="article">
-                                <ul>
+                                <ul class="list-unstyled">
                                     {% if page.next_doc %}
-                                        <li>Previous: <a class="previous" href="{{ site.url }}{{ page.next_doc.url }}" title="{{ page.next_doc.title }}"><span class="title">{{ page.next_doc.title }}</span></a></li>
+                                        <li><a class="previous btn btn-info" href="{{ site.url }}{{ page.next_doc.url }}" title="{{ page.next_doc.title }}">&#8592; {{ page.next_doc.title }}</a></li>
                                     {% endif %}
                                     {% if page.previous_doc %}
-                                        <li>Next: <a class="next" href="{{ site.url }}{{ page.previous_doc.url }}" title="{{ page.previous_doc.title }}"><span class="title">{{ page.previous_doc.title }}</span></a></li>
+                                        <li><a class="next btn btn-info" href="{{ site.url }}{{ page.previous_doc.url }}" title="{{ page.previous_doc.title }}">{{ page.previous_doc.title }} &#8594;</a></li>
                                     {% endif %}
                                 </ul>
                             </nav>
                         {% endif %}
-
                     </div>
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
 

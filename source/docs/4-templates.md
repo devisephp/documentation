@@ -18,8 +18,8 @@ Creating templates in Devise is extremely easy - especially if you are used to L
 > ####A quick note about how we setup our templates 
 >There are limitless ways of organizing your templates but a lot of projects follow the structure we are suggesting here. That said, you can always branch out and try new ways of doing things. There is only two "rules" that we have for the system to operate correctly without tinkering with the Devise guts:
 
-  - We are expecting the templates you want to apply to pages to be in the ```/app/views/templates``` directory.
-  - Any blade files in the ```/app/views/templates``` directory that are prefixed with an underscore will be considered a partial. For example: ```/app/views/templates/_jumbotron.blade.php```
+>  - We are expecting the templates you want to apply to pages to be in the ```/app/views/templates``` directory.
+>  - Any blade files in the ```/app/views/templates``` directory that are prefixed with an underscore will be considered a partial and not presented in the Template registration system. For example: ```/app/views/templates/_jumbotron.blade.php``` would be considered a partial.
 
 
 #<a name="creating-new-templates" class="ia"></a>[#](#creating-new-templates)Creating New Templates
@@ -47,6 +47,15 @@ A good way to start is to spread out your entire design deck and identify what p
 
 </div>
 
+>>###Don't forget Devise
+>>Devise needs just a magical include in your layout that will allow it to inject the JavaScript magic it needs. 
+
+```html
+@include('devise::scripts')
+```
+
+Place this include just before the ```</body>``` tag.
+
 ###3. Register that sucker
 
 We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the template. Log in to the administration of your application and click on *Templates* on the main menu. 
@@ -61,8 +70,9 @@ In the administration head back to *Pages* and either create a page or edit an e
 
 I know what you're thinking: *"Great, I've got a static page in Devise... amazing.... but it doesn't **do** anything!*
 
-Easy bro. Easy. 
+Easy bro. Easy.
 
+In the following sections we're going to show you some of the tools that are immediately available within Devise so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.
 
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
 
@@ -208,3 +218,31 @@ There is a bunch of other goodies in Blade. You can even extend it and your make
 * [Laravel documentation on Blade](http://laravel.com/docs/4.2/templates#blade-templating)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)
 * [Laracasts on Blade](https://laracasts.com/index/blade)
+
+##<a name="creating-arbitrary-editable-areas" class="ia"></a>[#](#creating-arbitrary-editable-areas)Creating Arbitrary Editable Areas
+
+Front-end editing defines one of the more interesting and diversifying features of Devise. It gives users the ability to edit data in the context of the page, the data itself instead of ping ponging back and forth between an administration and the content they want to review.
+
+What makes this even more exciting is how easy it is to implement for developers. Just a couple snippets of code in your markup and you'll be editing in no time. No, really. Seriously, watch:
+
+```html
+<html>
+<body>
+	<p>This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
+</body>
+</html>
+```
+
+Now, let's imagine that your client comes back to you 3 months after you've deployed this smoking hot application and want the ability to edit your paragraph about dragons whenever he or she wants. What now?
+
+```html
+<html>
+<body>
+	<p data-devise="dragonParagraph, textarea">This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
+</body>
+</html>
+```
+
+See what I did there? I added the ```data-devise="dragonParagraph, textarea"``` to the paragraph and now it's editable for any front-end users.
+
+No, seriously, that's it. 

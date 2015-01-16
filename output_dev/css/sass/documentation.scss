@@ -159,9 +159,22 @@ $button-size:40px;
 #documentation-content {
 
 	background-color:darken($white, 3%);
+	padding-bottom:50px;
 
 	a {
 		color:desaturate($green, 20%);
+	}
+}
+
+#documentation-pagination {
+
+	background-color:darken($white, 8%);
+	padding-top:10px;
+	padding-bottom:30px;
+
+	li {
+		float:left;
+		margin-right:20px;
 	}
 }
 

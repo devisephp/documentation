@@ -1080,9 +1080,18 @@ p.tiny {
         display: block; }
 
 #documentation-content {
-  background-color: #f4f4f4; }
+  background-color: #f4f4f4;
+  padding-bottom: 50px; }
   #documentation-content a {
     color: #84a574; }
+
+#documentation-pagination {
+  background-color: #e8e8e8;
+  padding-top: 10px;
+  padding-bottom: 30px; }
+  #documentation-pagination li {
+    float: left;
+    margin-right: 20px; }
 
 #difficulty-buttons {
   padding-top: 20px; }
