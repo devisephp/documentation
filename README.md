@@ -51,9 +51,11 @@ We know. It's a little fugly.
 
 Since Sculpin uses the Twig rendering engine you have to watch out for those curly braces. Be sure to add a verbatim ```{% verbatim %}``` and ```{% endverbatim %}``` around your code blocks
 
-```markdown
+```php
 {% verbatim %}
+
 I need to show echoing a variable like {{ $i }}
+
 {% endverbatim %}
 ```
 
