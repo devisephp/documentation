@@ -6,8 +6,7 @@ converters: [markdown]
 sections:
   - Creating New Templates
   - Introduction to Blade Syntax
-  - Creating Rando Editable Areas
-  - Editing Your Models
+  - Creating Your First Rando Editable Area
   - Workflows
   - Examples
 ---
@@ -81,7 +80,8 @@ In the following sections we're going to show you some of the tools that are imm
 
 Blade is *incredibly* easy to use - especially if you have any knowledge of basic programming operators. All it does is allow you to drop in some simple additional text into your HTML to make them more dynamic. Here is an example that will write out 10 list items. Simple.
 
-```html
+```php
+{% verbatim %}
 <html>
 <body>
   <ul>
@@ -91,24 +91,31 @@ Blade is *incredibly* easy to use - especially if you have any knowledge of basi
   </ul>
 </body>
 </html>
+{% endverbatim %}
 ```
 
 ###Echoing out variables 
 
 ```
+{% verbatim %}
 {{{ $i }}}
+{% endverbatim %}
 ```
 
 or unescaped
 
 ```
+{% verbatim %}
 {{ $i }}
+{% endverbatim %}
 ```
 
 or give an alternative if the variable isn't set (thank you Laravel!)
 
 ```
+{% verbatim %}
 {{{ $beer->name or 'Unknown' }}}
+{% endverbatim %}
 ```
 
 ###Including and Extending
@@ -125,7 +132,8 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 **Layout**: /app/views/layouts/master.blade.php
 
-```
+```html
+{% verbatim %}
 <html>
 <head>
 
@@ -136,12 +144,13 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 	<li><a href="/">Home</a></li>
     <li><a href="/beers">Beers</a></li>
     <li><a href="/breweries">Breweries</a></li>
-</ul>
+</u>
 
 @yield('content')
 
 </body>
 </html>
+{% endverbatim %}
 ```
 
 ---
@@ -149,6 +158,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 **Template**: /app/views/templates/breweries-index.blade.php
 
 ```
+{% verbatim %}
 @extends('layouts.master')
 
 @section('content')
@@ -158,6 +168,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 <p>This is the content that is specific to this template</p>
 
 @stop
+{% endverbatim %}
 ```
 
 ---
@@ -165,50 +176,62 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 **Partial**: /app/views/templates/_jumbotron.blade.php
 
 ```
+{% verbatim %}
 <div class="jumbotron">
-<h1>{{ $page->title }}
-<p>{{ $page->meta_description }}</p>
-</div>ds
+	<h1>{{ $page->title }}</h1>
+	<p>{{ $page->meta_description }}</p>
+</div>
+{% endverbatim %}
 ```
 
 ###If / Else
 
 ```
+{% verbatim %}
 @if($beers == 'amazing')
-<h2>Hey there!</h2>
+	<h2>Hey there!</h2>
 @else
-</h6>Get out...</h6>
+	</h6>Get out...</h6>
 @endif
+{% endverbatim %}
 ```
 
 ```
+{% verbatim %}
 @if($favoriteBeer == 'lambic')
-<h2>Me too!</h2>
+	<h2>Me too!</h2>
 @elseif($favoriteBeer == 'stout')
-<h2>Respect</h2>
+	<h2>Respect</h2>
 @else
-<h2>That's cool</h2>
+	<h2>That's cool</h2>
 @endif
+{% endverbatim %}
 ```
 
 ###Loops
 
 ```
+{% verbatim %}
 @for($i = 0; $i < 10; $i++)
-<h2>I guzzled {{ $i }} beers</h2>
+	<h2>I guzzled {{ $i }} beers</h2>
 @endfor
+{% endverbatim %}
 ```
 
 ```
+{% verbatim %}
 @foreach($beers as $beer)
-<li>{{ $beer->name }}</li>
+	<li>{{ $beer->name }}</li>
 @endforeach
+{% endverbatim %}
 ```
 
 ###Comments
 
 ```
-{{-- Ain't nobody going to see this --}}
+{% verbatim %}
+{{-- Nobody will find my hidden beer stash!!! --}}
+{% endverbatim %}
 ```
 
 ###Other resources for learning Blade
@@ -219,30 +242,35 @@ There is a bunch of other goodies in Blade. You can even extend it and your make
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)
 * [Laracasts on Blade](https://laracasts.com/index/blade)
 
-##<a name="creating-arbitrary-editable-areas" class="ia"></a>[#](#creating-arbitrary-editable-areas)Creating Arbitrary Editable Areas
+##<a name="creating-your-first-rando-editable-area" class="ia"></a>[#](#creating-your-first-rando-editable-area)Creating Your First Rando Editable Area
 
 Front-end editing defines one of the more interesting and diversifying features of Devise. It gives users the ability to edit data in the context of the page, the data itself instead of ping ponging back and forth between an administration and the content they want to review.
 
 What makes this even more exciting is how easy it is to implement for developers. Just a couple snippets of code in your markup and you'll be editing in no time. No, really. Seriously, watch:
 
 ```html
+{% verbatim %}
 <html>
 <body>
 	<p>This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
 </body>
 </html>
+{% endverbatim %}
 ```
 
 Now, let's imagine that your client comes back to you 3 months after you've deployed this smoking hot application and want the ability to edit your paragraph about dragons whenever he or she wants. What now?
 
 ```html
+{% verbatim %}
 <html>
 <body>
-	<p data-devise="dragonParagraph, textarea">This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
+	<p data-devise="dragonParagraph, textarea">This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons.</p> 
 </body>
 </html>
+{% endverbatim %}
 ```
 
-See what I did there? I added the ```data-devise="dragonParagraph, textarea"``` to the paragraph and now it's editable for any front-end users.
+See what I did there? I added the ```data-devise="dragonParagraph, textarea"``` attribute to the paragraph tag and now it's editable for any front-end users.
 
 No, seriously, that's it. 
+
