@@ -1,0 +1,15 @@
+.icon {
+  display:inline-block;
+  width:33px;
+  height:30px;
+  background-image:url($icons);
+  background-repeat:no-repeat;
+
+  &.video { background-position:-36px -25px }
+
+  &.map-pin { background-position:-39px -79px}
+
+  &.pencil { background-position:-35px -139px }
+
+  &.picture { background-position:-36px -203px }
+}

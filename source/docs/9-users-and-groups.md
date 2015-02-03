@@ -25,8 +25,15 @@ Scenario 1 probably doesn't even have to worry about groups but scenarios 2 and 
 
 Another consideration when designing your groups are things like achievements, interest groups, clans, clubs, newsletters, etc. These are actual business / application logic that have nothing to do with permissions. In these cases you may need to define permission based rules around these 'real life' groups.
 
+>>>####Upcoming Documentation
+>>>While we work to get closer to 1.0 release we will be working on continually updating and making the documentation more robust. One of the first sections that we will be adding to is users and groups. We want to provide several examples on how you might complete common tasks surrounding users. If you have any feedback please let us know [info@devisephp.com](mailto:info@devisephp.com)
+
 
 ##<a name="managing-users" class="ia"></a>[#](#managing-users)Managing Users
 
+Managing users is about as simple as it gets. Click on the "Users" link in the administration and then click "Create New User" in the upper right-hand corner of the screen. Fill out the form and you're done. Once created you can edit the user and assign them to any groups necessary.
+
 
 ##<a name="managing-groups" class="ia"></a>[#](#managing-groups)Managing Groups
+
+Groups are about as straight forward as they come. Click "Create New Group" in the top right-hand corner of the screen on the "Groups" page, supply a name, and click "Create Group". Simple.
