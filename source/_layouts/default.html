@@ -24,7 +24,7 @@
     <header>
         <div class="navbar navbar-fixed-top navbar-inverse">
             <div class="container navbar-inner">
-                <a href="/"><img src="{{ site.url }}/imgs/devise-logo-mini.gif" width="173" height="81">
+                <a href="/"><img src="{{ site.url }}/imgs/devise-logo-mini.gif" width="140">
                 <ul class="list-inline">
                     <li class="ml sp50"><a href="#REPLACE_HREF" class="fg mid-gray important">GitHub</a></li>
                     <li><a href="#REPLACE_HREF">API</a></li>
@@ -64,20 +64,20 @@
 
     <div class="container">
 
+        <div class="row mb sp25" id="difficulty-buttons">
+            <div class="col-md-offset-6 col-md-6 tar">
+                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="col-md-8 col-md-offset-4" id="documentation-content">
 
-                <div class="row" id="difficulty-buttons">
-                    <div class="col-md-offset-6 col-md-6 tar">
-                        <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                        <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                        <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-                    </div>
-                </div>
-
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-10 col-md-offset-1">
 
                         {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
 

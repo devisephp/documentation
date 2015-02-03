@@ -2,7 +2,7 @@ $(function() {
 	var windowHeight;
 	var navbarHeight;
 	var menuHeight;
-	var menuTop;
+	var menuTop = 10;
 	var scrollPosition;
 	var difficultyLevel;
 
@@ -21,13 +21,6 @@ $(function() {
 		menuHeight = $('#documentation-sidebar').height();
 	}
 
-	function setMenuTop()
-	{
-		var _offset = $('#documentation-sidebar').offset();
-
-		menuTop = _offset.top;
-	}
-
 	function setScrollPosition()
 	{
 		scrollPosition = $(window).scrollTop();
@@ -35,6 +28,7 @@ $(function() {
 
 	function calculateSidebarState()
 	{
+
 		if (windowHeight - navbarHeight > menuHeight ) {
 			$('#documentation-sidebar').css({
 				top: navbarHeight
@@ -96,6 +90,8 @@ $(function() {
 	{
 		$( window ).resize(function() {
 			setWindowHeight();
+			setScrollPosition();
+
 			calculateSidebarState();
 		});
 	}
@@ -125,7 +121,6 @@ $(function() {
 		setNavbarHeight();
 		setMenuHeight();
 		setScrollPosition();
-		setMenuTop();
 
 		windowResizeListener();
 		windowScrollListener();

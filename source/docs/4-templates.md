@@ -6,32 +6,29 @@ converters: [markdown]
 sections:
   - Creating New Templates
   - Introduction to Blade Syntax
-  - Creating Your First Rando Editable Area
-  - Workflows
-  - Examples
 ---
 
 #Templates
-Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable quickly and easily. 
+Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable quickly and easily.
 
-> ####A quick note about how we setup our templates 
+> ####A quick note about how we setup our templates
 >There are limitless ways of organizing your templates but a lot of projects follow the structure we are suggesting here. That said, you can always branch out and try new ways of doing things. There is only two "rules" that we have for the system to operate correctly without tinkering with the Devise guts:
 
 >  - We are expecting the templates you want to apply to pages to be in the ```/app/views/templates``` directory.
 >  - Any blade files in the ```/app/views/templates``` directory that are prefixed with an underscore will be considered a partial and not presented in the Template registration system. For example: ```/app/views/templates/_jumbotron.blade.php``` would be considered a partial.
 
 
-#<a name="creating-new-templates" class="ia"></a>[#](#creating-new-templates)Creating New Templates
+##<a name="creating-new-templates" class="ia"></a>[#](#creating-new-templates)Creating New Templates
 
 Great, so you know some sweet Blade syntax. So, how do we take a design we've gotten from our hipster designers down the hall and actually apply it to a Devise page? It's simple - really.
 
 ###1. Cut up the design
 
-Hire that off-shore company to slice-and-dice your design into HTML / CSS / JavaScript. Or, get the intern to do it. 
+Hire that off-shore company to slice-and-dice your design into HTML / CSS / JavaScript. Or, get the intern to do it.
 
 ###2. Divide the HTML into parts
 
-Just think to yourself: *"What is going to appear several sections of the site and what might be used on a subset of those pages?* The part that is going to appear across several different designs is your layout and the part that is specific to a design is your template. 
+Just think to yourself: *"What is going to appear several sections of the site and what might be used on a subset of those pages?* The part that is going to appear across several different designs is your layout and the part that is specific to a design is your template.
 
 Take a look at [Intro to Blade Syntax](#introduction-to-blade-syntax) below for more guidance on this.
 
@@ -39,15 +36,15 @@ Take a look at [Intro to Blade Syntax](#introduction-to-blade-syntax) below for 
 
 If you've never done this you'll make mistakes here but don't worry, shuffling parts of your markup around after the fact is not a big deal so just experiment. A lot of what determines where to put things is foresight on what's coming.
 
-A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably *layouts*. What parts of the design appear within different designs but appear in different locations? Those are probably *partials*. The rest of the designs are probably your main template files. 
+A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably *layouts*. What parts of the design appear within different designs but appear in different locations? Those are probably *partials*. The rest of the designs are probably your main template files.
 
 > ####A General Rule
-> I find that if my designer sends me 10 files I'll probably have 10 templates. 
+> I find that if my designer sends me 10 files I'll probably have 10 templates.
 
 </div>
 
 >>###Don't forget Devise
->>Devise needs just a magical include in your layout that will allow it to inject the JavaScript magic it needs. 
+>>Devise needs just a magical include in your layout that will allow it to inject the JavaScript magic it needs.
 
 ```html
 @include('devise::scripts')
@@ -57,13 +54,13 @@ Place this include just before the ```</body>``` tag.
 
 ###3. Register that sucker
 
-We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the template. Log in to the administration of your application and click on *Templates* on the main menu. 
+We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the template. Log in to the administration of your application and click on *Templates* on the main menu.
 
 Click on *Register Template* in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.
 
 ###4. Apply the template to a page we can test on.
 
-In the administration head back to *Pages* and either create a page or edit an existing page and select the template we just registered. View or preview the page and we should see your design. 
+In the administration head back to *Pages* and either create a page or edit an existing page and select the template we just registered. View or preview the page and we should see your design.
 
 ###5. Add Any Blade Syntax or Devise Editable Areas
 
@@ -76,7 +73,7 @@ In the following sections we're going to show you some of the tools that are imm
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
 
 > ####A note about other templating engines
-> Blade is the templating system bundled in Laravel. Some folks prefer using other systems which you are welcome to use. Milage may vary but I'm not quite sure why they wouldn't work in Devise. However, our team digs Blade and have developed Devise with Blade in mind. 
+> Blade is the templating system bundled in Laravel. Some folks prefer using other systems which you are welcome to use. Milage may vary but I'm not quite sure why they wouldn't work in Devise. However, our team digs Blade and have developed Devise with Blade in mind.
 
 Blade is *incredibly* easy to use - especially if you have any knowledge of basic programming operators. All it does is allow you to drop in some simple additional text into your HTML to make them more dynamic. Here is an example that will write out 10 list items. Simple.
 
@@ -94,7 +91,7 @@ Blade is *incredibly* easy to use - especially if you have any knowledge of basi
 {% endverbatim %}
 ```
 
-###Echoing out variables 
+###Echoing out variables
 
 ```
 {% verbatim %}
@@ -106,7 +103,7 @@ or unescaped
 
 ```
 {% verbatim %}
-{{ $i }}
+{!! $i !!}
 {% endverbatim %}
 ```
 
@@ -120,7 +117,7 @@ or give an alternative if the variable isn't set (thank you Laravel!)
 
 ###Including and Extending
 
-Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates that contain things like menus or headers and footers that appear on every page, and when those things need to change, only modify one file to make a site-wide change. 
+Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates that contain things like menus or headers and footers that appear on every page, and when those things need to change, only modify one file to make a site-wide change.
 
 A common pattern that we tend to use is a three tier system. Note that **all of these files are simply blade files regardless of our nomenclature**. The are *all* templates.
 
@@ -157,7 +154,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 **Template**: /app/views/templates/breweries-index.blade.php
 
-```
+```php
 {% verbatim %}
 @extends('layouts.master')
 
@@ -175,7 +172,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 **Partial**: /app/views/templates/_jumbotron.blade.php
 
-```
+```php
 {% verbatim %}
 <div class="jumbotron">
 	<h1>{{ $page->title }}</h1>
@@ -186,7 +183,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ###If / Else
 
-```
+```php
 {% verbatim %}
 @if($beers == 'amazing')
 	<h2>Hey there!</h2>
@@ -196,7 +193,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 {% endverbatim %}
 ```
 
-```
+```php
 {% verbatim %}
 @if($favoriteBeer == 'lambic')
 	<h2>Me too!</h2>
@@ -210,7 +207,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ###Loops
 
-```
+```php
 {% verbatim %}
 @for($i = 0; $i < 10; $i++)
 	<h2>I guzzled {{ $i }} beers</h2>
@@ -218,7 +215,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 {% endverbatim %}
 ```
 
-```
+```php
 {% verbatim %}
 @foreach($beers as $beer)
 	<li>{{ $beer->name }}</li>
@@ -228,7 +225,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ###Comments
 
-```
+```php
 {% verbatim %}
 {{-- Nobody will find my hidden beer stash!!! --}}
 {% endverbatim %}
@@ -236,41 +233,9 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ###Other resources for learning Blade
 
-There is a bunch of other goodies in Blade. You can even extend it and your make your own ```@beerbong``` if you want. 
+There is a bunch of other goodies in Blade. You can even extend it and your make your own ```@beerbong``` if you want.
 
 * [Laravel documentation on Blade](http://laravel.com/docs/4.2/templates#blade-templating)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)
 * [Laracasts on Blade](https://laracasts.com/index/blade)
-
-##<a name="creating-your-first-rando-editable-area" class="ia"></a>[#](#creating-your-first-rando-editable-area)Creating Your First Rando Editable Area
-
-Front-end editing defines one of the more interesting and diversifying features of Devise. It gives users the ability to edit data in the context of the page, the data itself instead of ping ponging back and forth between an administration and the content they want to review.
-
-What makes this even more exciting is how easy it is to implement for developers. Just a couple snippets of code in your markup and you'll be editing in no time. No, really. Seriously, watch:
-
-```html
-{% verbatim %}
-<html>
-<body>
-	<p>This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
-</body>
-</html>
-{% endverbatim %}
-```
-
-Now, let's imagine that your client comes back to you 3 months after you've deployed this smoking hot application and want the ability to edit your paragraph about dragons whenever he or she wants. What now?
-
-```html
-{% verbatim %}
-<html>
-<body>
-	<p data-devise="dragonParagraph, textarea">This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons.</p> 
-</body>
-</html>
-{% endverbatim %}
-```
-
-See what I did there? I added the ```data-devise="dragonParagraph, textarea"``` attribute to the paragraph tag and now it's editable for any front-end users.
-
-No, seriously, that's it. 
 

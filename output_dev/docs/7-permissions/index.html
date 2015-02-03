@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>Installation &mdash; Devise Documentation &mdash; </title>
+    <title>Permissions &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -54,12 +54,12 @@
                                                             <li><a href="/docs/1-about-this-documentation#beer%21">Beer!</a></li>
                                                     </ul>
                                     </li>
-                                <li class="active">
+                                <li>
                 <a href="/docs/2-installation">Installation</a>
                                             <ul>
-                                                            <li class="active" ><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
-                                                            <li class="active" ><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
-                                                            <li class="active" ><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
+                                                            <li><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -111,8 +111,15 @@
                                                             <li><a href="/docs/6-fieldtypes#wysiwyg">WYSIWYG</a></li>
                                                     </ul>
                                     </li>
-                                <li>
-                <a href="/docs"></a>
+                                <li class="active">
+                <a href="/docs/7-permissions">Permissions</a>
+                                            <ul>
+                                                            <li class="active" ><a href="/docs/7-permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#implementing-in-templates">Implementing In Templates</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#implementing-on-pages">Implementing On Pages</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#implementing-in-routes">Implementing In Routes</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
+                                                    </ul>
                                     </li>
                                 <li>
                 <a href="/docs/8-menus">Menus</a>
@@ -150,131 +157,72 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
 
-                        <h1>Installation</h1>
+                        <h1>Permissions</h1>
+
+<p>All permissions are constructed from two parts: permission rules (regular PHP functions) and permission conditions. Permissions conditions use one or multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
+
+<h2><a name="creating-new-permission-formulas" class="ia"></a><a href="#creating-new-permission-formulas">#</a>Creating New Permission Formulas</h2>
+
+<p>Permission formulas use one or multiple permission functions to create a conditional formula that will return a true or false determining if a client has whatever they need to load a route or see a particular portion of a page.</p>
+
+<p>To create a permission formula log in to the administration of your Devise application and click on, you guessed it, "Permissions". Here you can construct formulas using the web-based UI to combine the registered permission functions with <code>AND / OR</code> statements. This gives you an amazing amount of freedom to combine small/broad permissions to make very specific rules.</p>
+
+<h2><a name="implementing-in-templates" class="ia"></a><a href="#implementing-in-templates">#</a>Implementing In Templates</h2>
+
+<p>To hide or show a specific part of a template based on a permission function you will need to something like the following:</p>
+
+<pre><code class="php">
+@if(DeviseUser::checkRule('doesDrinkBeer'))
+    &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
+@endif
+
+
+</code></pre>
+
+<p>Or the shorthand...</p>
+
+<pre><code class="php">
+@if(DeviseUser::doesDrinkBeer())
+    &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
+@endif
+
+</code></pre>
+
+<h2><a name="creating-new-permission-functions" class="ia"></a><a href="#creating-new-permission-functions">#</a>Creating New Permission Functions</h2>
 
 <blockquote>
   <blockquote>
-    <blockquote>
-      <h4>Work in Progress</h4>
-      
-      <p>Installation is one of the most important features of making a CMS accessible to developers. We want this process to be as simple as it can be to make it easy the first and thirty-first times you do it. With the huge changes that have come with Laravel 5 we are waiting for stability to work on the web-based installer and round out the command-line installer. Expect this note to be removed in 1.0.</p>
-    </blockquote>
-  </blockquote>
-</blockquote>
-
-<h2><a name="installing-through-command-line" class="ia"></a><a href="#environmental-configuration">#</a>Environmental Configuration</h2>
-
-<p>Installation through the command line is as simple as:</p>
-
-<pre><code class="bash">php artisan devise:install
-</code></pre>
-
-<p>Currently, this command simply runs these commands</p>
-
-<pre><code class="bash">php artisan devise:migrate
-php artisan devise:assets
-php artisan devise:seed
-</code></pre>
-
-<h2>Installing through the browser</h2>
-
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <h4>In Development</h4>
-      
-      <p>This feature will be upcoming in 1.0 (Mid March 2015)</p>
-    </blockquote>
-  </blockquote>
-</blockquote>
-
-<h2><a name="environmental-configuration" class="ia"></a><a href="#environmental-configuration">#</a>Environmental Configuration</h2>
-
-<p>Below we will cover setting up Devise, Laravel and Homestead in an OSX environment. For more information on setting up Homestead please refer to the <a href="http://laravel.com/docs/4.2/homestead#installation-and-setup">Laravel documentation</a> or for Windows check out <a href="http://blog.teamtreehouse.com/laravel-homestead-on-windows">this video</a> on Treehouse.</p>
-
-<h4>1. Add entry to /etc/hosts like a-so:</h4>
-
-<pre><code class="bash">127.0.0.1 devise-example.com
-</code></pre>
-
-<h4>2. Add your site to your Homestead.yaml</h4>
-
-<p>In you Homestead.yaml file (the main configuration file for Homestead) add an entry for devise-example.com and map it to the <strong>application's public directory</strong>. It should look similiar to this:</p>
-
-<pre><code>    - map: devise-example.com
-      to: /home/vagrant/Code/devise-example/public
-</code></pre>
-
-<blockquote>
-  <blockquote>
-    <h4>Watch out</h4>
+    <h4>One rule about permission functions</h4>
     
-    <p>Currently, in Homestead if you map the site incorrectly in the <code>to:</code> filepath that URL (devise-example.com) will need to be changed manually in the Nginx config file. Simply, changing it in the homestead config and reprovisioning doesn't seem to work. You can find this file by SSH'ing into your vagrant box and editing the file for your site entry. It is located (in this example) here: <code>/etc/nginx/sites-enabled/devise-example.com</code>. Just edit the <code>root</code> parameter's file path towards the top of the file. It should look something like this to get to it:</p>
+    <p>All permission functions must return a boolean response to work correctly.</p>
   </blockquote>
 </blockquote>
 
-<h4>Only do the following if you have the problem listed above otherwise move to step 3.</h4>
+<pre><code class="php">
+class AppServiceProvider extends ServiceProvider {
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //Let's add a rule called doesDrinkBeer
+        RuleManager::addRule('doesDrinkBeer', function() {
+            return true;
+        });
 
-<p>SSH into your vagrant box</p>
-
-<pre><code class="bash">homestead ssh
-</code></pre>
-
-<p>Edit your configuration file (replace devise-example.com with whatever domain you are working on.)</p>
-
-<pre><code class="bash">sudo vi /etc/nginx/sites-available/devise-example.com
-</code></pre>
-
-<p>Edit your root path (it should end with public)</p>
-
-<pre><code class="bash">root /vagrant/whatever/whatever/site/public
-</code></pre>
-
-<h4>3. Provision the new site</h4>
-
-<p><code>cd</code> into your Homestead directory (where homestead.yaml is located) and run "vagrant reload --provision". NOTE: If your vagrant box is not already up-and-running, you might need to run "vagrant up" rather than ".</p>
-
-<h4>4. SSH into the Vagrant box</h4>
-
-<p>While still in the Homestead directory, SSH into vagrant with the command "vagrant ssh."</p>
-
-<h4>5. Set the application environment</h4>
-
-<p>Next we will need to set the to application's environment to "local" with the listed steps below:</p>
-
-<p>a. First, open the sites-available entry for devise-example.com by running <code>bash sudo vi /etc/nginx/sites-available/devise-example.com</code></p>
-
-<p>b. Then find the text <code>bash location ~ \.php$ {</code></p>
-
-<p>c. On the next line paste <code>bash fastcgi_param LARAVEL_ENV "local";</code></p>
-
-<pre><code class="bash">    It should look like this:
-    location ~ \.php$ {
-        fastcgi_param LARAVEL_ENV "local";
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_index index.php;
-        include fastcgi_params;
+        //Let's add another rule called doesDrinkBourbon
+        RuleManager::addRule('doesDrinkBourbon', function() {
+            // You'll need some actual logic in here
+            return false;
+        });
     }
-</code></pre>
 
-<p>d. Write to file and quit with ":wq" command
-e. Restart nginx service by running "sudo service nginx restart"; now LARAVEL_ENV is set to "local."</p>
+    ...
 
-<p>All of the above steps can be found in more detail on the <a href="http://laravel.com/docs/4.2/homestead">Laravel documetation page on Homestead</a></p>
+}
 
-<h4>6. Run Migrations and Seeds</h4>
-
-<ol>
-<li>SSH into vagrant box by running "vagrant ssh" from the Homestead directory</li>
-<li>Then cd into the root of devise-example application and run the following commands:</li>
-</ol>
-
-<pre><code class="bash">php artisan migrate --package="devisephp/cms" --env=local  (devisephp migrations)
-php artisan migrate --env=local (application migrations)
-
-php artisan db:seed --env=local --class="DeviseSeeder" (devisephp seeds)
-php artisan db:seed --env=local  (application seeds)
 </code></pre>
 
                     </div>
@@ -291,8 +239,8 @@ php artisan db:seed --env=local  (application seeds)
                     <div class="col-md-8 col-md-offset-2">
                                                     <nav class="article">
                                 <ul class="list-unstyled">
-                                                                            <li><a class="previous btn btn-info" href="/docs/1-about-this-documentation" title="About This Documentation">&#8592; About This Documentation</a></li>
-                                                                                                                <li><a class="next btn btn-info" href="/docs/3-pages" title="Pages">Pages &#8594;</a></li>
+                                                                            <li><a class="previous btn btn-info" href="/docs/6-fieldtypes" title="Field Types">&#8592; Field Types</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/8-menus" title="Menus">Menus &#8594;</a></li>
                                                                     </ul>
                             </nav>
                                             </div>

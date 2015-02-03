@@ -3,10 +3,10 @@ $button-size:40px;
 #documentation {
 	background-color:darken($white, 5%);
 
-	padding-top:150px;
+	padding-top:80px;
 
 	h1 { font-size:75px; margin:25px 0 0.25em;}
-	h2 { font-size:28px; line-height:35px; margin-top:50px }
+	h2 { font-size:28px; line-height:35px; margin-top:70px; padding-top:60px; border-top:1px solid lighten($black, 60%) }
 	h3 { font-size:24px; font-weight:bold; margin-top:35px;  }
 	h4 { font-size:18px; font-weight:bold; }
 	h5 { font-size:16px; font-weight:bold; }
@@ -14,24 +14,26 @@ $button-size:40px;
 
 	h2, h3, h4, h5, h6 {
 		font-family: $open-sans;
+		text-transform: uppercase;
 	}
 
 	// Informational Blockquote
 	blockquote {
-		background-color:$pank-blue;
-		border-color:darken($pank-blue, 20%);
-		color: #fff;
+		background-color:darken($white, 10%);;
+		border-color:darken($white, 25%);
+		color: $black;
 		padding:10px 20px 25px 20px;
 		margin:20px 0 30px 0;
 
+
 		h1,h2,h3,h4,h5,h6 {
-			color:#fff;
+			color:$black;
 			font-weight:bold;
 			margin-top:20px;
 		}
 
 		p {
-			color:#fff;
+			color:$black;
 			font-family: $open-sans;
 		}
 
@@ -41,6 +43,13 @@ $button-size:40px;
 			margin:-10px -20px -30px -25px;
 			background-color:$orange;
 			border-color:darken($orange, 20%);
+			color: #fff;
+
+			h1,h2,h3,h4,h5,h6,
+			p,
+			li {
+				color: #fff;
+			}
 
 			// Future Feature Blockquote
 			blockquote {
@@ -53,7 +62,7 @@ $button-size:40px;
 	.advanced,
 	.beginner {
 		display:none;
-		margin-top:60px;
+		margin-top:40px;
 
 		&:before {
 			content: 'Advanced Documentation';
@@ -63,16 +72,25 @@ $button-size:40px;
 			padding:4px 8px 6px;
 			border-radius:3px;
 			color:#fff;
+			margin-bottom:10px;
+		}
+	}
+
+	.beginner {
+		&:before {
+			content: 'Beginner Documentation';
+			background-color:$green;
 		}
 	}
 
 	pre {
 		background-color:#f5f5f5;
+		border-width:0;
 		border-color:#f5f5f5;
 		margin:30px 0;
 
-			margin-left: -30px;
-			margin-right: -30px;
+			margin-left: -79px;
+			margin-right: -80px;
 
 		code {
 			padding:15px 30px;
@@ -83,13 +101,6 @@ $button-size:40px;
 		font-size:14px;
 	}
 
-	.beginner {
-		&:before {
-			content: 'Beginner Documentation';
-			background-color:$green;
-		}
-	}
-
 	ul {
 		margin-bottom:20px;
 	}
@@ -98,8 +109,8 @@ $button-size:40px;
 #documentation-sidebar-wrapper {
 	background-color:$white;
 	height:100%;
-	width:25%;
-	left:5%;
+	width:20%;
+	left:13%;
 	position:fixed;
 	top:0;
 }
@@ -109,7 +120,7 @@ $button-size:40px;
 	list-style:none;
 	padding-left:0;
 	position: fixed;
-	width:25%;
+	width:20%;
 
 	a {
 		color:$gray;
@@ -163,9 +174,31 @@ $button-size:40px;
 
 	background-color:darken($white, 3%);
 	padding-bottom:50px;
+	padding-top:50px;
 
 	a {
 		color:desaturate($green, 20%);
+	}
+
+	table {
+		border:1px solid lighten($black, 60%);
+		border-collapse: collapse;
+		background-color:$white;
+
+		th {
+			border:1px solid lighten($black, 60%);
+			padding:8px 10px;
+			background-color: darken($white, 7%);
+			text-transform: uppercase;
+			font-family: $open-sans;
+		}
+
+		td {
+			border:1px solid lighten($black, 60%);
+			padding:8px 10px;
+
+
+		}
 	}
 }
 

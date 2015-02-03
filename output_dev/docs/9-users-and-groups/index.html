@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>Installation &mdash; Devise Documentation &mdash; </title>
+    <title>Users &amp; Groups &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -54,12 +54,12 @@
                                                             <li><a href="/docs/1-about-this-documentation#beer%21">Beer!</a></li>
                                                     </ul>
                                     </li>
-                                <li class="active">
+                                <li>
                 <a href="/docs/2-installation">Installation</a>
                                             <ul>
-                                                            <li class="active" ><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
-                                                            <li class="active" ><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
-                                                            <li class="active" ><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
+                                                            <li><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -121,12 +121,12 @@
                                                             <li><a href="/docs/8-menus#implementing-menus">Implementing Menus</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/9-users-and-groups">Users &amp; Groups</a>
                                             <ul>
-                                                            <li><a href="/docs/9-users-and-groups#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
-                                                            <li><a href="/docs/9-users-and-groups#managing-users">Managing Users</a></li>
-                                                            <li><a href="/docs/9-users-and-groups#managing-groups">Managing Groups</a></li>
+                                                            <li class="active" ><a href="/docs/9-users-and-groups#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
+                                                            <li class="active" ><a href="/docs/9-users-and-groups#managing-users">Managing Users</a></li>
+                                                            <li class="active" ><a href="/docs/9-users-and-groups#managing-groups">Managing Groups</a></li>
                                                     </ul>
                                     </li>
                             </ul>
@@ -150,132 +150,27 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
 
-                        <h1>Installation</h1>
+                        <h1>Users &amp; Groups</h1>
 
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <h4>Work in Progress</h4>
-      
-      <p>Installation is one of the most important features of making a CMS accessible to developers. We want this process to be as simple as it can be to make it easy the first and thirty-first times you do it. With the huge changes that have come with Laravel 5 we are waiting for stability to work on the web-based installer and round out the command-line installer. Expect this note to be removed in 1.0.</p>
-    </blockquote>
-  </blockquote>
-</blockquote>
+<h2><a name="building-a-philosophy-for-your-app" class="ia"></a><a href="#building-a-philosophy-for-your-app">#</a>Building A Philosophy For Your App</h2>
 
-<h2><a name="installing-through-command-line" class="ia"></a><a href="#environmental-configuration">#</a>Environmental Configuration</h2>
+<p>Deciding how to construct your application has a lot to do with who is <em>using</em> your application. Users and Groups, in tandem with <a href="/docs/7-permissions">permissions</a>, can really do anything that you want it to do. To start, you need to decide how that should be constructed that makes the most sense. Devise is very flexible.</p>
 
-<p>Installation through the command line is as simple as:</p>
-
-<pre><code class="bash">php artisan devise:install
-</code></pre>
-
-<p>Currently, this command simply runs these commands</p>
-
-<pre><code class="bash">php artisan devise:migrate
-php artisan devise:assets
-php artisan devise:seed
-</code></pre>
-
-<h2>Installing through the browser</h2>
-
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <h4>In Development</h4>
-      
-      <p>This feature will be upcoming in 1.0 (Mid March 2015)</p>
-    </blockquote>
-  </blockquote>
-</blockquote>
-
-<h2><a name="environmental-configuration" class="ia"></a><a href="#environmental-configuration">#</a>Environmental Configuration</h2>
-
-<p>Below we will cover setting up Devise, Laravel and Homestead in an OSX environment. For more information on setting up Homestead please refer to the <a href="http://laravel.com/docs/4.2/homestead#installation-and-setup">Laravel documentation</a> or for Windows check out <a href="http://blog.teamtreehouse.com/laravel-homestead-on-windows">this video</a> on Treehouse.</p>
-
-<h4>1. Add entry to /etc/hosts like a-so:</h4>
-
-<pre><code class="bash">127.0.0.1 devise-example.com
-</code></pre>
-
-<h4>2. Add your site to your Homestead.yaml</h4>
-
-<p>In you Homestead.yaml file (the main configuration file for Homestead) add an entry for devise-example.com and map it to the <strong>application's public directory</strong>. It should look similiar to this:</p>
-
-<pre><code>    - map: devise-example.com
-      to: /home/vagrant/Code/devise-example/public
-</code></pre>
-
-<blockquote>
-  <blockquote>
-    <h4>Watch out</h4>
-    
-    <p>Currently, in Homestead if you map the site incorrectly in the <code>to:</code> filepath that URL (devise-example.com) will need to be changed manually in the Nginx config file. Simply, changing it in the homestead config and reprovisioning doesn't seem to work. You can find this file by SSH'ing into your vagrant box and editing the file for your site entry. It is located (in this example) here: <code>/etc/nginx/sites-enabled/devise-example.com</code>. Just edit the <code>root</code> parameter's file path towards the top of the file. It should look something like this to get to it:</p>
-  </blockquote>
-</blockquote>
-
-<h4>Only do the following if you have the problem listed above otherwise move to step 3.</h4>
-
-<p>SSH into your vagrant box</p>
-
-<pre><code class="bash">homestead ssh
-</code></pre>
-
-<p>Edit your configuration file (replace devise-example.com with whatever domain you are working on.)</p>
-
-<pre><code class="bash">sudo vi /etc/nginx/sites-available/devise-example.com
-</code></pre>
-
-<p>Edit your root path (it should end with public)</p>
-
-<pre><code class="bash">root /vagrant/whatever/whatever/site/public
-</code></pre>
-
-<h4>3. Provision the new site</h4>
-
-<p><code>cd</code> into your Homestead directory (where homestead.yaml is located) and run "vagrant reload --provision". NOTE: If your vagrant box is not already up-and-running, you might need to run "vagrant up" rather than ".</p>
-
-<h4>4. SSH into the Vagrant box</h4>
-
-<p>While still in the Homestead directory, SSH into vagrant with the command "vagrant ssh."</p>
-
-<h4>5. Set the application environment</h4>
-
-<p>Next we will need to set the to application's environment to "local" with the listed steps below:</p>
-
-<p>a. First, open the sites-available entry for devise-example.com by running <code>bash sudo vi /etc/nginx/sites-available/devise-example.com</code></p>
-
-<p>b. Then find the text <code>bash location ~ \.php$ {</code></p>
-
-<p>c. On the next line paste <code>bash fastcgi_param LARAVEL_ENV "local";</code></p>
-
-<pre><code class="bash">    It should look like this:
-    location ~ \.php$ {
-        fastcgi_param LARAVEL_ENV "local";
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_index index.php;
-        include fastcgi_params;
-    }
-</code></pre>
-
-<p>d. Write to file and quit with ":wq" command
-e. Restart nginx service by running "sudo service nginx restart"; now LARAVEL_ENV is set to "local."</p>
-
-<p>All of the above steps can be found in more detail on the <a href="http://laravel.com/docs/4.2/homestead">Laravel documetation page on Homestead</a></p>
-
-<h4>6. Run Migrations and Seeds</h4>
+<p>To start, Devise supports users and groups out of the box. From our experience a lot of applications have one of three scenarios or some variation from it.</p>
 
 <ol>
-<li>SSH into vagrant box by running "vagrant ssh" from the Homestead directory</li>
-<li>Then cd into the root of devise-example application and run the following commands:</li>
+<li>Administrative staff and public users that do not log in.</li>
+<li>Administrative staff with public users that do log in.</li>
+<li>All users log in and have some varied experience based on their role.</li>
 </ol>
 
-<pre><code class="bash">php artisan migrate --package="devisephp/cms" --env=local  (devisephp migrations)
-php artisan migrate --env=local (application migrations)
+<p>Scenario 1 probably doesn't even have to worry about groups but scenarios 2 and 3 need to think about the different roles the users are going to play. <strong>In Devise a user can be in many group</strong> so one thing to think about is sketching out many groups that will have access to a particular part of your application and assigning those groups to the users that will need to access it.</p>
 
-php artisan db:seed --env=local --class="DeviseSeeder" (devisephp seeds)
-php artisan db:seed --env=local  (application seeds)
-</code></pre>
+<p>Another consideration when designing your groups are things like achievements, interest groups, clans, clubs, newsletters, etc. These are actual business / application logic that have nothing to do with permissions. In these cases you may need to define permission based rules around these 'real life' groups.</p>
+
+<h2><a name="managing-users" class="ia"></a><a href="#managing-users">#</a>Managing Users</h2>
+
+<h2><a name="managing-groups" class="ia"></a><a href="#managing-groups">#</a>Managing Groups</h2>
 
                     </div>
                 </div>
@@ -291,9 +186,8 @@ php artisan db:seed --env=local  (application seeds)
                     <div class="col-md-8 col-md-offset-2">
                                                     <nav class="article">
                                 <ul class="list-unstyled">
-                                                                            <li><a class="previous btn btn-info" href="/docs/1-about-this-documentation" title="About This Documentation">&#8592; About This Documentation</a></li>
-                                                                                                                <li><a class="next btn btn-info" href="/docs/3-pages" title="Pages">Pages &#8594;</a></li>
-                                                                    </ul>
+                                                                            <li><a class="previous btn btn-info" href="/docs/8-menus" title="Menus">&#8592; Menus</a></li>
+                                                                                                        </ul>
                             </nav>
                                             </div>
 

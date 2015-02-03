@@ -24,7 +24,7 @@
     <header>
         <div class="navbar navbar-fixed-top navbar-inverse">
             <div class="container navbar-inner">
-                <a href="/"><img src="/imgs/devise-logo-mini.gif" width="173" height="81">
+                <a href="/"><img src="/imgs/devise-logo-mini.gif" width="140">
                 <ul class="list-inline">
                     <li class="ml sp50"><a href="#REPLACE_HREF" class="fg mid-gray important">GitHub</a></li>
                     <li><a href="#REPLACE_HREF">API</a></li>
@@ -47,7 +47,7 @@
                     </ul>
                 </li>
                                 <li>
-                <a href="/docs/1-about-this-documentation">About this documentation</a>
+                <a href="/docs/1-about-this-documentation">About This Documentation</a>
                                             <ul>
                                                             <li><a href="/docs/1-about-this-documentation#unique-functionality">Unique Functionality</a></li>
                                                             <li><a href="/docs/1-about-this-documentation#achtung%21">Achtung!</a></li>
@@ -57,9 +57,9 @@
                                 <li>
                 <a href="/docs/2-installation">Installation</a>
                                             <ul>
-                                                            <li><a href="/docs/2-installation#installing-through-commandline">Installing through commandline</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
                                                             <li><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
-                                                            <li><a href="/docs/2-installation#environmental-configuration">Environmental configuration</a></li>
+                                                            <li><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -78,9 +78,55 @@
                                             <ul>
                                                             <li class="active" ><a href="/docs/4-templates#creating-new-templates">Creating New Templates</a></li>
                                                             <li class="active" ><a href="/docs/4-templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
-                                                            <li class="active" ><a href="/docs/4-templates#creating-your-first-rando-editable-area">Creating Your First Rando Editable Area</a></li>
-                                                            <li class="active" ><a href="/docs/4-templates#workflows">Workflows</a></li>
-                                                            <li class="active" ><a href="/docs/4-templates#examples">Examples</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/5-fields">Fields</a>
+                                            <ul>
+                                                            <li><a href="/docs/5-fields#creating-your-first-rando-editable-area">Creating Your First Rando Editable Area</a></li>
+                                                            <li><a href="/docs/5-fields#simple-field">Simple Field</a></li>
+                                                            <li><a href="/docs/5-fields#grouping-fields">Grouping Fields</a></li>
+                                                            <li><a href="/docs/5-fields#collections-of-fields">Collections of Fields</a></li>
+                                                            <li><a href="/docs/5-fields#editing-models">Editing Models</a></li>
+                                                            <li><a href="/docs/5-fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/6-fieldtypes">Field Types</a>
+                                            <ul>
+                                                            <li><a href="/docs/6-fieldtypes#audio">Audio</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#checkbox-group">Checkbox Group</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#checkbox">Checkbox</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#color">Color</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#date%2Ftime">Date/Time</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#file">File</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#html">HTML</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#images">Images</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#link">Link</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#map">Map</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#select">Select</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#text">Text</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#textarea">Textarea</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#video">Video</a></li>
+                                                            <li><a href="/docs/6-fieldtypes#wysiwyg">WYSIWYG</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs"></a>
+                                    </li>
+                                <li>
+                <a href="/docs/8-menus">Menus</a>
+                                            <ul>
+                                                            <li><a href="/docs/8-menus#managing-menus">Managing Menus</a></li>
+                                                            <li><a href="/docs/8-menus#implementing-menus">Implementing Menus</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/9-users-and-groups">Users &amp; Groups</a>
+                                            <ul>
+                                                            <li><a href="/docs/9-users-and-groups#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
+                                                            <li><a href="/docs/9-users-and-groups#managing-users">Managing Users</a></li>
+                                                            <li><a href="/docs/9-users-and-groups#managing-groups">Managing Groups</a></li>
                                                     </ul>
                                     </li>
                             </ul>
@@ -89,20 +135,20 @@
 
     <div class="container">
 
+        <div class="row mb sp25" id="difficulty-buttons">
+            <div class="col-md-offset-6 col-md-6 tar">
+                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="col-md-8 col-md-offset-4" id="documentation-content">
 
-                <div class="row" id="difficulty-buttons">
-                    <div class="col-md-offset-6 col-md-6 tar">
-                        <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                        <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                        <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-                    </div>
-                </div>
-
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-10 col-md-offset-1">
 
                         <h1>Templates</h1>
 
@@ -119,7 +165,7 @@
   </ul>
 </blockquote>
 
-<h1><a name="creating-new-templates" class="ia"></a><a href="#creating-new-templates">#</a>Creating New Templates</h1>
+<h2><a name="creating-new-templates" class="ia"></a><a href="#creating-new-templates">#</a>Creating New Templates</h2>
 
 <p>Great, so you know some sweet Blade syntax. So, how do we take a design we've gotten from our hipster designers down the hall and actually apply it to a Devise page? It's simple - really.</p>
 
@@ -211,7 +257,7 @@
 <p>or unescaped</p>
 
 <pre><code>
-{{ $i }}
+{!! $i !!}
 
 </code></pre>
 
@@ -262,7 +308,7 @@
 
 <p><strong>Template</strong>: /app/views/templates/breweries-index.blade.php</p>
 
-<pre><code>
+<pre><code class="php">
 @extends('layouts.master')
 
 @section('content')
@@ -279,7 +325,7 @@
 
 <p><strong>Partial</strong>: /app/views/templates/_jumbotron.blade.php</p>
 
-<pre><code>
+<pre><code class="php">
 &lt;div class="jumbotron"&gt;
     &lt;h1&gt;{{ $page-&gt;title }}&lt;/h1&gt;
     &lt;p&gt;{{ $page-&gt;meta_description }}&lt;/p&gt;
@@ -289,7 +335,7 @@
 
 <h3>If / Else</h3>
 
-<pre><code>
+<pre><code class="php">
 @if($beers == 'amazing')
     &lt;h2&gt;Hey there!&lt;/h2&gt;
 @else
@@ -298,7 +344,7 @@
 
 </code></pre>
 
-<pre><code>
+<pre><code class="php">
 @if($favoriteBeer == 'lambic')
     &lt;h2&gt;Me too!&lt;/h2&gt;
 @elseif($favoriteBeer == 'stout')
@@ -311,14 +357,14 @@
 
 <h3>Loops</h3>
 
-<pre><code>
+<pre><code class="php">
 @for($i = 0; $i &lt; 10; $i++)
     &lt;h2&gt;I guzzled {{ $i }} beers&lt;/h2&gt;
 @endfor
 
 </code></pre>
 
-<pre><code>
+<pre><code class="php">
 @foreach($beers as $beer)
     &lt;li&gt;{{ $beer-&gt;name }}&lt;/li&gt;
 @endforeach
@@ -327,7 +373,7 @@
 
 <h3>Comments</h3>
 
-<pre><code>
+<pre><code class="php">
 {{-- Nobody will find my hidden beer stash!!! --}}
 
 </code></pre>
@@ -341,36 +387,6 @@
 <li><a href="http://daylerees.com/codebright/blade">Code Bright by Dayle Rees on Blade</a></li>
 <li><a href="https://laracasts.com/index/blade">Laracasts on Blade</a></li>
 </ul>
-
-<h2><a name="creating-your-first-rando-editable-area" class="ia"></a><a href="#creating-your-first-rando-editable-area">#</a>Creating Your First Rando Editable Area</h2>
-
-<p>Front-end editing defines one of the more interesting and diversifying features of Devise. It gives users the ability to edit data in the context of the page, the data itself instead of ping ponging back and forth between an administration and the content they want to review.</p>
-
-<p>What makes this even more exciting is how easy it is to implement for developers. Just a couple snippets of code in your markup and you'll be editing in no time. No, really. Seriously, watch:</p>
-
-<pre><code class="html">
-&lt;html&gt;
-&lt;body&gt;
-    &lt;p&gt;This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons. 
-&lt;/body&gt;
-&lt;/html&gt;
-
-</code></pre>
-
-<p>Now, let's imagine that your client comes back to you 3 months after you've deployed this smoking hot application and want the ability to edit your paragraph about dragons whenever he or she wants. What now?</p>
-
-<pre><code class="html">
-&lt;html&gt;
-&lt;body&gt;
-    &lt;p data-devise="dragonParagraph, textarea"&gt;This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons.&lt;/p&gt; 
-&lt;/body&gt;
-&lt;/html&gt;
-
-</code></pre>
-
-<p>See what I did there? I added the <code>data-devise="dragonParagraph, textarea"</code> attribute to the paragraph tag and now it's editable for any front-end users.</p>
-
-<p>No, seriously, that's it.</p>
 
                     </div>
                 </div>
@@ -387,7 +403,8 @@
                                                     <nav class="article">
                                 <ul class="list-unstyled">
                                                                             <li><a class="previous btn btn-info" href="/docs/3-pages" title="Pages">&#8592; Pages</a></li>
-                                                                                                        </ul>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/5-fields" title="Fields">Fields &#8594;</a></li>
+                                                                    </ul>
                             </nav>
                                             </div>
 

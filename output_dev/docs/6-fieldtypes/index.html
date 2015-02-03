@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <title>Field Types &mdash; Devise Documentation &mdash; </title>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
+    <link rel="stylesheet" type="text/css" href="/css/highlightjs/github.css">
+
+    <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/lib/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="/js/lib/highlight.pack.js"></script>
+    <script type="text/javascript" src="/js/devise-documentation.js"></script>
+
+</head>
+
+<body id="documentation">
+    <header>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container navbar-inner">
+                <a href="/"><img src="/imgs/devise-logo-mini.gif" width="140">
+                <ul class="list-inline">
+                    <li class="ml sp50"><a href="#REPLACE_HREF" class="fg mid-gray important">GitHub</a></li>
+                    <li><a href="#REPLACE_HREF">API</a></li>
+                    <li><a href="#REPLACE_HREF">Learn</a></li>
+                    <li><a href="#REPLACE_HREF">Get Started</a></li>
+                    <li><a href="#REPLACE_HREF">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
+
+            <ul id="documentation-sidebar">
+                <li >
+                    <a href="/docs">About Devise</a>
+                    <ul>
+                        <li><a href="/docs#what-is-it">What Is It?</a></li>
+                        <li><a href="/docs#couple-of-demos">Couple of Demos</a></li>
+                    </ul>
+                </li>
+                                <li>
+                <a href="/docs/1-about-this-documentation">About This Documentation</a>
+                                            <ul>
+                                                            <li><a href="/docs/1-about-this-documentation#unique-functionality">Unique Functionality</a></li>
+                                                            <li><a href="/docs/1-about-this-documentation#achtung%21">Achtung!</a></li>
+                                                            <li><a href="/docs/1-about-this-documentation#beer%21">Beer!</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/2-installation">Installation</a>
+                                            <ul>
+                                                            <li><a href="/docs/2-installation#installing-through-command-line">Installing through command line</a></li>
+                                                            <li><a href="/docs/2-installation#installing-through-the-browser">Installing through the browser</a></li>
+                                                            <li><a href="/docs/2-installation#environmental-configuration">Environmental Configuration</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/3-pages">Pages</a>
+                                            <ul>
+                                                            <li><a href="/docs/3-pages#pages-and-routing">Pages and Routing</a></li>
+                                                            <li><a href="/docs/3-pages#creating-new-pages">Creating New Pages</a></li>
+                                                            <li><a href="/docs/3-pages#managing-pages">Managing Pages</a></li>
+                                                            <li><a href="/docs/3-pages#understanding-page-versions">Understanding page versions</a></li>
+                                                            <li><a href="/docs/3-pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                            <li><a href="/docs/3-pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/4-templates">Templates</a>
+                                            <ul>
+                                                            <li><a href="/docs/4-templates#creating-new-templates">Creating New Templates</a></li>
+                                                            <li><a href="/docs/4-templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/5-fields">Fields</a>
+                                            <ul>
+                                                            <li><a href="/docs/5-fields#creating-your-first-rando-editable-area">Creating Your First Rando Editable Area</a></li>
+                                                            <li><a href="/docs/5-fields#simple-field">Simple Field</a></li>
+                                                            <li><a href="/docs/5-fields#grouping-fields">Grouping Fields</a></li>
+                                                            <li><a href="/docs/5-fields#collections-of-fields">Collections of Fields</a></li>
+                                                            <li><a href="/docs/5-fields#editing-models">Editing Models</a></li>
+                                                            <li><a href="/docs/5-fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
+                                                    </ul>
+                                    </li>
+                                <li class="active">
+                <a href="/docs/6-fieldtypes">Field Types</a>
+                                            <ul>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#audio">Audio</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#checkbox-group">Checkbox Group</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#checkbox">Checkbox</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#color">Color</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#date%2Ftime">Date/Time</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#file">File</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#html">HTML</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#images">Images</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#link">Link</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#map">Map</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#select">Select</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#text">Text</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#textarea">Textarea</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#video">Video</a></li>
+                                                            <li class="active" ><a href="/docs/6-fieldtypes#wysiwyg">WYSIWYG</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs"></a>
+                                    </li>
+                                <li>
+                <a href="/docs/8-menus">Menus</a>
+                                            <ul>
+                                                            <li><a href="/docs/8-menus#managing-menus">Managing Menus</a></li>
+                                                            <li><a href="/docs/8-menus#implementing-menus">Implementing Menus</a></li>
+                                                    </ul>
+                                    </li>
+                                <li>
+                <a href="/docs/9-users-and-groups">Users &amp; Groups</a>
+                                            <ul>
+                                                            <li><a href="/docs/9-users-and-groups#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
+                                                            <li><a href="/docs/9-users-and-groups#managing-users">Managing Users</a></li>
+                                                            <li><a href="/docs/9-users-and-groups#managing-groups">Managing Groups</a></li>
+                                                    </ul>
+                                    </li>
+                            </ul>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row mb sp25" id="difficulty-buttons">
+            <div class="col-md-offset-6 col-md-6 tar">
+                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
+                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
+                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-content">
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <h1>Field Types</h1>
+
+<h2><a name="audio" class="ia"></a><a href="#audio">#</a>Audio</h2>
+
+<blockquote>
+  <h4>Attention</h4>
+  
+  <p>This field requires a third-party API. Devise ships with one for <a href="http://zencoder.com">Zencoder</a>. Simply, provide us your application with an API key from Zencoder. <strong>Important</strong>: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded audio file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at <a href="https://ngrok.com/">ngrok</a> or a similar tunneling project.</p>
+</blockquote>
+
+<pre><code class="html">
+ &lt;audio data-dvs-audio1-id="audio1" src="{{ $page-&gt;audio1-&gt;file }}" controls loop&gt;
+    HTML5 audio not supported
+&lt;/audio&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>file</td>
+  <td>URL of the audio file location</td>
+  <td>$page->audio1->file</td>
+</tr>
+<tr>
+  <td>mp3</td>
+  <td>Create/encode file to mp3 version</td>
+  <td>$page->audio1->mp3</td>
+</tr>
+<tr>
+  <td>mp3_url</td>
+  <td>URL of the mp3 location</td>
+  <td>$page->audio1->mp3_url</td>
+</tr>
+<tr>
+  <td>ogg</td>
+  <td>Create/encode file to ogg version</td>
+  <td>$page->audio1->ogg</td>
+</tr>
+<tr>
+  <td>ogg_url</td>
+  <td>URL of the ogg location</td>
+  <td>$page->audio1->ogg_url</td>
+</tr>
+<tr>
+  <td>wav</td>
+  <td>Create/encode file to wav version</td>
+  <td>$page->audio1->wav</td>
+</tr>
+<tr>
+  <td>wav_url</td>
+  <td>URL of the wav location</td>
+  <td>$page->audio1->wav_url</td>
+</tr>
+<tr>
+  <td>audio channels</td>
+  <td>How many channels do we have, 1 or 2? Mono or stereo?</td>
+  <td>$page->audio1->audio channels</td>
+</tr>
+<tr>
+  <td>audio_bit_depth</td>
+  <td>The audio depth can be set to 16, 24 or 32 bits.</td>
+  <td>$page->audio1->audio_bit_depth</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="checkbox-group" class="ia"></a><a href="#checkbox-group">#</a>Checkbox Group</h2>
+
+<pre><code class="php">
+&lt;div data-dvs-checkboxGroup1-id="checkboxGroup1"&gt;
+   @foreach ($page-&gt;checkboxGroup1-&gt;checkboxes as $checkbox)
+      &lt;label&gt;
+         &lt;input type="checkbox" value="{{ $checkbox-&gt;key }}" {{ $checkbox-&gt;default ? 'checked' : '' }}&gt;
+         {{ $checkbox-&gt;label }}
+      &lt;/label&gt;
+    @endforeach
+&lt;/div&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>checkboxes</td>
+  <td>An array of key, labels and defaults of checkboxes</td>
+  <td>$page->checkboxGroup1->checkboxes</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="checkbox" class="ia"></a><a href="#checkbox">#</a>Checkbox</h2>
+
+<pre><code class="php">
+&lt;p data-dvs-checkbox1-id="checkbox1"&gt;
+    {{ $page-&gt;checkbox1-&gt;value ? 'Do something with check' : 'Do something else' }}
+&lt;/p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>value</td>
+  <td>Value of this checkbox field (0 or 1)</td>
+  <td>$page->checkbox1->value</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="color" class="ia"></a><a href="#color">#</a>Color</h2>
+
+<pre><code>
+&lt;p data-dvs-color1-id="color1" style="background-color: {{ $page-&gt;color1-&gt;color('blue') }};"&gt;
+    Showing the color {{ $page-&gt;color1-&gt;color('blue') }}
+&lt;/p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>color</td>
+  <td>#hexidecimal color value for this field</td>
+  <td>$page->color1->color</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="date%2Ftime" class="ia"></a><a href="#date%2Ftime">#</a>Date/Time</h2>
+
+<pre><code class="php">
+&lt;p data-dvs-datetime1-id="datetime1"&gt;
+    Concert starts at {{ $page-&gt;datetime1-&gt;datetime }}
+&lt;/p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>datetime</td>
+  <td>Formated date and time</td>
+  <td>$page->datetime1->datetime</td>
+</tr>
+<tr>
+  <td>datetimevalue</td>
+  <td>Unformatted date and time</td>
+  <td>$page->datetime1->datetimevalue</td>
+</tr>
+<tr>
+  <td>format</td>
+  <td>PHP datetime format which will be used to format datetimevalue into datetime</td>
+  <td>$page->datetime1->format</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="file" class="ia"></a><a href="#file">#</a>File</h2>
+
+<pre><code class="php">
+Download file
+&lt;a data-dvs-file1-id="file1" href="{{ $page-&gt;file1-&gt;file }}"&gt;Download file&lt;/a&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>file</td>
+  <td>URL to file that was uploaded by user</td>
+  <td>$page->file1->file</td>
+</tr>
+<tr>
+  <td>sizeLimit</td>
+  <td>Limit the size of files (in KB?)</td>
+  <td>$page->file1->sizeLimit</td>
+</tr>
+<tr>
+  <td>allowedTypes</td>
+  <td>List of allowed file types seperated by spaces</td>
+  <td>$page->file1->allowedTypes</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="html" class="ia"></a><a href="#html">#</a>HTML</h2>
+
+<pre><code class="php">
+&lt;div data-dvs-html1-id="html1"&gt;
+    {{ $page-&gt;html1-&gt;html }}
+&lt;/div&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>html</td>
+  <td>HTML stored here</td>
+  <td>$page->html1->html</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="images" class="ia"></a><a href="#images">#</a>Image</h2>
+
+<pre><code class="php">
+&lt;img src="{{ $page-&gt;image1-&gt;image_url('/imgs/default-images/special-occasions-gallery-img-2.jpg')}}" class="dvs-test-frame" data-dvs-image1-id="image1"&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>image</td>
+  <td>URL of the image location</td>
+  <td>$page->image1->image</td>
+</tr>
+<tr>
+  <td>alt</td>
+  <td>The intended alt tag attribute</td>
+  <td>$page->image1->alt</td>
+</tr>
+<tr>
+  <td>has_thumbnail</td>
+  <td>String "1" or "0" for true or false</td>
+  <td>$page->image1->has_thumbnail</td>
+</tr>
+<tr>
+  <td>image_width</td>
+  <td>Width of the image</td>
+  <td>$page->image1->image_width</td>
+</tr>
+<tr>
+  <td>image_height</td>
+  <td>Height of the image</td>
+  <td>$page->image1->image_height</td>
+</tr>
+<tr>
+  <td>image_crop_x</td>
+  <td>Top left-hand corner's x of the crop</td>
+  <td>$page->image1->image_crop_x</td>
+</tr>
+<tr>
+  <td>image_crop_y</td>
+  <td>Top left-hand corner's y of the crop</td>
+  <td>$page->image1->image_crop_y</td>
+</tr>
+<tr>
+  <td>image_crop_x2</td>
+  <td>Bottom right-hand corner's x of the crop</td>
+  <td>$page->image1->image_crop_x2</td>
+</tr>
+<tr>
+  <td>image_crop_y2</td>
+  <td>Bottom right-hand corner's y of the crop</td>
+  <td>$page->image1->image_crop_y2</td>
+</tr>
+<tr>
+  <td>image_crop_w</td>
+  <td>Width of the crop</td>
+  <td>$page->image1->image_crop_w</td>
+</tr>
+<tr>
+  <td>image_crop_h</td>
+  <td>Height of the crop</td>
+  <td>$page->image1->image_crop_h</td>
+</tr>
+<tr>
+  <td>thumbnail_width</td>
+  <td>Width of the image</td>
+  <td>$page->image1->thumbnail_width</td>
+</tr>
+<tr>
+  <td>thumbnail_height</td>
+  <td>Height of the image</td>
+  <td>$page->image1->thumbnail_height</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_x</td>
+  <td>Top left-hand corner's x of the crop</td>
+  <td>$page->image1->thumbnail_crop_x</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_y</td>
+  <td>Top left-hand corner's y of the crop</td>
+  <td>$page->image1->thumbnail_crop_y</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_x2</td>
+  <td>Bottom right-hand corner's x of the crop</td>
+  <td>$page->image1->thumbnail_crop_x2</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_y2</td>
+  <td>Bottom right-hand corner's y of the crop</td>
+  <td>$page->image1->thumbnail_crop_y2</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_w</td>
+  <td>Width of the crop</td>
+  <td>$page->image1->thumbnail_crop_w</td>
+</tr>
+<tr>
+  <td>thumbnail_crop_h</td>
+  <td>Height of the crop</td>
+  <td>$page->image1->thumbnail_crop_h</td>
+</tr>
+<tr>
+  <td>image_url</td>
+  <td>URL of the image</td>
+  <td>$page->image1->image_url</td>
+</tr>
+<tr>
+  <td>thumbnail_url</td>
+  <td>URL of the thumbnail</td>
+  <td>$page->image1->thumbnail_url</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="link" class="ia"></a><a href="#link">#</a>Link</h2>
+
+<pre><code class="php">
+&lt;a data-dvs-link1-id="link1" href="{{ $page-&gt;link1-&gt;url }}" target="{{ $page-&gt;link1-&gt;target }}"&gt;
+    {{ $page-&gt;link1-&gt;text }}
+&lt;/a&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>text</td>
+  <td>Link text that would likely be clickable</td>
+  <td>$page->link1->text</td>
+</tr>
+<tr>
+  <td>route</td>
+  <td>Use a route defined in pages table, if defined url is overridden</td>
+  <td>$page->link1->route</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>Use a regular URL, unless route is set then this will point to the route URL</td>
+  <td>$page->link1->url</td>
+</tr>
+<tr>
+  <td>target</td>
+  <td>Open the window in _self or _blank</td>
+  <td>$page->link1->target</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="map" class="ia"></a><a href="#map">#</a>Map</h2>
+
+<pre><code class="php">
+&lt;p data-dvs-map1-id="map1"&gt;figure out how to display google map here&lt;/p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>address</td>
+  <td>Full address to be displayed in map</td>
+  <td>$page->map1->address</td>
+</tr>
+<tr>
+  <td>latitude</td>
+  <td>Latitude on map</td>
+  <td>$page->map1->latitude</td>
+</tr>
+<tr>
+  <td>longitude</td>
+  <td>Longitude on map</td>
+  <td>$page->map1->longitude</td>
+</tr>
+<tr>
+  <td>mode</td>
+  <td>Show map in Streets, Satellite or Hybrid mode</td>
+  <td>$page->map1->mode</td>
+</tr>
+<tr>
+  <td>minZoom</td>
+  <td>Amount allowed to zoom in on map scaled 1 thru 19</td>
+  <td>$page->map1->minZoom</td>
+</tr>
+<tr>
+  <td>maxZoom</td>
+  <td>Amount allowed to zoom out on map scalled 1 thru 19</td>
+  <td>$page->map1->maxZoom</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="select" class="ia"></a><a href="#select">#</a>Select</h2>
+
+<pre><code class="php">
+&lt;select data-dvs-select1-id="select1"&gt;
+    @foreach ($page-&gt;select1-&gt;options as $option)
+        &lt;option value="{{ $option-&gt;value }}"&gt;{{ $option-&gt;name }}&lt;/option&gt;
+    @endforeach
+&lt;/select&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>value</td>
+  <td>Current value of the select box</td>
+  <td>$page->select1->value</td>
+</tr>
+<tr>
+  <td>options</td>
+  <td>Array of name, value pairs for this select field.</td>
+  <td>$page->select1->options</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="text" class="ia"></a><a href="#text">#</a>Text</h2>
+
+<pre><code class="php">{% verbatim %}
+&lt;p data-dvs-text1-id="text1"&gt;
+    {{ $page-&gt;text1-&gt;text('This is some default text') }}
+&lt;p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>text</td>
+  <td>The value of the text field</td>
+  <td>$page->text1->text</td>
+</tr>
+<tr>
+  <td>maxlength</td>
+  <td>The maximum amount of characters that can be used</td>
+  <td>$page->text1->maxlength</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="textarea" class="ia"></a><a href="#textarea">#</a>Textarea</h2>
+
+<pre><code class="php">
+&lt;p data-dvs-textarea1-id="textarea1"&gt;
+    {{ $page-&gt;textarea1-&gt;text('This is some default text') }}
+&lt;p&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>text</td>
+  <td>The value of the text field</td>
+  <td>$page->textarea1->text</td>
+</tr>
+<tr>
+  <td>maxlength</td>
+  <td>The maximum amount of characters that can be used</td>
+  <td>$page->textarea1->maxlength</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="video" class="ia"></a><a href="#video">#</a>Video</h2>
+
+<blockquote>
+  <h4>Attention</h4>
+  
+  <p>This field requires a third-party API. Devise ships with one for <a href="http://zencoder.com">Zencoder</a>. Simply, provide us your application with an API key from Zencoder. <strong>Important</strong>: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded video file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at <a href="https://ngrok.com/">ngrok</a> or a similar tunneling project.</p>
+</blockquote>
+
+<pre><code class="php">
+ &lt;video data-dvs-video1-id="video1"
+    id="example_video_1"
+    class="video-js vjs-default-skin"
+    controls preload="auto"
+    poster="{{ $page-&gt;video1-&gt;poster_image }}"
+    width="100%"
+    height="100%"
+    style="max-height: 500px;"
+    data-setup='{"example_option":true}'&gt;
+        @if ($page-&gt;video1-&gt;mp4_url)
+            &lt;source src="{{ $page-&gt;video1-&gt;mp4_url }}" type='video/mp4' /&gt;
+        @endif
+        @if ($page-&gt;video1-&gt;webm_url)
+            &lt;source src="{{ $page-&gt;video1-&gt;webm_url }}" type='video/webm' /&gt;
+        @endif
+        @if ($page-&gt;video1-&gt;ogg_url)
+            &lt;source src="{{ $page-&gt;video1-&gt;ogg_url }}" type='video/ogg' /&gt;
+        @endif
+        &lt;p class="vjs-no-js"&gt;
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that &lt;a href="http://videojs.com/html5-video-support/" target="_blank"&gt;supports HTML5 video&lt;/a&gt;
+        &lt;/p&gt;
+&lt;/video&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>video</td>
+  <td>URL Path to the video file (if remote URL is given then fetch and encode using options below)</td>
+  <td>$page->video1->video</td>
+</tr>
+<tr>
+  <td>poster_image</td>
+  <td>Image to show as poster before video is loaded</td>
+  <td>$page->video1->poster_image</td>
+</tr>
+<tr>
+  <td>mp4</td>
+  <td>Create/encode a mp4 file from video path URL</td>
+  <td>$page->video1->mp4</td>
+</tr>
+<tr>
+  <td>ogg</td>
+  <td>Create/encode an ogg file from video path URL</td>
+  <td>$page->video1->ogg</td>
+</tr>
+<tr>
+  <td>webm</td>
+  <td>Create/encode a webm file from video path URL</td>
+  <td>$page->video1->webm</td>
+</tr>
+<tr>
+  <td>audioEncoding</td>
+  <td>Choose the audio encoding (not working yet)</td>
+  <td>$page->video1->audioEncoding</td>
+</tr>
+<tr>
+  <td>width</td>
+  <td>Choose width of video (not working yet)</td>
+  <td>$page->video1->width</td>
+</tr>
+<tr>
+  <td>height</td>
+  <td>Choose height of video (not working yet)</td>
+  <td>$page->video1->height</td>
+</tr>
+<tr>
+  <td>upscale</td>
+  <td>Should the video be upscaled? (Yes or No)</td>
+  <td>$page->video1->upscale</td>
+</tr>
+<tr>
+  <td>aspectMode</td>
+  <td>Crop, stretch, pad or preserve the video aspect ratio (not working yet)</td>
+  <td>$page->video1->aspectMode</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="wysiwyg" class="ia"></a><a href="#wysiwyg">#</a>WYSIWYG</h2>
+
+<pre><code class="php">
+&lt;div data-dvs-wysiwyg1-id="wysiwyg1" style="width: 100%; height: 200px; overflow: scroll; background-color: #eee; padding: 5px;" &gt;
+    {{$page-&gt;wysiwyg1-&gt;text }}
+&lt;/div&gt;
+
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Description</th>
+  <th>How To Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>text</td>
+  <td>HTML content delivered by WYSIWYG editor</td>
+  <td>$page->wysiwyg1->text</td>
+</tr>
+</tbody>
+</table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-4" id="documentation-pagination">
+
+                <div class="row">
+
+                    <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/5-fields" title="Fields">&#8592; Fields</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs" title=""> &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
+                                            </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <footer class="tar">
+        <div class="container open-sans tiny">
+            <img class="mb sp8" src="/imgs/devise-logo-mini-black.gif" width="114" height="39" alt="Devise" />
+            <p>Devise Logo and Devisephp.com<br>
+               Copyright &copy 2015 <a href="http://lbm.co" class="strong" target="_blank">LBM</a><br><br>
+
+               Devise content management system source code under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

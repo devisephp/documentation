@@ -1,4 +1,4 @@
-$navbar-height : 116px;
+$navbar-height : 76px;
 
 .navbar {
   height:$navbar-height;
@@ -7,6 +7,7 @@ $navbar-height : 116px;
   background-color:transparentize(darken($white, 3%), 0.2);
   border:none;
   border-color:transparent;
+  box-shadow:2px 0 5px rgba(0,0,0,0.2);
 
   a {
     float:left;
