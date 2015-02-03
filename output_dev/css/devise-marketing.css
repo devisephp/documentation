@@ -1101,13 +1101,13 @@ p.tiny {
   #documentation-content table {
     border: 1px solid #dbdbdb;
     border-collapse: collapse;
-    background-color: #fcfcfc; }
+    background-color: #fcfcfc;
+    font-family: "Open Sans", arial, tahoma, sans-serif; }
     #documentation-content table th {
       border: 1px solid #dbdbdb;
       padding: 8px 10px;
       background-color: #eaeaea;
-      text-transform: uppercase;
-      font-family: "Open Sans", arial, tahoma, sans-serif; }
+      text-transform: uppercase; }
     #documentation-content table td {
       border: 1px solid #dbdbdb;
       padding: 8px 10px; }

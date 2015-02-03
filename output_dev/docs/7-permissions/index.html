@@ -114,11 +114,12 @@
                                 <li class="active">
                 <a href="/docs/7-permissions">Permissions</a>
                                             <ul>
-                                                            <li class="active" ><a href="/docs/7-permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
                                                             <li class="active" ><a href="/docs/7-permissions#implementing-in-templates">Implementing In Templates</a></li>
                                                             <li class="active" ><a href="/docs/7-permissions#implementing-on-pages">Implementing On Pages</a></li>
                                                             <li class="active" ><a href="/docs/7-permissions#implementing-in-routes">Implementing In Routes</a></li>
                                                             <li class="active" ><a href="/docs/7-permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
+                                                            <li class="active" ><a href="/docs/7-permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -159,36 +160,44 @@
 
                         <h1>Permissions</h1>
 
-<p>All permissions are constructed from two parts: permission rules (regular PHP functions) and permission conditions. Permissions conditions use one or multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
+<p>There are two types of permissions that you can use: permission rules (regular PHP functions that you register with us) and permission conditions. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
 
-<h2><a name="creating-new-permission-formulas" class="ia"></a><a href="#creating-new-permission-formulas">#</a>Creating New Permission Formulas</h2>
+<h2><a name="preloaded-permission-rules" class="ia"></a><a href="#preloaded-permission-rules">#</a>Preloaded Permission Rules</h2>
 
-<p>Permission formulas use one or multiple permission functions to create a conditional formula that will return a true or false determining if a client has whatever they need to load a route or see a particular portion of a page.</p>
+<p>Devise comes preloaded with several permission rules that are fairly common in applications our team builds.</p>
 
-<p>To create a permission formula log in to the administration of your Devise application and click on, you guessed it, "Permissions". Here you can construct formulas using the web-based UI to combine the registered permission functions with <code>AND / OR</code> statements. This gives you an amazing amount of freedom to combine small/broad permissions to make very specific rules.</p>
+<pre><code class="php">
+isLoggedIn();
+isNotLoggedIn();
+isInGroup($groupname);
+isNotInGroup($groupname);
+hasUserName($username); // Will check both user
+hasEmail($email);
+hasFieldValue($field, $value); // Tests any property of the user
+
+</code></pre>
 
 <h2><a name="implementing-in-templates" class="ia"></a><a href="#implementing-in-templates">#</a>Implementing In Templates</h2>
 
 <p>To hide or show a specific part of a template based on a permission function you will need to something like the following:</p>
 
 <pre><code class="php">
-@if(DeviseUser::checkRule('doesDrinkBeer'))
+@if(DeviseUser::checkRule('doesDrinkBeer', ['like this']))
     &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
 @endif
-
 
 </code></pre>
 
 <p>Or the shorthand...</p>
 
 <pre><code class="php">
-@if(DeviseUser::doesDrinkBeer())
+@if(DeviseUser::doesDrinkBeer('like this'))
     &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
 @endif
 
 </code></pre>
 
-<h2><a name="creating-new-permission-functions" class="ia"></a><a href="#creating-new-permission-functions">#</a>Creating New Permission Functions</h2>
+<h2><a name="creating-new-permission-rules" class="ia"></a><a href="#creating-new-permission-rules">#</a>Creating New Permission Rules</h2>
 
 <blockquote>
   <blockquote>
@@ -197,6 +206,24 @@
     <p>All permission functions must return a boolean response to work correctly.</p>
   </blockquote>
 </blockquote>
+
+<pre><code class="php">
+//Let's add another rule called doesDrinkBourbon
+RuleManager::addRule('doesDrinkBourbon', function() {
+    return true;
+});
+
+</code></pre>
+
+<p>With a parameter</p>
+
+<pre><code class="php">
+//Let's add another rule called doesDrinkBourbon
+RuleManager::addRule('drinksRightTypeOfBeer', function($type) {
+    return $type == 'stout';
+});
+
+</code></pre>
 
 <pre><code class="php">
 class AppServiceProvider extends ServiceProvider {
@@ -224,6 +251,12 @@ class AppServiceProvider extends ServiceProvider {
 }
 
 </code></pre>
+
+<h2><a name="creating-new-permission-conditions" class="ia"></a><a href="#creating-new-permission-conditions">#</a>Creating New Permission Conditions</h2>
+
+<p>Permission conditions use one or multiple permission rules to create a conditional formula that will return a true or false determining if a client has whatever they need to load a route or see a particular portion of a page.</p>
+
+<p>To create a permission formula log in to the administration of your Devise application and click on, you guessed it, "Permissions". Here you can construct conditions using the web-based UI to combine the registered permission rules with <code>AND / OR</code> statements. This gives you an amazing amount of freedom to combine small/broad permissions to make very specific rules.</p>
 
                     </div>
                 </div>

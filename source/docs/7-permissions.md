@@ -3,7 +3,7 @@ layout: default
 title: Permissions
 use: [docs]
 converters: [markdown]
-sections:,
+sections:
     - Preloaded Permission Rules
     - Implementing In Templates
     - Implementing On Pages
@@ -18,7 +18,7 @@ There are two types of permissions that you can use: permission rules (regular P
 
 ##<a name="preloaded-permission-rules" class="ia"></a>[#](#preloaded-permission-rules)Preloaded Permission Rules
 
-Devise comes preloaded with several permission rules that are fairly common in applications our team builds. They are:
+Devise comes preloaded with several permission rules that are fairly common in applications our team builds.
 
 ```php
 {% verbatim %}
@@ -42,7 +42,6 @@ To hide or show a specific part of a template based on a permission function you
     <a href="/secret-beer-stash">The secret beer stash!</a>
 @endif
 {% endverbatim %}
-
 ```
 
 Or the shorthand...
