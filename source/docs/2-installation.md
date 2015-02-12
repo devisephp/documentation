@@ -62,6 +62,9 @@ If you are installing Devise "by hand" on an existing Laravel 5 project take the
 'Illuminate\Validation\ValidationServiceProvider',
 'Illuminate\View\ViewServiceProvider',
 
+/*
+ * Devise Service Provider
+ */
 'Devise\DeviseServiceProvider',
 
 /*
@@ -81,7 +84,6 @@ If you are installing Devise "by hand" on an existing Laravel 5 project take the
         /*
          * Devise Facades...
          */
-        'Eloquent'        => 'Devise\Support\Sortable\EloquentModel',
         'Sort'            => 'Devise\Support\Sortable\SortableFacade',
         'DeviseUser'      => 'Devise\Users\DeviseUser',
         'RuleManager'     => 'Devise\Users\Permissions\RuleManagerFacade',

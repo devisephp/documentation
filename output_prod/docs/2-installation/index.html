@@ -338,6 +338,9 @@ php artisan devise:seed
 'Illuminate\Validation\ValidationServiceProvider',
 'Illuminate\View\ViewServiceProvider',
 
+/*
+ * Devise Service Provider
+ */
 'Devise\DeviseServiceProvider',
 
 /*
@@ -362,7 +365,6 @@ php artisan devise:seed
         /*
          * Devise Facades...
          */
-        'Eloquent'        =&gt; 'Devise\Support\Sortable\EloquentModel',
         'Sort'            =&gt; 'Devise\Support\Sortable\SortableFacade',
         'DeviseUser'      =&gt; 'Devise\Users\DeviseUser',
         'RuleManager'     =&gt; 'Devise\Users\Permissions\RuleManagerFacade',
