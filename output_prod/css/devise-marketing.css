@@ -15,6 +15,53 @@
 /* Font Families */
 /* Other Resource Paths */
 /* Globals */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 body {
   color: #424242;
   background-color: #fcfcfc;
@@ -30,7 +77,7 @@ a, a:hover {
 
 pre {
   padding: 2px 5px;
-  font-size: 9px;
+  font-size: 11px;
   background-color: #171717;
   border-color: #171717; }
   pre code {
@@ -592,14 +639,16 @@ footer {
   background-color: rgba(244, 244, 244, 0.8);
   border: none;
   border-color: transparent;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); }
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed; }
   .navbar a {
     float: left; }
   .navbar img {
     margin-top: -10px; }
   .navbar ul.list-inline li {
     float: right;
-    line-height: 76px; }
+    line-height: 76px;
+    margin: 0; }
     .navbar ul.list-inline li a {
       padding: 0 15px;
       font-size: 14px;
@@ -623,9 +672,33 @@ footer {
   top: -76px;
   visibility: hidden; }
 
-/* Mobile  */
 /* Landscape phones and smaller */
 /* Tablets */
+/* Mobile  */
+@media (max-width: 767px) {
+  .navbar {
+    height: auto;
+    position: relative;
+    background-color: #fcfcfc; }
+    .navbar .navbar-inner > a {
+      display: none; }
+    .navbar ul.list-inline {
+      padding: 30px 0;
+      clear: both;
+      float: left; }
+      .navbar ul.list-inline li {
+        clear: both;
+        float: left;
+        line-height: 40px;
+        margin-bottom: 1px; }
+        .navbar ul.list-inline li a {
+          font-size: 20px;
+          line-height: 40px;
+          background-color: rgba(255, 255, 255, 0.9); } }
+/* Large devices (large desktops, 1200px and up) */
+body {
+  color: #424242; }
+
 /* Font Weights */
 .thin {
   font-weight: 100; }
@@ -644,11 +717,11 @@ footer {
 
 /* Font Sizes */
 .tiny {
-  font-size: 9px;
-  line-height: 16.2px; }
+  font-size: 11px;
+  line-height: 19.8px; }
   .tiny p {
-    font-size: 9px;
-    line-height: 16.2px; }
+    font-size: 11px;
+    line-height: 19.8px; }
 
 .small {
   font-size: 12px;
@@ -712,11 +785,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 150px;
+  line-height: 0.85em;
   margin: 25px 0 0.25em; }
 
 h2 {
   font-size: 100px;
-  line-height: 50px; }
+  line-height: 80px; }
 
 h3 {
   font-size: 64px; }
@@ -736,16 +810,31 @@ h6 {
 strong {
   font-weight: 600; }
 
+em {
+  font-style: italic; }
+
+blockquote {
+  background-color: #7dbc5d;
+  color: #fff;
+  padding: 20px 30px; }
+  blockquote a {
+    background-color: #fff;
+    padding: 2px 4px;
+    border-radius: 2px; }
+
 li,
 p {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   line-height: 28px;
-  color: #424242; }
+  margin: 10px 0 20px 0; }
+  li.unlist,
+  p.unlist {
+    margin: 0; }
 
 p.tiny {
   font-family: "Open Sans", arial, tahoma, sans-serif;
-  line-height: 16px; }
+  line-height: 18px; }
 
 .open-sans {
   font-family: "Open Sans", arial, tahoma, sans-serif; }
@@ -815,13 +904,19 @@ p.tiny {
 
 /* Layouts */
 #homepage-hero {
-  margin-top: 90px;
-  border-bottom: 1px solid #dedede; }
+  margin-top: 78px; }
   #homepage-hero li {
     position: relative;
     text-align: center;
     color: #fcfcfc; }
+    #homepage-hero li video {
+      display: none;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0; }
     #homepage-hero li img {
+      display: inherit;
       width: 100%; }
       #homepage-hero li img#homepage-hero-logo {
         width: 429px;
@@ -839,16 +934,17 @@ p.tiny {
       width: 96px;
       height: 96px;
       font-size: 0;
-      border-width: 0; }
+      border-width: 0;
+      outline-width: 0; }
     #homepage-hero li h3 {
       position: absolute;
-      top: 60%;
+      top: 55%;
       font-family: "Bebas Neue", "Open Sans", tahoma, arial, sans-serif;
       font-size: 48px;
       width: 100%; }
     #homepage-hero li p {
       position: absolute;
-      top: 73%;
+      top: 75%;
       left: 50%;
       color: #fcfcfc;
       width: 76%;
@@ -859,6 +955,7 @@ p.tiny {
   text-align: left;
   color: #fff; }
   .page-hero li img {
+    display: inherit;
     width: 100%; }
   .page-hero li .page-hero-content {
     position: absolute;
@@ -868,7 +965,7 @@ p.tiny {
   .page-hero li h1 {
     text-align: left;
     font-size: 125px;
-    line-height: 1em; }
+    line-height: 0.85em; }
   .page-hero li p {
     color: #fff;
     font-size: 20px; }
@@ -897,7 +994,7 @@ p.tiny {
     height: 60px;
     margin-left: -30px; }
   #homepage-hero li h3 {
-    top: 65%;
+    top: 55%;
     font-family: "Bebas Neue", "Open Sans", tahoma, arial, sans-serif;
     font-size: 56px;
     width: 100%; }
@@ -952,7 +1049,7 @@ p.tiny {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   #homepage-hero li h3 {
-    top: 55%;
+    top: 50%;
     font-size: 80px; }
   #homepage-hero li p {
     position: absolute;
@@ -966,6 +1063,45 @@ p.tiny {
 
   #resources {
     padding-bottom: 0px; } }
+.page-hero {
+  float: left;
+  width: 100%; }
+  .page-hero li {
+    height: 800px;
+    background-size: cover; }
+
+/* Mobile  */
+@media (max-width: 420px) {
+  .page-hero li h1 {
+    font-size: 75px; } }
+/* Tablets */
+@media (min-width: 768px) and (max-width: 979px) {
+  .page-hero li h1 {
+    font-size: 75px; } }
+/* Landscape phones and smaller */
+@media (max-width: 767px) {
+  .page-hero li {
+    height: 500px; }
+    .page-hero li .page-hero-content {
+      position: relative;
+      width: 80%;
+      left: 10%;
+      top: 10%; }
+    .page-hero li h1 {
+      font-size: 50px; }
+    .page-hero li p {
+      font-size: 18px;
+      line-height: 26px; }
+
+  h2 {
+    font-size: 75px;
+    line-height: 60px; }
+
+  .two-column-article {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1; } }
+/* Large devices (large desktops, 1200px and up) */
 #documentation {
   background-color: #efefef;
   padding-top: 80px; }
@@ -1050,7 +1186,9 @@ p.tiny {
     #documentation pre code {
       padding: 15px 30px; }
   #documentation code {
-    font-size: 14px; }
+    font-size: 13px;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    line-height: 1.5em; }
   #documentation ul {
     margin-bottom: 20px; }
 
@@ -1089,12 +1227,59 @@ p.tiny {
     padding: 20px;
     background-color: white;
     border-bottom: 1px solid #ebebeb;
-    font-family: "Open Sans", arial, tahoma, sans-serif; }
+    font-family: "Open Sans", arial, tahoma, sans-serif;
+    margin: 0; }
     #documentation-sidebar > li.child-active, #documentation-sidebar > li.active {
       border-top: 1px solid #fff;
       background-color: #f7f7f7; }
       #documentation-sidebar > li.child-active > ul, #documentation-sidebar > li.active > ul {
         display: block; }
+
+#collapsed-documentation-navigation {
+  background-color: #fff; }
+  #collapsed-documentation-navigation ul {
+    list-style: none;
+    padding-left: 15px;
+    padding-top: 20px; }
+    #collapsed-documentation-navigation ul li {
+      display: none;
+      margin-bottom: 20px;
+      font-family: "Open Sans", arial, tahoma, sans-serif;
+      font-size: 14px;
+      line-height: 18px; }
+      #collapsed-documentation-navigation ul li:last {
+        margin-bottom: none; }
+      #collapsed-documentation-navigation ul li a {
+        color: #838383; }
+        #collapsed-documentation-navigation ul li a:hover {
+          color: #5d5d5d; }
+      #collapsed-documentation-navigation ul li.child-active, #collapsed-documentation-navigation ul li.active {
+        border-top: 1px solid #fff;
+        display: block; }
+        #collapsed-documentation-navigation ul li.child-active ul, #collapsed-documentation-navigation ul li.child-active li, #collapsed-documentation-navigation ul li.active ul, #collapsed-documentation-navigation ul li.active li {
+          display: block; }
+  #collapsed-documentation-navigation > ul {
+    padding: 0; }
+    #collapsed-documentation-navigation > ul > li {
+      clear: both;
+      display: block;
+      border-bottom: 1px solid #ebebeb;
+      padding: 18px 40px;
+      margin: 0; }
+      #collapsed-documentation-navigation > ul > li:after {
+        content: "";
+        display: table;
+        clear: both; }
+      #collapsed-documentation-navigation > ul > li a {
+        font-weight: bold;
+        display: block; }
+      #collapsed-documentation-navigation > ul > li > ul {
+        display: none;
+        clear: both;
+        float: left;
+        margin: 0; }
+        #collapsed-documentation-navigation > ul > li > ul > li a {
+          font-weight: normal; }
 
 #documentation-content {
   background-color: #f4f4f4;
@@ -1126,3 +1311,9 @@ p.tiny {
 
 #difficulty-buttons {
   padding-top: 20px; }
+
+/* Responsive Overrides - should be empty */
+/* Landscape phones and smaller */
+/* Tablets */
+/* Mobile  */
+/* Large devices (large desktops, 1200px and up) */

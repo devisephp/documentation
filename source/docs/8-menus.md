@@ -30,7 +30,17 @@ There are two link modes for menu items: URLs and Pages. If "Page" is selected t
 
 ##<a name="implementing-menus" class="ia"></a>[#](#implementing-menus)Implementing Menus
 
-Implementing menus is simple even in the more complex scenarios.
+Implementing menus is simple even in more complex scenarios.
+
+First, we need to add the menu variable to the template or layout that you want the menu to be available on. If the menu is something like a main menu you probably want to add it to your layout file so you don't have to add it to _every_ template, right? But if it's a menu that only appears on one template then just add it to that single template. Here's how we do that:
+
+1. Head to Templates
+1. Click edit on the template that we want to add a variable to
+1. Click 'Add new variable'
+1. Give it a variable name of whatever you want. For example: ```mainNavigation``` (no dollar sign needed sir/ma'am)
+1. Give it a class path of ```Devise\Menus\MenusRepository```
+1. Give it a method name of ```buildMenu```
+1. Add a parameter: Change the type to 'Static Value' and set the value to the name of your menu.
 
 This is a snippet from the default administration template. It loops through each of the top tier menu items and then through each of their children.
 

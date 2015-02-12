@@ -31,7 +31,7 @@ sections:
 
 ```html
 {% verbatim %}
- <audio data-dvs-audio1-id="audio1" src="{{ $page->audio1->file }}" controls loop>
+ <audio data-devise="audio1, audio" src="{{ $page->audio1->file }}" controls loop>
     HTML5 audio not supported
 </audio>
 {% endverbatim %}
@@ -57,7 +57,7 @@ sections:
 
 ```php
 {% verbatim %}
-<div data-dvs-checkboxGroup1-id="checkboxGroup1">
+<div data-devise="checkboxGroup1, checkbox-group">
    @foreach ($page->checkboxGroup1->checkboxes as $checkbox)
       <label>
          <input type="checkbox" value="{{ $checkbox->key }}" {{ $checkbox->default ? 'checked' : '' }}>
@@ -80,7 +80,7 @@ sections:
 
 ```php
 {% verbatim %}
-<p data-dvs-checkbox1-id="checkbox1">
+<p data-devise="checkbox1, checkbox">
     {{ $page->checkbox1->value ? 'Do something with check' : 'Do something else' }}
 </p>
 {% endverbatim %}
@@ -98,7 +98,7 @@ sections:
 
 ```
 {% verbatim %}
-<p data-dvs-color1-id="color1" style="background-color: {{ $page->color1->color('blue') }};">
+<p data-devise="color1, color" style="background-color: {{ $page->color1->color('blue') }};">
 	Showing the color {{ $page->color1->color('blue') }}
 </p>
 {% endverbatim %}
@@ -117,7 +117,7 @@ sections:
 
 ```php
 {% verbatim %}
-<p data-dvs-datetime1-id="datetime1">
+<p data-devise="datetime1, datetime">
 	Concert starts at {{ $page->datetime1->datetime }}
 </p>
 {% endverbatim %}
@@ -138,7 +138,7 @@ sections:
 ```php
 {% verbatim %}
 Download file
-<a data-dvs-file1-id="file1" href="{{ $page->file1->file }}">Download file</a>
+<a data-devise="file1, file" href="{{ $page->file1->file }}">Download file</a>
 {% endverbatim %}
 ```
 | Attribute    | Description                                    | How To Reference           |
@@ -156,7 +156,7 @@ Download file
 
 ```php
 {% verbatim %}
-<div data-dvs-html1-id="html1">
+<div data-devise="html1, html">
 	{{ $page->html1->html }}
 </div>
 {% endverbatim %}
@@ -175,7 +175,7 @@ Download file
 
 ```php
 {% verbatim %}
-<img src="{{ $page->image1->image_url('/imgs/default-images/special-occasions-gallery-img-2.jpg')}}" class="dvs-test-frame" data-dvs-image1-id="image1">
+<img src="{{ $page->image1->image_url('/imgs/default-images/special-occasions-gallery-img-2.jpg')}}" class="dvs-test-frame" data-devise="image1, image">
 {% endverbatim %}
 ```
 
@@ -211,7 +211,7 @@ Download file
 
 ```php
 {% verbatim %}
-<a data-dvs-link1-id="link1" href="{{ $page->link1->url }}" target="{{ $page->link1->target }}">
+<a data-devise="link1, link" href="{{ $page->link1->url }}" target="{{ $page->link1->target }}">
     {{ $page->link1->text }}
 </a>
 {% endverbatim %}
@@ -233,7 +233,7 @@ Download file
 
 ```php
 {% verbatim %}
-<p data-dvs-map1-id="map1">figure out how to display google map here</p>
+<p data-devise="map1, map">figure out how to display google map here</p>
 {% endverbatim %}
 ```
 
@@ -256,7 +256,7 @@ Download file
 
 ```php
 {% verbatim %}
-<select data-dvs-select1-id="select1">
+<select data-devise="select1, select">
     @foreach ($page->select1->options as $option)
         <option value="{{ $option->value }}">{{ $option->name }}</option>
     @endforeach
@@ -277,7 +277,7 @@ Download file
 
 ```php
 {% verbatim %}
-<p data-dvs-text1-id="text1">
+<p data-devise="text1, text">
     {{ $page->text1->text('This is some default text') }}
 <p>
 {% endverbatim %}
@@ -298,7 +298,7 @@ Download file
 
 ```php
 {% verbatim %}
-<p data-dvs-textarea1-id="textarea1">
+<p data-devise="textarea1, textarea">
     {{ $page->textarea1->text('This is some default text') }}
 <p>
 {% endverbatim %}
@@ -323,7 +323,7 @@ Download file
 
 ```php
 {% verbatim %}
- <video data-dvs-video1-id="video1"
+ <video data-devise="video1, video"
     id="example_video_1"
     class="video-js vjs-default-skin"
     controls preload="auto"
@@ -374,7 +374,7 @@ Download file
 
 ```php
 {% verbatim %}
-<div data-dvs-wysiwyg1-id="wysiwyg1" style="width: 100%; height: 200px; overflow: scroll; background-color: #eee; padding: 5px;" >
+<div data-devise="wysiwyg1, wysiwyg">
 	{{$page->wysiwyg1->text }}
 </div>
 {% endverbatim %}

@@ -14,7 +14,7 @@ sections:
 >>>####Work in Progress
 >>>Installation is one of the most important features of making a CMS accessible to developers. We want this process to be as simple as it can be to make it easy the first and thirty-first times you do it. With the huge changes that have come with Laravel 5 we are waiting for stability to work on the web-based installer and round out the command-line installer. Expect this note to be removed in 1.0.
 
-##<a name="installing-through-command-line" class="ia"></a>[#](#environmental-configuration)Environmental Configuration
+##<a name="installing-through-command-line" class="ia"></a>[#](#environmental-configuration)Installing Through The Command Line
 
 Installation through the command line is as simple as:
 
@@ -31,10 +31,65 @@ php artisan devise:seed
 ```
 
 
-##Installing through the browser
+##<a name="installing-through-the-browser" class="ia"></a>[#](#installing-through-the-browser)Installing through the browser
 
 >>>####In Development
 >>>This feature will be upcoming in 1.0 (Mid March 2015)
+
+
+##<a name="installing-devise-on-an-existing-project" class="ia"></a>[#](#installing-devise-on-an-existing-project)Installing Devise On An Existing Project
+
+If you are installing Devise "by hand" on an existing Laravel 5 project take the following steps.
+
+####1. Add Devise to your composer
+
+```php
+{% verbatim %}
+"require": {
+    "laravel/framework": "5.*",
+    "devisephp/cms": "*",
+    "illuminate/html": "5.*"
+}
+{% endverbatim %}
+```
+######/composer.json
+
+####2. Add Devise service provider and facades
+
+```php
+{% verbatim %}
+...
+'Illuminate\Validation\ValidationServiceProvider',
+'Illuminate\View\ViewServiceProvider',
+
+'Devise\DeviseServiceProvider',
+
+/*
+ * Application Service Providers...
+ */
+'App\Providers\AppServiceProvider',
+...
+{% endverbatim %}
+```
+######/config/app.php
+
+>>####Watch Out!
+>>Make sure the deviseServiceProvider appears **above** the Application Service Providers
+
+```php
+{% verbatim %}
+        /*
+         * Devise Facades...
+         */
+        'Eloquent'        => 'Devise\Support\Sortable\EloquentModel',
+        'Sort'            => 'Devise\Support\Sortable\SortableFacade',
+        'DeviseUser'      => 'Devise\Users\DeviseUser',
+        'RuleManager'     => 'Devise\Users\Permissions\RuleManagerFacade',
+        'Form'            => 'Illuminate\Html\FormFacade',
+        'HTML'            => 'Illuminate\Html\HtmlFacade',
+{% endverbatim %}
+```
+######/config/app.php
 
 
 ##<a name="environmental-configuration" class="ia"></a>[#](#environmental-configuration)Environmental Configuration
