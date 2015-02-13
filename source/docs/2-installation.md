@@ -14,7 +14,7 @@ sections:
 >>>####Work in Progress
 >>>Installation is one of the most important features of making a CMS accessible to developers. We want this process to be as simple as it can be to make it easy the first and thirty-first times you do it. With the huge changes that have come with Laravel 5 we are waiting for stability to work on the web-based installer and round out the command-line installer. Expect this note to be removed in 1.0.
 
-##<a name="installing-through-command-line" class="ia"></a>[#](#environmental-configuration)Installing Through The Command Line
+##<a name="installing-through-command-line" class="ia"></a>[#](#installing-through-command-line)Installing Through The Command Line
 
 Installation through the command line is as simple as:
 
