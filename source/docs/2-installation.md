@@ -139,45 +139,4 @@ root /vagrant/whatever/whatever/site/public
 
 ```cd``` into your Homestead directory (where homestead.yaml is located) and run "vagrant reload --provision". NOTE: If your vagrant box is not already up-and-running, you might need to run "vagrant up" rather than ".
 
-####4. SSH into the Vagrant box
-
-While still in the Homestead directory, SSH into vagrant with the command "vagrant ssh."
-
-####5. Set the application environment
-
-Next we will need to set the to application's environment to "local" with the listed steps below:
-
-a. First, open the sites-available entry for devise-example.com by running ```bash sudo vi /etc/nginx/sites-available/devise-example.com```
-
-b. Then find the text ```bash location ~ \.php$ {```
-
-c. On the next line paste ```bash fastcgi_param LARAVEL_ENV "local"; ```
-
-```bash
-    It should look like this:
-    location ~ \.php$ {
-        fastcgi_param LARAVEL_ENV "local";
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_index index.php;
-        include fastcgi_params;
-    }
-```
-
-d. Write to file and quit with ":wq" command
-e. Restart nginx service by running "sudo service nginx restart"; now LARAVEL_ENV is set to "local."
-
 All of the above steps can be found in more detail on the [Laravel documetation page on Homestead](http://laravel.com/docs/4.2/homestead)
-
-
-####6. Run Migrations and Seeds
-1. SSH into vagrant box by running "vagrant ssh" from the Homestead directory
-2. Then cd into the root of devise-example application and run the following commands:
-
-```bash
-php artisan migrate --package="devisephp/cms" --env=local  (devisephp migrations)
-php artisan migrate --env=local (application migrations)
-
-php artisan db:seed --env=local --class="DeviseSeeder" (devisephp seeds)
-php artisan db:seed --env=local  (application seeds)
-```
