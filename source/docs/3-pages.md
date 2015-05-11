@@ -105,6 +105,17 @@ That allows you to set a url parameter we can use to load the appropriate brewer
 
 >> Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the [templatefs](Templates) documentation to see how this should be formatted.
 
+---
+
+**Administration Page**: Will this page be visible on the admin pages index.
+
+---
+
+### Filters
+
+**Before**: A function which will be executed "before" the actual page request. An example would be if the user needs to be in the administrators group, we could execute a function to check every user's group upon page request.
+
+
 ##<a name="managing-pages" class="ia"></a>[#](#managing-pages)Managing Pages
 
 There are essentially two things you can do with a page once it has been created:
