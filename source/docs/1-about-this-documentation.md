@@ -10,14 +10,13 @@ sections:
 ---
 
 #About this Documentation
-We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks. Even in it's first release we are attempting to supply you with robust documentation.
+We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks! Even in it's first release we are attempting to supply you with robust documentation.
 
 ##<a name="unique-functionality" class="ia"></a>[#](#unique-functionality%21)Unique Functionality
 
 We have done two things in these documents that may be unfamiliar to you.
 
 1. We have provided three modes for the documentation to provide different skill levels with the information most likely to help them. Toggle between 'Beginner', 'Advanced', and 'All' to hide and show sections that best fit your level.
-2. ```WIP - Expect around 1.0```: A form is present next to each major section that will allow you to let us know what questions you have or what you still don't understand. This will allow us to update the documentation in the areas that it needs the most help.
 
 <div class="beginner" markdown="1">
 Easy there fella! This is just for the new guys!

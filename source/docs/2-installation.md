@@ -4,15 +4,25 @@ title: Installation
 use: [docs]
 converters: [markdown]
 sections:
-    - Installing through command line
     - Installing through the browser
+    - Installing through command line
     - Environmental Configuration
 ---
 
 #Installation
 
->>>####Work in Progress
->>>Installation is one of the most important features of making a CMS accessible to developers. We want this process to be as simple as it can be to make it easy the first and thirty-first times you do it. With the huge changes that have come with Laravel 5 we are waiting for stability to work on the web-based installer and round out the command-line installer. Expect this note to be removed in 1.0.
+##<a name="installing-through-the-browser" class="ia"></a>[#](#installing-through-the-browser)Installing through the browser
+
+Installing Devise via browser is simple and painless. After grabbing the latest version of Devise and then properly adding it's resources to your project, simply open a browser and navigate to your project's url. Your browser will be redirected to the installer's welcome page.
+
+![Devise Web Installer Welcome Screen]
+(../imgs/installation/welcome-screen.jpg)
+
+>>####Watch out
+>> If you are having issues with your application's url resolving and/or being redirected to the installation welcome screen, you most likely have an issue in your "homestead.yaml" or "/etc/hosts". Review the steps listed under within the ##<a name="environmental-configuration" class="ia"></a>[#environmental configuration section](#environmental-configuration).
+
+Complete the form on each step to configure your environment, database, application settings and admin user credentials. Then let Devise take care of the connecting the dots and getting the application up-and-running.
+
 
 ##<a name="installing-through-command-line" class="ia"></a>[#](#installing-through-command-line)Installing Through The Command Line
 
@@ -29,12 +39,6 @@ php artisan devise:migrate
 php artisan devise:assets
 php artisan devise:seed
 ```
-
-
-##<a name="installing-through-the-browser" class="ia"></a>[#](#installing-through-the-browser)Installing through the browser
-
->>>####In Development
->>>This feature will be upcoming in 1.0 (Mid March 2015)
 
 
 ##<a name="installing-devise-on-an-existing-project" class="ia"></a>[#](#installing-devise-on-an-existing-project)Installing Devise On An Existing Project
@@ -96,7 +100,7 @@ If you are installing Devise "by hand" on an existing Laravel 5 project take the
 
 ##<a name="environmental-configuration" class="ia"></a>[#](#environmental-configuration)Environmental Configuration
 
-Below we will cover setting up Devise, Laravel and Homestead in an OSX environment. For more information on setting up Homestead please refer to the [Laravel documentation](http://laravel.com/docs/4.2/homestead#installation-and-setup) or for Windows check out [this video](http://blog.teamtreehouse.com/laravel-homestead-on-windows) on Treehouse.
+Below we will cover setting up Devise, Laravel and Homestead in an OSX environment. For more information on setting up Homestead please refer to the [Laravel documentation](http://laravel.com/docs/5.0/homestead#installation-and-setup) or for Windows check out [this video](http://blog.teamtreehouse.com/laravel-homestead-on-windows) on Treehouse.
 
 ####1. Add entry to /etc/hosts like a-so:
 
@@ -139,4 +143,4 @@ root /vagrant/whatever/whatever/site/public
 
 ```cd``` into your Homestead directory (where homestead.yaml is located) and run "vagrant reload --provision". NOTE: If your vagrant box is not already up-and-running, you might need to run "vagrant up" rather than ".
 
-All of the above steps can be found in more detail on the [Laravel documetation page on Homestead](http://laravel.com/docs/4.2/homestead)
+All of the above steps can be found in more detail on the [Laravel documetation page on Homestead](http://laravel.com/docs/5.0/homestead)
