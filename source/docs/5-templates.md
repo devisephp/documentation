@@ -47,10 +47,10 @@ A good way to start is to spread out your entire design deck and identify what p
 >>Devise needs just a magical include in your layout that will allow it to inject the JavaScript magic it needs.
 
 ```html
-@include('devise::scripts')
+@include('devise::assets')
 ```
 
-Place this include just before the ```</body>``` tag.
+Place this include within the ```<head></head>``` tag.
 
 ###3. Register that sucker
 
