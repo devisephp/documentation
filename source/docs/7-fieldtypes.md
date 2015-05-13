@@ -5,11 +5,12 @@ use: [docs]
 converters: [markdown]
 sections:
   - Audio
-  - Checkbox Group
   - Checkbox
+  - Checkbox Group
   - Color
   - Date/Time
   - File
+  - Hidden
   - HTML
   - Images
   - Link
@@ -53,6 +54,23 @@ sections:
 
 
 
+##<a name="checkbox" class="ia"></a>[#](#checkbox)Checkbox
+
+```php
+{% verbatim %}
+<p data-devise="checkbox1, checkbox">
+    {{ $page->checkbox1->value ? 'Do something with check' : 'Do something else' }}
+</p>
+{% endverbatim %}
+```
+
+| Attribute | Description                           | How To Reference        |
+|-----------|---------------------------------------|-------------------------|
+| value     | Value of this checkbox field (0 or 1) | $page->checkbox1->value |
+
+
+
+
 ##<a name="checkbox-group" class="ia"></a>[#](#checkbox-group)Checkbox Group
 
 ```php
@@ -75,30 +93,11 @@ sections:
 
 
 
-
-##<a name="checkbox" class="ia"></a>[#](#checkbox)Checkbox
-
-```php
-{% verbatim %}
-<p data-devise="checkbox1, checkbox">
-    {{ $page->checkbox1->value ? 'Do something with check' : 'Do something else' }}
-</p>
-{% endverbatim %}
-```
-
-| Attribute | Description                           | How To Reference        |
-|-----------|---------------------------------------|-------------------------|
-| value     | Value of this checkbox field (0 or 1) | $page->checkbox1->value |
-
-
-
-
-
 ##<a name="color" class="ia"></a>[#](#color)Color
 
 ```
 {% verbatim %}
-<p data-devise="color1, color" style="background-color: {{ $page->color1->color('blue') }};">
+<p data-devise="color1, color, Color, null, null, backgroundColor" style="background-color: {{ $page->color1->color('blue') }};">
 	Showing the color {{ $page->color1->color('blue') }}
 </p>
 {% endverbatim %}
@@ -152,6 +151,24 @@ Download file
 
 
 
+##<a name="hidden" class="ia"></a>[#](#hidden)Hidden
+
+```php
+{% verbatim %}
+<div data-devise="hidden1, text">
+    {{ $page->hidden1->text('Default hidden text value') }}
+</div>
+{% endverbatim %}
+```
+
+| Attribute | Description                        | How To Reference     |
+|-----------|------------------------------------|----------------------|
+| text      | The Value of the hidden text field | $page->hidden1->text |
+
+
+
+
+
 ##<a name="html" class="ia"></a>[#](#html)HTML
 
 ```php
@@ -175,36 +192,35 @@ Download file
 
 ```php
 {% verbatim %}
-<img src="{{ $page->image1->image_url('/imgs/default-images/special-occasions-gallery-img-2.jpg')}}" class="dvs-test-frame" data-devise="image1, image">
+<img src="{{ $page->image1->image( URL::asset('/imgs/defaults/some-example-image.jpg') ) }}" class="dvs-test-frame" data-devise="image1, image">
 {% endverbatim %}
 ```
 
-| Attribute         | Description                              | How To Reference                 |
-|-------------------|------------------------------------------|----------------------------------|
-| image             | URL of the image location                | $page->image1->image             |
-| alt               | The intended alt tag attribute           | $page->image1->alt               |
-| has_thumbnail     | String "1" or "0" for true or false      | $page->image1->has_thumbnail     |
-| image_width       | Width of the image                       | $page->image1->image_width       |
-| image_height      | Height of the image                      | $page->image1->image_height      |
-| image_crop_x      | Top left-hand corner's x of the crop     | $page->image1->image_crop_x      |
-| image_crop_y      | Top left-hand corner's y of the crop     | $page->image1->image_crop_y      |
-| image_crop_x2     | Bottom right-hand corner's x of the crop | $page->image1->image_crop_x2     |
-| image_crop_y2     | Bottom right-hand corner's y of the crop | $page->image1->image_crop_y2     |
-| image_crop_w      | Width of the crop                        | $page->image1->image_crop_w      |
-| image_crop_h      | Height of the crop                       | $page->image1->image_crop_h      |
-| thumbnail_width   | Width of the image                       | $page->image1->thumbnail_width   |
-| thumbnail_height  | Height of the image                      | $page->image1->thumbnail_height  |
-| thumbnail_crop_x  | Top left-hand corner's x of the crop     | $page->image1->thumbnail_crop_x  |
-| thumbnail_crop_y  | Top left-hand corner's y of the crop     | $page->image1->thumbnail_crop_y  |
-| thumbnail_crop_x2 | Bottom right-hand corner's x of the crop | $page->image1->thumbnail_crop_x2 |
-| thumbnail_crop_y2 | Bottom right-hand corner's y of the crop | $page->image1->thumbnail_crop_y2 |
-| thumbnail_crop_w  | Width of the crop                        | $page->image1->thumbnail_crop_w  |
-| thumbnail_crop_h  | Height of the crop                       | $page->image1->thumbnail_crop_h  |
-| image_url         | URL of the image                         | $page->image1->image_url         |
-| thumbnail_url     | URL of the thumbnail                     | $page->image1->thumbnail_url     |
-
-
-
+| Attribute         | Description                                            | How To Reference                 |
+|-------------------|--------------------------------------------------------|----------------------------------|
+| original          | Original image that was selected from media manager    | $page->image1->original          |
+| image             | URL of the image location                              | $page->image1->image             |
+| image_url         | Another way to access the URL of the image             | $page->image1->image_url         |
+| thumbnail         | URL of the thumbnail location                          | $page->image1->thumbnail         |
+| thumbnail_url     | Another way to access the URL of the thumbnail         | $page->image1->thumbnail_url     |
+| has_thumbnail     | String "1" or "0" for true or false                    | $page->image1->has_thumbnail     |
+| caption           | The caption/alt tag attribute                          | $page->image1->caption           |
+| image_width       | Width of the image                                     | $page->image1->image_width       |
+| image_height      | Height of the image                                    | $page->image1->image_height      |
+| image_crop_x      | Top left-hand corner's x of the crop                   | $page->image1->image_crop_x      |
+| image_crop_y      | Top left-hand corner's y of the crop                   | $page->image1->image_crop_y      |
+| image_crop_x2     | Bottom right-hand corner's x of the crop               | $page->image1->image_crop_x2     |
+| image_crop_y2     | Bottom right-hand corner's y of the crop               | $page->image1->image_crop_y2     |
+| image_crop_w      | Width of the crop                                      | $page->image1->image_crop_w      |
+| image_crop_h      | Height of the crop                                     | $page->image1->image_crop_h      |
+| thumbnail_width   | Width of the thumbnail image                           | $page->image1->thumbnail_width   |
+| thumbnail_height  | Height of the thumbnail image                          | $page->image1->thumbnail_height  |
+| thumbnail_crop_x  | Top left-hand corner's x of the thumbnail crop         | $page->image1->thumbnail_crop_x  |
+| thumbnail_crop_y  | Top left-hand corner's y of the thumbnail crop         | $page->image1->thumbnail_crop_y  |
+| thumbnail_crop_x2 | Bottom right-hand corner's x of the thumbnail crop     | $page->image1->thumbnail_crop_x2 |
+| thumbnail_crop_y2 | Bottom right-hand corner's y of the thumbnail crop     | $page->image1->thumbnail_crop_y2 |
+| thumbnail_crop_w  | Width of the thumbnail crop                            | $page->image1->thumbnail_crop_w  |
+| thumbnail_crop_h  | Height of the thumbnail crop                           | $page->image1->thumbnail_crop_h  |
 
 
 ##<a name="link" class="ia"></a>[#](#link)Link
@@ -219,10 +235,10 @@ Download file
 
 | Attribute | Description                                                                  | How To Reference     |
 |-----------|------------------------------------------------------------------------------|----------------------|
-| text      | Link text that would likely be clickable                                     | $page->link1->text   |
+| text      | Link text                                                                    | $page->link1->text   |
 | route     | Use a route defined in pages table, if defined url is overridden             | $page->link1->route  |
-| url       | Use a regular URL, unless route is set then this will point to the route URL | $page->link1->url    |
-| target    | Open the window in _self or _blank                                           | $page->link1->target |
+| url       | Use any URL, unless route is set then route url takes precedence             | $page->link1->url    |
+| target    | Open the window in _blank, _self, _parent, _top, or *framename*              | $page->link1->target |
 
 
 
@@ -237,14 +253,15 @@ Download file
 {% endverbatim %}
 ```
 
-| Attribute | Description                                         | How To Reference       |
-|-----------|-----------------------------------------------------|------------------------|
-| address   | Full address to be displayed in map                 | $page->map1->address   |
-| latitude  | Latitude on map                                     | $page->map1->latitude  |
-| longitude | Longitude on map                                    | $page->map1->longitude |
-| mode      | Show map in Streets, Satellite or Hybrid mode       | $page->map1->mode      |
-| minZoom   | Amount allowed to zoom in on map scaled 1 thru 19   | $page->map1->minZoom   |
-| maxZoom   | Amount allowed to zoom out on map scalled 1 thru 19 | $page->map1->maxZoom   |
+| Attribute     | Description                                          | How To Reference           |
+|---------------|------------------------------------------------------|----------------------------|
+| address       | Full address to be displayed by map                  | $page->map1->address       |
+| latitude      | Latitude on map                                      | $page->map1->latitude      |
+| longitude     | Longitude on map                                     | $page->map1->longitude     |
+| mode          | Show in Roadmap, Streets, Satellite or Hybrid mode   | $page->map1->mode          |
+| minZoom       | Amount allowed to zoom in on map scaled 1 thru 19    | $page->map1->minZoom       |
+| maxZoom       | Amount allowed to zoom out on map scaled 1 thru 19   | $page->map1->maxZoom       |
+| startingZoom  | Initial/default zoom on map scaled 1 thru 19         | $page->map1->startingZoom  |
 
 
 
@@ -266,7 +283,7 @@ Download file
 | Attribute | Description                                       | How To Reference        |
 |-----------|---------------------------------------------------|-------------------------|
 | value     | Current value of the select box                   | $page->select1->value   |
-| options   | Array of name, value pairs for this select field. | $page->select1->options |
+| options   | Array of name, value pairs for this select field  | $page->select1->options |
 
 
 
@@ -324,7 +341,7 @@ Download file
 ```php
 {% verbatim %}
  <video data-devise="video1, video"
-    id="example_video_1"
+    id="video_1"
     class="video-js vjs-default-skin"
     controls preload="auto"
     poster="{{ $page->video1->poster_image }}"
@@ -350,7 +367,7 @@ Download file
 ```
 
 | Attribute     | Description                                                                                   | How To Reference             |
-|-----------------------------------------------------------------------------------------------|------------------------------|
+|---------------------------------------------------------------------------------------------------------------|------------------------------|
 | video         | URL Path to the video file (if remote URL is given then fetch and encode using options below) | $page->video1->video         |
 | poster_image  | Image to show as poster before video is loaded                                                | $page->video1->poster_image  |
 | mp4           | Create/encode a mp4 file from video path URL                                                  | $page->video1->mp4           |
@@ -360,12 +377,7 @@ Download file
 | width         | Choose width of video (not working yet)                                                       | $page->video1->width         |
 | height        | Choose height of video (not working yet)                                                      | $page->video1->height        |
 | upscale       | Should the video be upscaled? (Yes or No)                                                     | $page->video1->upscale       |
-| aspectMode    | Crop, stretch, pad or preserve the video aspect ratio (not working yet)                       | $page->video1->aspectMode    |
-
-
-
-
-
+| aspectMode    | Crop, stretch, pad or preserve the video aspect ratio (Work In Progress)                      | $page->video1->aspectMode    |
 
 
 

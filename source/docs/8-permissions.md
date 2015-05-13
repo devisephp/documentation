@@ -147,7 +147,7 @@ if(DeviseUser::checkRule('isInGroup', ['Super Administrator'])){
 ```
 
 >####We Already Registered Your Permission Conditions
->Any permission conditions that you have created are already registered as filters so you can feel free to use them as you wish. For more information on filters see the [laravel documentation on filters](http://laravel.com/docs/4.2/routing#route-filters)
+>Any permission conditions that you have created are already registered as filters so you can feel free to use them as you wish. For more information on filters see the [laravel documentation on filters](http://laravel.com/docs/5.0/middleware#registering-middleware)
 
 ```php
 {% verbatim %}
