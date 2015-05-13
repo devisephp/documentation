@@ -9,7 +9,7 @@ sections:
     - Managing Apis
 ---
 
-#Api Basics
+#API Basics
 Devise Api's are similar to Pages, but the main difference are the options for method type. While Pages are limited to the GET method, Apis can be set as GET, POST, PUT, DELETE or ANY. Apis are intended to handle retrieving and/or processing data whereas Pages are meant to simply render a view. The decision to separate Pages and Apis was aimed at improving application organization by eliminating a large mismatched list of pages and apis. Also, from the CMS side of things, it enables clients to administrate pages and the developer to manage api routes.
 
 ##<a name="creating-new-apis" class="ia"></a>[#](#creating-new-apis)Creating New Apis

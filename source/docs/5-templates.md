@@ -9,13 +9,13 @@ sections:
 ---
 
 #Templates
-Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable quickly and easily.
+Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.
 
-> ####A quick note about how we setup our templates
->There are limitless ways of organizing your templates but a lot of projects follow the structure we are suggesting here. That said, you can always branch out and try new ways of doing things. There is only two "rules" that we have for the system to operate correctly without tinkering with the Devise guts:
+> #### A quick note about template setup
+> There are limitless ways of organizing your templates but the majority of our projects follow the structure we are suggesting here. That said, you can always branch out and find new ways to leverage Devise. There are only two "rules" for the system to operate correctly without tinkering with the guts of Devise:
 
->  - We are expecting the templates you want to apply to pages to be in the ```/app/views/templates``` directory.
->  - Any blade files in the ```/app/views/templates``` directory that are prefixed with an underscore will be considered a partial and not presented in the Template registration system. For example: ```/app/views/templates/_jumbotron.blade.php``` would be considered a partial.
+> 1. Devise expects templates to be in the ```/resources/views/``` directory. We recommend creating a templates directory inside this directory.
+> 2. Any blade files in the ```/resources/views/``` directory prefixed with an underscore will be considered a partial and not presented in the dropdown on the template registration form. For example: ```/resources/views/templates/_jumbotron.blade.php``` would be considered a partial.
 
 
 ##<a name="creating-new-templates" class="ia"></a>[#](#creating-new-templates)Creating New Templates
@@ -28,47 +28,49 @@ Hire that off-shore company to slice-and-dice your design into HTML / CSS / Java
 
 ###2. Divide the HTML into parts
 
-Just think to yourself: *"What is going to appear several sections of the site and what might be used on a subset of those pages?* The part that is going to appear across several different designs is your layout and the part that is specific to a design is your template.
+Just think to yourself: *"What sections will appear more than once throughout the site? What might be used as a subset of those pages?* The part which appears across several different pages is your layout (e.g. header, footer) and the part within the layout is the template itself (e.g. title, content, images, etc.).
 
 Take a look at [Intro to Blade Syntax](#introduction-to-blade-syntax) below for more guidance on this.
 
 <div class="beginner" markdown="1">
 
-If you've never done this you'll make mistakes here but don't worry, shuffling parts of your markup around after the fact is not a big deal so just experiment. A lot of what determines where to put things is foresight on what's coming.
+If you've never done this you'll make mistakes here, but don't worry because shuffling parts of your markup around after the fact is not a big deal; so just experiment. A lot of what determines where to put things is foresight on what's coming.
 
 A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably *layouts*. What parts of the design appear within different designs but appear in different locations? Those are probably *partials*. The rest of the designs are probably your main template files.
 
 > ####A General Rule
-> I find that if my designer sends me 10 files I'll probably have 10 templates.
+> Usually, if a designer sends over 10 files, we'll probably have 10 templates.
 
 </div>
 
->>###Don't forget Devise
->>Devise needs just a magical include in your layout that will allow it to inject the JavaScript magic it needs.
+>> ### Remember to include Devise
+>> Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:
 
-```html
-@include('devise::assets')
-```
+>> ```html
+>> @include('devise::assets')
+>> ```
 
-Place this include within the ```<head></head>``` tag.
+>> Place this include within the ```<head></head>``` tags.
 
 ###3. Register that sucker
 
-We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the template. Log in to the administration of your application and click on *Templates* on the main menu.
+We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the new template. Log in to the administration of your application and click on *Templates* on the main menu.
 
-Click on *Register Template* in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.
+Click on *Register New Template* in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.
 
-###4. Apply the template to a page we can test on.
+###4. Apply the template to a page
 
-In the administration head back to *Pages* and either create a page or edit an existing page and select the template we just registered. View or preview the page and we should see your design.
+In the admin head back to the *Pages Section*. Once there, either create a page or edit an existing page and then select the template we just registered in the "View Template To Use" dropdown. Now when you view the page you should see your design. (applause)
 
-###5. Add Any Blade Syntax or Devise Editable Areas
+###5. Add Any Blade Syntax and/or Devise Editable Areas
 
 I know what you're thinking: *"Great, I've got a static page in Devise... amazing.... but it doesn't **do** anything!*
 
-Easy bro. Easy.
+Easy bro... Easy.
 
-In the following sections we're going to show you some of the tools that are immediately available within Devise so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.
+In the following sections we're going to show you some of the tools which are immediately available within Devise, so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.
+
+<div class="beginner" markdown="1">
 
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
 
@@ -117,17 +119,17 @@ or give an alternative if the variable isn't set (thank you Laravel!)
 
 ###Including and Extending
 
-Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates that contain things like menus or headers and footers that appear on every page, and when those things need to change, only modify one file to make a site-wide change.
+Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates containing things like menus or headers and footers appearing on every page and when they need to change, only modify one file to make a site-wide change.
 
-A common pattern that we tend to use is a three tier system. Note that **all of these files are simply blade files regardless of our nomenclature**. The are *all* templates.
+A common pattern we tend to use is a three tier system. Note that **all of these files are simply blade files regardless of our nomenclature**. They are *all* templates.
 
-* **Layouts**: These are the top-level files that contain the ```<html>, <head>, <body>``` tags along with the header and footer stuff that appears on every page.
-* **Templates**: These are the mid-level files that contain the guts of a page layout. Most of this markup
-* **Partials**: Partials the bottom-level of templates that tend to be re-used across several templates. They could be user profile cards, message notifications, anything that is used over and over again. That way if your message notification format changes - again, you only have to change it in one place.
+* **Layouts**: These are the top-level files containing the ```<html>, <head>, <body>``` tags along with the header and footer markup appearing on every page.
+* **Templates**: These are the mid-level files holding the guts of a page layout. Tends to have majority of the markup.
+* **Partials**: Partials are the bottom-level and can be re-used across several templates. We like to think of them as a grouping(s) of elements. They could be user profile cards, message notifications, anything used over and over.
 
-With these three types of templates in mind you will ```@extend()``` and ```@include()``` from the middle-tier template files to build out a template. Here is an example of an index that might represent our list of breweries:
+With these three types of templates in mind you will ```@extend()``` and ```@include()``` from the middle-tier template files to build out a template. Here is an example of an index which represents our list of breweries:
 
-**Layout**: /app/views/layouts/master.blade.php
+**Layout**: /resources/views/layouts/application.blade.php
 
 ```html
 {% verbatim %}
@@ -152,11 +154,11 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ---
 
-**Template**: /app/views/templates/breweries-index.blade.php
+**Template**: /resources/views/templates/breweries/index.blade.php
 
 ```php
 {% verbatim %}
-@extends('layouts.master')
+@extends('layouts.application')
 
 @section('content')
 
@@ -170,7 +172,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 ---
 
-**Partial**: /app/views/templates/_jumbotron.blade.php
+**Partial**: /resources/views/templates/_jumbotron.blade.php
 
 ```php
 {% verbatim %}
@@ -235,7 +237,8 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 
 There is a bunch of other goodies in Blade. You can even extend it and your make your own ```@beerbong``` if you want.
 
-* [Laravel documentation on Blade](http://laravel.com/docs/4.2/templates#blade-templating)
+* [Laravel documentation on Blade](http://laravel.com/docs/5.0/templates)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)
 * [Laracasts on Blade](https://laracasts.com/index/blade)
 
+</div>
