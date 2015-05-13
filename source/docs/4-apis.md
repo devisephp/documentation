@@ -48,18 +48,12 @@ From the admin dashboard click the APIs card to go to the Apis index. On the ind
 BeerApp\Brewers\BrewersManager
 ```
 
-But keep in mind it could be any valid classname available within the application. For instance, the DatabaseSeeder Class which has been autoloaded into Laravel 5 with composer.
-
-```
-DatabaseSeeder
-```
-
 ---
 
-**Response Method**: The response method is the second part needed to connect an api entry with an actual function located within the Response Class. This is the connection between the api slug, and the code. Now, Devise knows what Class and method to execute when an api's url is accessed by a web browser.
+**Response Method**: The response method is the second part of connecting an api with an actual function inside the Response Class. Now, when an api's slug is accessed by a web browser the application knows the exact class name/path and the method to execute.
 
 
-*Example:* If we were attempting to create a new brewery, we would likely have a class which looked something like the following:
+*Complete Example:* If we were attempting to create a new brewery, we would likely have a class which looked something like the following:
 
 ```php
 <?php namespace BeerApp\Brewers;
@@ -93,35 +87,56 @@ And for the Response Method field:
 createBrewery
 ```
 
-So, in summary, when a user submits the form to create a new brewery, it would POST to our api slug which knows the class and method to execute.
+So, in short, when a user submits the form to create a new brewery, it would POST to our api route which knows the class and method to execute.
 
 ---
 
-**Response Parameters**: So, some what if your method needs us to pass something into it? Well, the response parameters field will allow you to pass in the parameters that are expected to the method. This can be a difficult concept to understand but stick with me.
+**Response Parameters**: So, what if your method needs us to pass something into it? Well, the response parameters field allows you to pass in the parameters which are expected by the method. This can be a difficult concept to understand, but stick with me.
 
-There are only two sources that we can pass to these methods: **_URL parameters_** and **_data input values_**.
+There are only two sources that we can pass to these methods: **_(1) URL Parameters_** and **_(2) Input Data_**.
 
-*Params* are parameters that are in the slug. From the Page docs, you defined a URL to show the details of a brewery. The parameter we are passing in is named breweryId as parameters are always enclosed in single curly braces ({}). In the slug below, our parameter is named "breweryId"
+*Params* are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by it's id, so this brewery id must be passed in thru the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.
 
 ```
 /breweries/{breweryId}
 ```
 
-Ok, we can use that variable now and pass it into our method. So when someone goes to:
+Ok, we can use that variable now and pass it into our method. So when someone goes to the URL:
 
 ```
 /breweries/10
 ```
 
- and you put this into the response parameters field:
+It will pass a value of "10" into the findBreweryById method as the first argument.
+
+```php
+<?php namespace BeerApp\Brewers;
+
+/**
+ * Handles retrieving Brewers
+ * the model and related data
+ */
+class BrewersRepository
+{
+    /**
+     * Finds a Brewery By Id
+     *
+     * @param  integer $breweryId
+     * @return bool
+     */
+    public function findBreweryById($breweryId) {
+    ...
+    }
+}
+```
+
+This is all accomplised by putting this into the response parameters field:
 
 ```
 params.breweryId
 ```
 
-Devise would pass a "10" as the first argument in your method.
-
-*Input* values are the other source that we can pass to your methods. Input values are any values passed by a form to a URL. *Input* allows us to pass either all the inputs or a particular value in the input array. So you can do this:
+*Input* values are the other source that can be passed into your methods. Input values are any values passed by a form to a URL. *Input* allows us to pass either all the inputs or a particular value in the input array. So you can do this:
 
 ```
 params.breweryId, input
@@ -130,7 +145,13 @@ params.breweryId, input
 or
 
 ```
-params.breweryId, input.name
+params.breweryId, input.location
 ```
 
-If you do the first example it will come in as an array of all of the input values passed in.
+If you do the first example it will come in as an array of all of the input values passed in. While the latter example only passes the value from the input with the name "location." For more routing information you can visit the [Laravel 5 Routing Docs](http://laravel.com/docs/5.0/routing)
+
+---
+
+###Filters Options
+
+**Before**: A method to execute "before" the actual page request. An example would be if the user needs to be in a specific group to see the page, we could execute a function to check the user's group upon page request.
