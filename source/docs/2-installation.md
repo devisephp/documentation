@@ -7,6 +7,7 @@ sections:
     - Installing through the browser
     - Installing through command line
     - Environmental Configuration
+    - Mail and Additional Configuration
 ---
 
 #Installation
@@ -144,3 +145,6 @@ root /vagrant/whatever/whatever/site/public
 ```cd``` into your Homestead directory (where homestead.yaml is located) and run "vagrant reload --provision". NOTE: If your vagrant box is not already up-and-running, you might need to run "vagrant up" rather than ".
 
 All of the above steps can be found in more detail on the [Laravel documetation page on Homestead](http://laravel.com/docs/5.0/homestead)
+
+
+##<a name="mail-and-additional-configuration" class="ia"></a>[#](#mail-and-additional-configuration)Mail and Additional Configuration
