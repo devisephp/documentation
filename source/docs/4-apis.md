@@ -10,15 +10,15 @@ sections:
 ---
 
 #Api Basics
-In essence, Apis are no different then Pages/Routes, but the main difference is the method type. Where Pages are limited to the GET method, Apis are can be a GET, POST, PUT, DELETE or ANY method type. Apis are intended to handle retrieving and processing data whereas Pages just render a view. We decided to separate out Pages and Apis to better organize our applications and eliminate having a massive, mixed list of pages and public/private apis.
+Devise Api's are similar to Pages, but the main difference are the options for method type. While Pages are limited to the GET method, Apis can be set as GET, POST, PUT, DELETE or ANY. Apis are intended to handle retrieving and/or processing data whereas Pages are meant to simply render a view. The decision to separate Pages and Apis was aimed at improving application organization by eliminating a large mismatched list of pages and apis. Also, from the CMS side of things, it enables clients to administrate pages and the developer to manage api routes.
 
 ##<a name="creating-new-apis" class="ia"></a>[#](#creating-new-apis)Creating New Apis
 
-From the admin dashboard click the APIs card, you will then see a button in the top right-hand corner labeled 'Create New Api'. Click it and you will be redirected to the Create A New Api form.
+From the admin dashboard click the APIs card to go to the Apis index. On the inddx you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.
 
 ###API Settings
 
- **Name of Request**: This field is used as a label for the administrative list of apis. It really isn't meant for anything on the front-end.
+ **Name of Request**: This field is used as a label for the admin apis index. Currently, it's not being used for anything else on the front-end.
 
 ---
 
@@ -26,29 +26,29 @@ From the admin dashboard click the APIs card, you will then see a button in the 
 
 **Route Type**: The route type determines how the api can be accessed by a browser. Let's break down your options and what they are typically used for.
 
-  - **_Retrieve (GET)_**: An api route with the type GET is basically no different than a page, because it is getting the response from a url.
-  - **_Create (POST)_**: Used for sending data to the server behind the scenes. If the api is accepting a contact form or a form creating some new resource would be ideal for the POST type.
-  - **_Update (PUT)_**: An api set as the type PUT can be used for updating a record already stored in the db.
+  - **_Retrieve (GET)_**: An api route with the type GET is no different than a page, because it just returns the response from a url.
+  - **_Create (POST)_**: Used for sending data to the server behind the scenes. If the api is accepting a contact form or creating some new resource then a POST typed route would be ideal.
+  - **_Update (PUT)_**: An api set as the type PUT can be used for updating a record already stored in the database.
   - **_Delete (DELETE)_**: This route type is used for deleting things.
-  - **_Any Method (ANY)_**: Api can be accessed with any browser methods we've listed.
+  - **_Any Method (ANY)_**: The route can be accessed with any browser methods we've listed above.
 
-**For a quick example on route types**: Let's say our beer site has an api route listing all the breweries in the world. We would create a new api request called 'Brewery List' with a **GET** route type. At the bottom of that view is a form allowing users to submit new breweries. This form's action attribute would be pointed at another api with a **POST** route type. If we allowed users to edit we would use **PUT** and delete would use **Delete**.
+**For a quick example on route types**: Let's say our beer site has an api route listing all the breweries in the world. We would create a new api called "Brewery List" with a **GET** route type. At the bottom of that view is a form allowing users to submit new breweries and the form action would be pointed at another api route with a method type of **POST**. If we allowed users to edit we would use **PUT** and delete would use **Delete**.
 
 >> In the event a browser tries to access a page with a method you have not specified. For instance, you set a page as a regular GET page and someone tries to POST data to it that user will experience a good 'ol fashioned 404 response.
 
 ---
 
-**Request Slug**: The request slug is the url for the api entry. You can structure these however you like, but it's important to note that the slug must be unique as this will be used to generate links, form actions and many more routing-related functions.
+**Request Slug**: The request slug is the url for the api entry. You can structure these however you like, but it's important to note that the slug must be unique as this will be used to generate links and other routing-related functions.
 
 ---
 
-**Response Class**: Essentially, there is two parts needed to attach an api to the internal logic inside the application. This is the first part which tells Devise what class we want to relate the api to. The class can be the namespaced of the class, like so:
+**Response Class**: Essentially, there is two parts required to attach an api route to the logic inside of the application. The response class is the first part and it points Devise to what class we want the the api to use. Any valid class name available in the application will work, but we recommend using the complete namespace for the class, like so:
 
 ```
 BeerApp\Brewers\BrewersManager
 ```
 
-Or, it could be any valid classname available within the application. For instance, a the DatabaseSeeder Class which has been autoloaded into Laravel 5 with composer.
+But keep in mind it could be any valid classname available within the application. For instance, the DatabaseSeeder Class which has been autoloaded into Laravel 5 with composer.
 
 ```
 DatabaseSeeder
