@@ -17,7 +17,7 @@ sections:
 Installing Devise via browser is simple and painless. After grabbing the latest version of Devise and then properly adding it's resources to your project, simply open a browser and navigate to your project's url. Your browser will be redirected to the installer's welcome page.
 
 ![Devise Web Installer Welcome Screen]
-(../imgs/installation/welcome-screen.jpg)
+({{ site.url }}/imgs/installation/welcome-screen.jpg)
 
 >>####Watch out
 >> If you are having issues with your application's url resolving and/or being redirected to the installation welcome screen, you most likely have an issue in your "homestead.yaml" or "/etc/hosts". Review the steps listed under within the ##<a name="environmental-configuration" class="ia"></a>[#environmental configuration section](#environmental-configuration).
