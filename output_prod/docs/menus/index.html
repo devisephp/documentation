@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Menus &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -131,11 +131,11 @@
                                                             <li><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/menus">Menus</a>
                                             <ul>
-                                                            <li><a href="/docs/menus#managing-menus">Managing Menus</a></li>
-                                                            <li><a href="/docs/menus#implementing-menus">Implementing Menus</a></li>
+                                                            <li class="active" ><a href="/docs/menus#managing-menus">Managing Menus</a></li>
+                                                            <li class="active" ><a href="/docs/menus#implementing-menus">Implementing Menus</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -257,11 +257,11 @@
                                                                     <li><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/menus">Menus</a>
                                                     <ul>
-                                                                    <li><a href="/docs/menus#managing-menus">Managing Menus</a></li>
-                                                                    <li><a href="/docs/menus#implementing-menus">Implementing Menus</a></li>
+                                                                    <li class="active" ><a href="/docs/menus#managing-menus">Managing Menus</a></li>
+                                                                    <li class="active" ><a href="/docs/menus#implementing-menus">Implementing Menus</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,87 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="menus">Menus</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>Menus in Devise are designed to accomodate issues the Devise Team typically have with our own projects. We wanted the ability to:</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<ol>
+<li>Create as many "menus" as we needed.</li>
+<li>Localize a menu and keep it in sync with the page easily.</li>
+<li>Have an unlimited nesting capbility.</li>
+<li>Easily loop through and write a menu in a logical way.</li>
+<li>Quickly and easily link both internally and externally.</li>
+</ol>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<p>With these items satisfied we use the menus system for more than just a top-level navigation. We use it for footer navigations, sitemaps, tabbed content, or any section that <em>feels</em> menuey that needs a resortable list of items that link to something (even if that something is just a named anchor).</p>
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<h2 id="%23managing-menus"><a name="managing-menus" class="ia"></a><a href="#managing-menus">#</a>Managing Menus</h2>
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
+<p>Managing menus in Devise couldn't be easier. We set it up with your customers in mind so you should have very little problems using the interface to create and update your menus.</p>
+
+<p>First, click on the "Menus" option on the navigation. Here you can create a new menu by providing a name and clicking the create button. Once inside your menu is created you can update it by specifying new menu items and dragging and dropping them to set their order of appearance.</p>
+
+<p>There are two link modes for menu items: URLs and Pages. If "Page" is selected the last field will autocomplete and link itself to the page you select. This way, if that page's URL changes the menu will automatically adjust.</p>
+
+<h2 id="%23implementing-menus"><a name="implementing-menus" class="ia"></a><a href="#implementing-menus">#</a>Implementing Menus</h2>
+
+<p>Implementing menus is simple even in more complex scenarios.</p>
+
+<p>First, we need to add the menu variable to the template or layout that you want the menu to be available on. If the menu is something like a main menu you probably want to add it to your layout file so you don't have to add it to <em>every</em> template, right? But if it's a menu that only appears on one template then just add it to that single template. Here's how we do that:</p>
+
+<ol>
+<li>Head to Templates</li>
+<li>Click edit on the template that we want to add a variable to</li>
+<li>Click 'Add new variable'</li>
+<li>Give it a variable name of whatever you want. For example: <code>mainNavigation</code> (no dollar sign needed sir/ma'am)</li>
+<li>Give it a class path of <code>Devise\Menus\MenusRepository</code></li>
+<li>Give it a method name of <code>buildMenu</code></li>
+<li>Add a parameter: Change the type to 'Static Value' and set the value to the name of your menu.</li>
+</ol>
+
+<p>This is a snippet from the default administration template. It loops through each of the top tier menu items and then through each of their children.</p>
+
+<pre><code class="php">
+@foreach ($dvsAdminMenu as $menuGroup)
+    &lt;h5&gt;{{ $menuGroup-&gt;name }}&lt;/h5&gt;
+    &lt;ul class="dvs-admin-links"&gt;
+        @foreach ($menuGroup-&gt;children as $link)
+            &lt;li&gt;&lt;a class="{{ isActiveLink($link-&gt;url) }}" href="{{ $link-&gt;url }}"&gt;{{ $link-&gt;name }}&lt;/a&gt;&lt;/li&gt;
+        @endforeach
+    &lt;/ul&gt;
+@endforeach
+
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<p>Here are the properties you have access to on menu items:</p>
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
+<p>Label of the Menu Item.</p>
+
+<pre><code class="php">
+$menuGroup-&gt;name
+
 </code></pre>
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<p>URL of the Menu Item.</p>
+
+<pre><code class="php">
+$link-&gt;url
+
+</code></pre>
+
+<p>Returns true if the menu item has a child link that is currently the active link.</p>
+
+<pre><code class="php">
+$menuItem-&gt;activeAncestor
+
+</code></pre>
+
+<p>Returns true if the menu item is the currently active item.</p>
+
+<pre><code class="php">
+$menuItem-&gt;activeItem
+
+</code></pre>
 
                     </div>
                 </div>
@@ -332,6 +394,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/permissions" title="Permissions">&#8592; Permissions</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/users-groups" title="Users &amp; Groups">Users &amp; Groups &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>

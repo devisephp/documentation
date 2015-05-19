@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Fields &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -88,15 +88,15 @@
                                                             <li><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/fields">Fields</a>
                                             <ul>
-                                                            <li><a href="/docs/fields#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
-                                                            <li><a href="/docs/fields#simple-field">Simple Field</a></li>
-                                                            <li><a href="/docs/fields#grouping-fields">Grouping Fields</a></li>
-                                                            <li><a href="/docs/fields#collections-of-fields">Collections of Fields</a></li>
-                                                            <li><a href="/docs/fields#editing-models">Editing Models</a></li>
-                                                            <li><a href="/docs/fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
+                                                            <li class="active" ><a href="/docs/fields#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
+                                                            <li class="active" ><a href="/docs/fields#simple-field">Simple Field</a></li>
+                                                            <li class="active" ><a href="/docs/fields#grouping-fields">Grouping Fields</a></li>
+                                                            <li class="active" ><a href="/docs/fields#collections-of-fields">Collections of Fields</a></li>
+                                                            <li class="active" ><a href="/docs/fields#editing-models">Editing Models</a></li>
+                                                            <li class="active" ><a href="/docs/fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -214,15 +214,15 @@
                                                                     <li><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/fields">Fields</a>
                                                     <ul>
-                                                                    <li><a href="/docs/fields#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
-                                                                    <li><a href="/docs/fields#simple-field">Simple Field</a></li>
-                                                                    <li><a href="/docs/fields#grouping-fields">Grouping Fields</a></li>
-                                                                    <li><a href="/docs/fields#collections-of-fields">Collections of Fields</a></li>
-                                                                    <li><a href="/docs/fields#editing-models">Editing Models</a></li>
-                                                                    <li><a href="/docs/fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#simple-field">Simple Field</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#grouping-fields">Grouping Fields</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#collections-of-fields">Collections of Fields</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#editing-models">Editing Models</a></li>
+                                                                    <li class="active" ><a href="/docs/fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,178 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="fields">Fields</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>One of the greatest parts of Devise is to quickly drop in editable areas in your front-end markup. This section will show you how to do that, as well as providing some strategies for implementing editable areas.</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<h2 id="%23creating-your-first-editable-area"><a name="creating-your-first-editable-area" class="ia"></a><a href="#creating-your-first-editable-area">#</a>Creating Your First Editable Area</h2>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<p>Front-end editing is one of the most interesting and diversifying features offered in Devise. It gives users the ability to edit data in the context of the page instead of ping ponging back and forth between an adminstrative page and the front-end content.</p>
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<p>The real excitement becomes apparent when developers see how quick and painless it is to implement. By adding an attribute to an element's markup and refreshing the page the item(s) become editable. No, really. Seriously, watch:</p>
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
+<pre><code class="html">
+&lt;html&gt;
+&lt;body&gt;
+    &lt;p&gt;This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<p>Now, let's imagine your client comes back to you 3 months after you've deployed this smoking hot application and wants the ability to edit your paragraph about dragons whenever he or she wants. What now?</p>
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
+<pre><code class="html">
+&lt;html&gt;
+&lt;body&gt;
+    &lt;p data-devise="dragonParagraph, textarea"&gt;This is a bunch of boring information that should be replaced with stories of beers... and attractive people... and dragons.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
 </code></pre>
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<p>See what I did there? I added the <code>data-devise="dragonParagraph, textarea"</code> attribute to the paragraph tag and now it's editable for any front-end users.</p>
+
+<p>And that's it! Seriously.</p>
+
+<h2 id="%23simple-field"><a name="simple-field" class="ia"></a><a href="#simple-field">#</a>Simple Field</h2>
+
+<p>Drop in attributes roughly where they appear in the markup with the following syntax:</p>
+
+<pre><code class="php">
+&lt;p data-devise="[propertyName], [type], [label]"&gt;
+    {{ $page-&gt;propertyName-&gt;text('Default value when null') }}
+&lt;/p&gt;
+
+</code></pre>
+
+<p><em>'Real' Example</em></p>
+
+<pre><code class="php">
+&lt;h1 data-devise="title, text, Title of the Page"&gt;
+    {{ $page-&gt;title-&gt;text('Default value when null') }}
+&lt;/h1&gt;
+
+</code></pre>
+
+<h2 id="%23grouping-fields"><a name="grouping-fields" class="ia"></a><a href="#grouping-fields">#</a>Grouping Fields</h2>
+
+<p>Sometimes you will want to present several fields together as a group. This will put a single editing node on the side instead of an arrow for each field. Additionally, Devise will adjust the sidebar layout allowing the user to select from the various grouped fields. This might be desirable if the fields all make up a single component of the page.</p>
+
+<p>Syntax:</p>
+
+<pre><code class="php">
+&lt;p data-devise="[propertyName], [type], [label], [group label]"&gt;
+    {{ $page-&gt;propertyName-&gt;text('Default value when null') }}
+&lt;/p&gt;
+
+</code></pre>
+
+<p>What that might look like with a pair of fields:</p>
+
+<pre><code class="php">
+&lt;h1 data-devise="pageTitle, text, Title of Page, Main Guts"&gt;
+    {{ $page-&gt;pageTitle-&gt;text('Default Title') }}
+&lt;/h1&gt;
+
+</code></pre>
+
+<pre><code class="php">
+&lt;div data-devise="pageBodyText, wysiwyg, Body of Page, Main Guts"&gt;
+    {{ $page-&gt;pageBodyText-&gt;text('&lt;p&gt;Default content which is just for an example&lt;/p&gt;') }}
+&lt;/div&gt;
+
+</code></pre>
+
+<h2 id="%23collections-of-fields"><a name="collections-of-fields" class="ia"></a><a href="#collections-of-fields">#</a>Collections of Fields</h2>
+
+<p>Collections are repeatable groups of fields. You can have as many or as few as you like. Devise provides the mechanics to create new instances of a collection, remove those instances, and re-sort the order of those instances.</p>
+
+<p>A good example of a collection might be a slideshow which has several content manageable components that make up a single slide. Maybe, it has a title, description, and an image. However, you don't know how many slides your customer will have and they want to manage the content and images of the slides. Collections are a good solution for this scenario.</p>
+
+<p>Syntax example:</p>
+
+<pre><code class="php">
+&lt;p data-devise="collectionAlias[propertyName], [type], [label], [group label], [collection label]"&gt;
+    {{ $page-&gt;propertyName-&gt;text('Default value when null') }}
+&lt;/p&gt;
+
+</code></pre>
+
+<p>Example of how to build a simple and manageable slider:</p>
+
+<pre><code class="php">
+@foreach($page-&gt;slides as $slide)
+
+&lt;h3 data-devise="slides[title], text, Slide Title, Slides, Slides"&gt;
+    {{ $slide-&gt;text('No Slide Title') }}
+&lt;/h3&gt;
+
+&lt;div data-devise="slides[description], wysiwyg, Slide Description, Slides, Slides"&gt;
+    {{ $slide-&gt;text('No Slide Description') }}
+&lt;/div&gt;
+
+&lt;img data-devise="slides[image], image, Slide Image, Slides, Slides" src="{{ $slide-&gt;image }}"&gt;
+
+@endforeach
+
+</code></pre>
+
+<h2 id="%23editing-models"><a name="editing-models" class="ia"></a><a href="#editing-models">#</a>Editing Models</h2>
+
+<p>So, now you want to edit more substancial data, like a model, from within the sidebar? Not problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you.</p>
+
+<h3 id="just-one">Just One</h3>
+
+<pre><code class="php">
+@php $user = DvsUser::find(2); @endphp
+&lt;div data-devise="$user, Edit the User"&gt;
+    {{ $user-&gt;email }} has an id of {{ $user-&gt;id }}
+&lt;/div&gt;
+
+</code></pre>
+
+<h3 id="groups">Groups</h3>
+
+<pre><code class="php">
+@php $users = DvsUser::where('id', '&lt;', 4)-&gt;get(); @endphp
+@foreach ($users as $user)
+    &lt;div data-devise="$user, User $user-&gt;id, Edit Users"&gt;
+        We might want to edit user {{ $user-&gt;id }} inside a group.
+    &lt;/div&gt;
+@endforeach
+
+</code></pre>
+
+<h3 id="as-a-single-attribute">As a Single Attribute</h3>
+
+<pre><code class="php">
+@php $user = DvsUser::find(2); @endphp
+&lt;div data-devise="$user-&gt;email, Edit the User Email"&gt;
+    So... {{ $user-&gt;email }} has an id of {{ $user-&gt;id }} but you already knew that right?
+&lt;/div&gt;
+
+</code></pre>
+
+<div class="beginner">
+
+<h2 id="%23to-model-or-not-to-model"><a name="to-model-or-not-to-model" class="ia"></a><a href="#to-model-or-not-to-model">#</a>To Model Or Not To Model</h2>
+
+<p>The question is: Should the data your users are manipulating be it's own database table as model or just a simple collection?</p>
+
+<p>Sometimes this is a tough question, but here are a few tips to help you decide.</p>
+
+<p><strong>It should probably be a model</strong></p>
+
+<ul>
+<li>It is repeatable and can have multiple instances</li>
+<li>It has related data that can be shared over those intances (i.e. blogs have categories, car has a manugacturer, or images with tags)</li>
+<li>Will this data or any of it's related data need to be searched/queried/filtered?</li>
+</ul>
+
+<p>Of course, these are not ALL the deciding factors when choosing if data should be a model or not. But, typically if one or more of those are true you might just want to make it into a model.</p>
+
+</div>
 
                     </div>
                 </div>
@@ -332,6 +485,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/templates" title="Templates">&#8592; Templates</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/field-types" title="Field Types">Field Types &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>

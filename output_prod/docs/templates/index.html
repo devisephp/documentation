@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Templates &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -81,11 +81,11 @@
                                                             <li><a href="/docs/apis#managing-apis">Managing Apis</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/templates">Templates</a>
                                             <ul>
-                                                            <li><a href="/docs/templates#creating-new-templates">Creating New Templates</a></li>
-                                                            <li><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                            <li class="active" ><a href="/docs/templates#creating-new-templates">Creating New Templates</a></li>
+                                                            <li class="active" ><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -207,11 +207,11 @@
                                                                     <li><a href="/docs/apis#managing-apis">Managing Apis</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/templates">Templates</a>
                                                     <ul>
-                                                                    <li><a href="/docs/templates#creating-new-templates">Creating New Templates</a></li>
-                                                                    <li><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                                    <li class="active" ><a href="/docs/templates#creating-new-templates">Creating New Templates</a></li>
+                                                                    <li class="active" ><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,259 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="templates">Templates</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<blockquote>
+  <h4 id="a-quick-note-about-template-setup">A quick note about template setup</h4>
+  
+  <p>There are limitless ways of organizing your templates but the majority of our projects follow the structure we are suggesting here. That said, you can always branch out and find new ways to leverage Devise. There are only two "rules" for the system to operate correctly without tinkering with the guts of Devise:</p>
+  
+  <ol>
+  <li>Devise expects templates to be in the <code>/resources/views/</code> directory. We recommend creating a templates directory inside this directory.</li>
+  <li>Any blade files in the <code>/resources/views/</code> directory prefixed with an underscore will be considered a partial and not presented in the dropdown on the template registration form. For example: <code>/resources/views/templates/_jumbotron.blade.php</code> would be considered a partial.</li>
+  </ol>
+</blockquote>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<h2 id="%23creating-new-templates"><a name="creating-new-templates" class="ia"></a><a href="#creating-new-templates">#</a>Creating New Templates</h2>
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<p>Great, so you know some sweet Blade syntax. So, how do we take a design we've gotten from our hipster designers down the hall and actually apply it to a Devise page? It's simple - really.</p>
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
+<h3 id="1.-cut-up-the-design">1. Cut up the design</h3>
+
+<p>Hire that off-shore company to slice-and-dice your design into HTML / CSS / JavaScript. Or, get the intern to do it.</p>
+
+<h3 id="2.-divide-the-html-into-parts">2. Divide the HTML into parts</h3>
+
+<p>Just think to yourself: <em>"What sections will appear more than once throughout the site? What might be used as a subset of those pages?</em> The part which appears across several different pages is your layout (e.g. header, footer) and the part within the layout is the template itself (e.g. title, content, images, etc.).</p>
+
+<p>Take a look at <a href="#introduction-to-blade-syntax">Intro to Blade Syntax</a> below for more guidance on this.</p>
+
+<p>&lt;</p>
+
+<p>p></p>
+
+<p>&lt;</p>
+
+<p>div class="beginner" markdown="1"></p></p>
+
+<p>If you've never done this you'll make mistakes here, but don't worry because shuffling parts of your markup around after the fact is not a big deal; so just experiment. A lot of what determines where to put things is foresight on what's coming.</p>
+
+<p>A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably <em>layouts</em>. What parts of the design appear within different designs but appear in different locations? Those are probably <em>partials</em>. The rest of the designs are probably your main template files.</p>
+
+<blockquote>
+  <h4 id="a-general-rule">A General Rule</h4>
+  
+  <p>Usually, if a designer sends over 10 files, we'll probably have 10 templates.</p>
+</blockquote>
+
+<p></div></p>
+
+<blockquote>
+  <blockquote>
+    <h3 id="remember-to-include-devise">Remember to include Devise</h3>
+    
+    <p>Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:</p>
+
+<pre><code class="html">@include('devise::assets')
+</code></pre>
+    
+    <p>Place this include within the <code>&lt;head&gt;&lt;/head&gt;</code> tags.</p>
+  </blockquote>
+</blockquote>
+
+<h3 id="3.-register-that-sucker">3. Register that sucker</h3>
+
+<p>We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the new template. Log in to the administration of your application and click on <em>Templates</em> on the main menu.</p>
+
+<p>Click on <em>Register New Template</em> in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.</p>
+
+<h3 id="4.-apply-the-template-to-a-page">4. Apply the template to a page</h3>
+
+<p>In the admin head back to the <em>Pages Section</em>. Once there, either create a page or edit an existing page and then select the template we just registered in the "View Template To Use" dropdown. Now when you view the page you should see your design. (applause)</p>
+
+<h3 id="5.-add-any-blade-syntax-and%2For-devise-editable-areas">5. Add Any Blade Syntax and/or Devise Editable Areas</h3>
+
+<p>I know what you're thinking: <em>"Great, I've got a static page in Devise... amazing.... but it doesn't <strong>do</strong> anything!</em></p>
+
+<p>Easy bro... Easy.</p>
+
+<p>In the following sections we're going to show you some of the tools which are immediately available within Devise, so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.</p>
+
+<p>&lt;</p>
+
+<p>p></p>
+
+<p>&lt;</p>
+
+<p>div class="beginner" markdown="1"></p></p>
+
+<h2 id="%23introduction-to-blade-syntax"><a name="introduction-to-blade-syntax" class="ia"></a><a href="#introduction-to-blade-syntax">#</a>Introduction to Blade Syntax</h2>
+
+<blockquote>
+  <h4 id="a-note-about-other-templating-engines">A note about other templating engines</h4>
+  
+  <p>Blade is the templating system bundled in Laravel. Some folks prefer using other systems which you are welcome to use. Milage may vary but I'm not quite sure why they wouldn't work in Devise. However, our team digs Blade and have developed Devise with Blade in mind.</p>
+</blockquote>
+
+<p>Blade is <em>incredibly</em> easy to use - especially if you have any knowledge of basic programming operators. All it does is allow you to drop in some simple additional text into your HTML to make them more dynamic. Here is an example that will write out 10 list items. Simple.</p>
+
+<pre><code class="php">
+&lt;html&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    @for($i=0; $i&lt;10; $i++)
+    &lt;li&gt;I have guzzled {{ $i }} beers. &lt;/li&gt;
+    @endfor
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<h3 id="echoing-out-variables">Echoing out variables</h3>
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
+<pre><code>
+{{{ $i }}}
+
 </code></pre>
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<p>or unescaped</p>
+
+<pre><code>
+{!! $i !!}
+
+</code></pre>
+
+<p>or give an alternative if the variable isn't set (thank you Laravel!)</p>
+
+<pre><code>
+{{{ $beer-&gt;name or 'Unknown' }}}
+
+</code></pre>
+
+<h3 id="including-and-extending">Including and Extending</h3>
+
+<p>Templates are just files that are either autonomous, extend another file, include other files, or extend and include files. This allows you to extend templates containing things like menus or headers and footers appearing on every page and when they need to change, only modify one file to make a site-wide change.</p>
+
+<p>A common pattern we tend to use is a three tier system. Note that <strong>all of these files are simply blade files regardless of our nomenclature</strong>. They are <em>all</em> templates.</p>
+
+<ul>
+<li><strong>Layouts</strong>: These are the top-level files containing the <code>&lt;html&gt;, &lt;head&gt;, &lt;body&gt;</code> tags along with the header and footer markup appearing on every page.</li>
+<li><strong>Templates</strong>: These are the mid-level files holding the guts of a page layout. Tends to have majority of the markup.</li>
+<li><strong>Partials</strong>: Partials are the bottom-level and can be re-used across several templates. We like to think of them as a grouping(s) of elements. They could be user profile cards, message notifications, anything used over and over.</li>
+</ul>
+
+<p>With these three types of templates in mind you will <code>@extend()</code> and <code>@include()</code> from the middle-tier template files to build out a template. Here is an example of an index which represents our list of breweries:</p>
+
+<p><strong>Layout</strong>: /resources/views/layouts/application.blade.php</p>
+
+<pre><code class="html">
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul id="main-menu"&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/beers"&gt;Beers&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/breweries"&gt;Breweries&lt;/a&gt;&lt;/li&gt;
+&lt;/u&gt;
+
+@yield('content')
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<hr />
+
+<p><strong>Template</strong>: /resources/views/templates/breweries/index.blade.php</p>
+
+<pre><code class="php">
+@extends('layouts.application')
+
+@section('content')
+
+@include('_jumbotron') &lt;!-- Include the partial? --&gt;
+
+&lt;p&gt;This is the content that is specific to this template&lt;/p&gt;
+
+@stop
+
+</code></pre>
+
+<hr />
+
+<p><strong>Partial</strong>: /resources/views/templates/_jumbotron.blade.php</p>
+
+<pre><code class="php">
+&lt;div class="jumbotron"&gt;
+    &lt;h1&gt;{{ $page-&gt;title }}&lt;/h1&gt;
+    &lt;p&gt;{{ $page-&gt;meta_description }}&lt;/p&gt;
+&lt;/div&gt;
+
+</code></pre>
+
+<h3 id="if-%2F-else">If / Else</h3>
+
+<pre><code class="php">
+@if($beers == 'amazing')
+    &lt;h2&gt;Hey there!&lt;/h2&gt;
+@else
+    &lt;/h6&gt;Get out...&lt;/h6&gt;
+@endif
+
+</code></pre>
+
+<pre><code class="php">
+@if($favoriteBeer == 'lambic')
+    &lt;h2&gt;Me too!&lt;/h2&gt;
+@elseif($favoriteBeer == 'stout')
+    &lt;h2&gt;Respect&lt;/h2&gt;
+@else
+    &lt;h2&gt;That's cool&lt;/h2&gt;
+@endif
+
+</code></pre>
+
+<h3 id="loops">Loops</h3>
+
+<pre><code class="php">
+@for($i = 0; $i &lt; 10; $i++)
+    &lt;h2&gt;I guzzled {{ $i }} beers&lt;/h2&gt;
+@endfor
+
+</code></pre>
+
+<pre><code class="php">
+@foreach($beers as $beer)
+    &lt;li&gt;{{ $beer-&gt;name }}&lt;/li&gt;
+@endforeach
+
+</code></pre>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code class="php">
+{{-- Nobody will find my hidden beer stash!!! --}}
+
+</code></pre>
+
+<h3 id="other-resources-for-learning-blade">Other resources for learning Blade</h3>
+
+<p>There is a bunch of other goodies in Blade. You can even extend it and your make your own <code>@beerbong</code> if you want.</p>
+
+<ul>
+<li><a href="http://laravel.com/docs/5.0/templates">Laravel documentation on Blade</a></li>
+<li><a href="http://daylerees.com/codebright/blade">Code Bright by Dayle Rees on Blade</a></li>
+<li><a href="https://laracasts.com/index/blade">Laracasts on Blade</a></li>
+</ul>
+
+<p></div></p>
 
                     </div>
                 </div>
@@ -332,6 +566,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/apis" title="Apis">&#8592; Apis</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/fields" title="Fields">Fields &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>

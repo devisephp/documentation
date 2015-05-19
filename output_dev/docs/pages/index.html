@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Pages &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -62,15 +62,15 @@
                                                             <li><a href="/docs/installation#mail-and-additional-configuration">Mail and Additional Configuration</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/pages">Pages</a>
                                             <ul>
-                                                            <li><a href="/docs/pages#pages-and-routing">Pages and Routing</a></li>
-                                                            <li><a href="/docs/pages#creating-new-pages">Creating New Pages</a></li>
-                                                            <li><a href="/docs/pages#managing-pages">Managing Pages</a></li>
-                                                            <li><a href="/docs/pages#understanding-page-versions">Understanding page versions</a></li>
-                                                            <li><a href="/docs/pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
-                                                            <li><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                            <li class="active" ><a href="/docs/pages#pages-and-routing">Pages and Routing</a></li>
+                                                            <li class="active" ><a href="/docs/pages#creating-new-pages">Creating New Pages</a></li>
+                                                            <li class="active" ><a href="/docs/pages#managing-pages">Managing Pages</a></li>
+                                                            <li class="active" ><a href="/docs/pages#understanding-page-versions">Understanding page versions</a></li>
+                                                            <li class="active" ><a href="/docs/pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                            <li class="active" ><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -188,15 +188,15 @@
                                                                     <li><a href="/docs/installation#mail-and-additional-configuration">Mail and Additional Configuration</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/pages">Pages</a>
                                                     <ul>
-                                                                    <li><a href="/docs/pages#pages-and-routing">Pages and Routing</a></li>
-                                                                    <li><a href="/docs/pages#creating-new-pages">Creating New Pages</a></li>
-                                                                    <li><a href="/docs/pages#managing-pages">Managing Pages</a></li>
-                                                                    <li><a href="/docs/pages#understanding-page-versions">Understanding page versions</a></li>
-                                                                    <li><a href="/docs/pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
-                                                                    <li><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#pages-and-routing">Pages and Routing</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#creating-new-pages">Creating New Pages</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#managing-pages">Managing Pages</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#understanding-page-versions">Understanding page versions</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                                    <li class="active" ><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,167 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="pages">Pages</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>Any site has pages. These pages might contain simple, static information like pictures and text or it might contain dynamic information from a database. In this section we will cover how to create simple pages, complex pages, pages that nobody can see. Let's get started.</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<h2 id="%23pages-and-routing"><a name="pages-and-routing" class="ia"></a><a href="#pages-and-routing">#</a>Pages and Routing</h2>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<div class="beginner">
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<h3 id="new-to-routing%3F">New to routing?</h3>
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
+<p>So, if you are new to Laravel or new to the concept of routing you will want to read this: A route is how you, the developer, instruct the system where to go when a user requests a url or submits data to a url.</p>
+
+<p>So, a route is usually similar to one of these examples:
+    - beerzrule.com/top-10-beers: When a user goes to this page the route returns the HTML needed to draw out the beer list. In simple terms, it accomplishes this by mapping the route's url to a view file which is located in the "/resources/views/" directory.
+    - beerzrule.com/add-new-beer: This url gets called when a user submits the "Add New Beer" form which puts it into the database.</p>
+
+<p>There are other things routes can return, but for now just think of it as routes that return HTML and routes that receive and process data.</p>
+
+<blockquote>
+  <h3 id="%27page%27-vs.-%27route%27">'Page' vs. 'Route'</h3>
+  
+  <p>Keep in mind that a 'page' in Devise is a route. You can interchange the terms 'page' and 'route' in context of Devise. They are the same. We decided to use the term 'Page' because we felt our customers would understand more easily. You're a developer. Man / Woman up.</p>
+</blockquote>
+
+</div>
+
+<div class="advanced">
+
+<h3 id="how-devise-routing-works-alongside-laravel">How Devise routing works alongside Laravel</h3>
+
+<p>If you're coming from the Laravel world you're probably familiar with routing and how it works in good 'ol Laravel. Devise works alongside the Laravel routing engine by simply bootstrapping our routes stored in the database.</p>
+
+<p>This allows you to still use the routes.php file or however you have done routing in the past alongside Devise.</p>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <h3 id="about-laravel-5">About Laravel 5</h3>
+      
+      <p>With the launch of Laravel 5, we have fully implemented the route caching system into Devise to help accelerate load times and reduce queries.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+</div>
+
+<h2 id="%23creating-new-pages"><a name="creating-new-pages" class="ia"></a><a href="#creating-new-pages">#</a>Creating New Pages</h2>
+
+<p>Creating a page is easy. From the administration dashboard click on <em>ahem</em>... Pages. Click on 'Create New Page' in the top right-hand corner and you will be presented the Create A New Page form.</p>
+
+<h3 id="general-page-options">General Page Options</h3>
+
+<p><strong>Title of the page</strong>: The purpose of this field is to supply a label for the administrative list of pages. It really isn't meant for anything on the front-end.</p>
+
+<hr />
+
+<p><strong>Short description of the page</strong>: A place to put any notes about what this page is and what it's purpose is.</p>
+
+<hr />
+
+<p><strong>Language</strong>: This is the language of this page. We'll go more into languages in another section.</p>
+
+<hr />
+
+<p><strong>View Template To Use</strong>: Templates are layouts you have placed in your <code>app/view/templates</code> directory. You can read more on how templates work in the <a href="Templates">templates</a> section of the documentation.</p>
+
+<hr />
+
+<h3 id="page-routing-options">Page Routing Options</h3>
+
+<p><strong>Page Slug</strong>: The page slug is the url of the page. You can structure these however you like. So our breweries list page could be <code>/breweries-list</code> or <code>/breweries/list</code>. Structure your pages however you see fit. What if it's a view that is a little more complex like a page that shows the details of a specific brewery? Then you might do something like this:</p>
+
+<pre><code>/breweries/{breweryId}
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<p>That allows you to set a url parameter we can use to load the appropriate brewery.</p>
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
-</code></pre>
+<hr />
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<p><strong>Publish on Save</strong>: This will make the page live when it is created.</p>
+
+<hr />
+
+<p><strong>Show Advanced Options</strong>: When toggled you get to see all the goodies!</p>
+
+<hr />
+
+<h3 id="advanced%2Fmeta-options">Advanced/Meta Options</h3>
+
+<p><strong>Meta Title</strong>: This is the title that will populate the <code>&lt;title&gt;</code> of the template.</p>
+
+<hr />
+
+<p><strong>Meta Description / Meta Keywords</strong>: These are used to populate their respective meta tags.</p>
+
+<hr />
+
+<p><strong>Head Code</strong>: If your page needs any additional HTML or JavaScript inserted into the <head> section of the DOM you can place it here.</p>
+
+<hr />
+
+<p><strong>Footer Code</strong>: Likewise, footer code will be injected just before the closing </body> tag. This can be used for additional JavaScript inclusions, script calls, whatever.</p>
+
+<blockquote>
+  <blockquote>
+    <p>Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the <a href="Templates">templatefs</a> documentation to see how this should be formatted.</p>
+  </blockquote>
+</blockquote>
+
+<hr />
+
+<p><strong>Administration Page</strong>: Will this page be visible on the admin pages index.</p>
+
+<hr />
+
+<h3 id="filters">Filters</h3>
+
+<p><strong>Before</strong>: A function which will be executed "before" the actual page request. An example would be if the user needs to be in the administrators group, we could execute a function to check every user's group upon page request.</p>
+
+<h2 id="%23managing-pages"><a name="managing-pages" class="ia"></a><a href="#managing-pages">#</a>Managing Pages</h2>
+
+<p>There are essentially two things you can do with a page once it has been created:</p>
+
+<ul>
+<li><strong>Copy</strong>: This copies all settings of the page along with the page versions you select from the dialog.</li>
+<li><strong>Delete</strong>: This well... kills a page. Dead. Gone. Bye-bye.</li>
+</ul>
+
+<h2 id="%23understanding-page-versions"><a name="understanding-page-versions" class="ia"></a><a href="#understanding-page-versions">#</a>Understanding Page Versions</h2>
+
+<p>Page versions are simply instances of a page. If a <em>page</em> is the URL itself the <em>page version</em> is the content <em>on</em> that page. You can find the page versions of a page by clicking <em>Expand page versions</em> under the title of each page on the <em>page index</em> of administration.</p>
+
+<h3 id="so-what-can-you-do-with-page-versions%3F">So what can you do with page versions?</h3>
+
+<ul>
+<li>Work on a page before it ever goes live.</li>
+<li>Work on a new version of a page before it ever goes live.</li>
+<li>Schedule a page to go live.</li>
+<li>Share an unpublished version of a page with someone to review.</li>
+<li>Copy a page version</li>
+</ul>
+
+<h3 id="here-are-some-rules-to-keep-in-mind%3A">Here are some rules to keep in mind:</h3>
+
+<ul>
+<li>If there is not a page version currently published the page will return a 404 error.</li>
+<li>If no end date is set the page version will be live forever.</li>
+<li>The page version with the most recent start date will take priority.</li>
+</ul>
+
+<h2 id="%23sharing-an-unpublished-page-with-a-non-admin"><a name="sharing-an-unpublished-page-with-a-non-admin" class="ia"></a><a href="#sharing-an-unpublished-page-with-a-non-admin">#</a>Sharing An Unpublished Page With A Non-Admin</h2>
+
+<p>One of the things that we, as developers, need to do is have our customers review new layouts and content without having it published for the public to see. Devise makes this very easy to do. From the <em>pages index</em> find the page that you wish to share. Click <em>Expand page versions</em> under the page title to show the page versions.</p>
+
+<p>Click the dropdown and select <em>enable sharing</em> and then click <em>ok</em> in the JavaScript alert.</p>
+
+<h2 id="%23working-with-the-calendar"><a name="working-with-the-calendar" class="ia"></a><a href="#working-with-the-calendar">#</a>Working With The Calendar</h2>
+
+<p>The calendar gives you and your customers a great way of seeing when page versions will be published and which pages need to go live. To manage when pages go live you can either drag them around the calendar or click on any page version and edit their start or end time in the modal window.</p>
+
+<p>If you wish to remove a published page version from the calendar click on the entry and uncheck the <em>published</em> checkbox.</p>
 
                     </div>
                 </div>
@@ -332,6 +474,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/installation" title="Installation">&#8592; Installation</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/apis" title="Apis">Apis &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>

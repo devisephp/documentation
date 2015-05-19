@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Apis &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -73,12 +73,12 @@
                                                             <li><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/apis">Apis</a>
                                             <ul>
-                                                            <li><a href="/docs/apis#api-basics">Api Basics</a></li>
-                                                            <li><a href="/docs/apis#creating-new-apis">Creating New Apis</a></li>
-                                                            <li><a href="/docs/apis#managing-apis">Managing Apis</a></li>
+                                                            <li class="active" ><a href="/docs/apis#api-basics">Api Basics</a></li>
+                                                            <li class="active" ><a href="/docs/apis#creating-new-apis">Creating New Apis</a></li>
+                                                            <li class="active" ><a href="/docs/apis#managing-apis">Managing Apis</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -199,12 +199,12 @@
                                                                     <li><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/apis">Apis</a>
                                                     <ul>
-                                                                    <li><a href="/docs/apis#api-basics">Api Basics</a></li>
-                                                                    <li><a href="/docs/apis#creating-new-apis">Creating New Apis</a></li>
-                                                                    <li><a href="/docs/apis#managing-apis">Managing Apis</a></li>
+                                                                    <li class="active" ><a href="/docs/apis#api-basics">Api Basics</a></li>
+                                                                    <li class="active" ><a href="/docs/apis#creating-new-apis">Creating New Apis</a></li>
+                                                                    <li class="active" ><a href="/docs/apis#managing-apis">Managing Apis</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,148 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="api-basics">API Basics</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>Devise Api's are similar to Pages, but the main difference are the options for method type. While Pages are limited to the GET method, Apis can be set as GET, POST, PUT, DELETE or ANY. Apis are intended to handle retrieving and/or processing data whereas Pages are meant to simply render a view. The decision to separate Pages and Apis was aimed at improving application organization by eliminating a large mismatched list of pages and apis. Also, from the CMS side of things, it enables clients to administrate pages and the developer to manage api routes.</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<h2 id="%23creating-new-apis"><a name="creating-new-apis" class="ia"></a><a href="#creating-new-apis">#</a>Creating New Apis</h2>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<p>From the admin dashboard click the APIs card to go to the Apis index. On the inddx you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.</p>
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<h3 id="api-settings">API Settings</h3>
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
+<p><strong>Name of Request</strong>: This field is used as a label for the admin apis index. Currently, it's not being used for anything else on the front-end.</p>
+
+<hr />
+
+<h3 id="api-routing-options">API Routing Options</h3>
+
+<p><strong>Route Type</strong>: The route type determines how the api can be accessed by a browser. Let's break down your options and what they are typically used for.</p>
+
+<ul>
+<li><strong><em>Retrieve (GET)</em></strong>: An api route with the type GET is no different than a page, because it just returns the response from a url.</li>
+<li><strong><em>Create (POST)</em></strong>: Used for sending data to the server behind the scenes. If the api is accepting a contact form or creating some new resource then a POST typed route would be ideal.</li>
+<li><strong><em>Update (PUT)</em></strong>: An api set as the type PUT can be used for updating a record already stored in the database.</li>
+<li><strong><em>Delete (DELETE)</em></strong>: This route type is used for deleting things.</li>
+<li><strong><em>Any Method (ANY)</em></strong>: The route can be accessed with any browser methods we've listed above.</li>
+</ul>
+
+<p><strong>For a quick example on route types</strong>: Let's say our beer site has an api route listing all the breweries in the world. We would create a new api called "Brewery List" with a <strong>GET</strong> route type. At the bottom of that view is a form allowing users to submit new breweries and the form action would be pointed at another api route with a method type of <strong>POST</strong>. If we allowed users to edit we would use <strong>PUT</strong> and delete would use <strong>Delete</strong>.</p>
+
+<blockquote>
+  <blockquote>
+    <p>In the event a browser tries to access a page with a method you have not specified. For instance, you set a page as a regular GET page and someone tries to POST data to it that user will experience a good 'ol fashioned 404 response.</p>
+  </blockquote>
+</blockquote>
+
+<hr />
+
+<p><strong>Request Slug</strong>: The request slug is the url for the api entry. You can structure these however you like, but it's important to note that the slug must be unique as this will be used to generate links and other routing-related functions.</p>
+
+<hr />
+
+<p><strong>Response Class</strong>: Essentially, there is two parts required to attach an api route to the logic inside of the application. The response class is the first part and it points Devise to what class we want the the api to use. Any valid class name available in the application will work, but we recommend using the complete namespace for the class, like so:</p>
+
+<pre><code>BeerApp\Brewers\BrewersManager
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<hr />
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
+<p><strong>Response Method</strong>: The response method is the second part of connecting an api with an actual function inside the Response Class. Now, when an api's slug is accessed by a web browser the application knows the exact class name/path and the method to execute.</p>
+
+<p><em>Complete Example:</em> If we were attempting to create a new brewery, we would likely have a class which looked something like the following:</p>
+
+<pre><code class="php">&lt;?php namespace BeerApp\Brewers;
+
+/**
+ * Manages the requests to modify the
+ * Brewers model.
+ */
+class BrewersManager
+{
+    /**
+     * Adds a new brewery to the system
+     *
+     * @return bool
+     */
+    public function createBrewery() {
+    ...
+    }
+}
 </code></pre>
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<p>We would put the following in the Response Class field:</p>
+
+<pre><code>BeerApp\Brewers\BrewersManager
+</code></pre>
+
+<p>And for the Response Method field:</p>
+
+<pre><code>createBrewery
+</code></pre>
+
+<p>So, in short, when a user submits the form to create a new brewery, it would POST to our api route which knows the class and method to execute.</p>
+
+<hr />
+
+<p><strong>Response Parameters</strong>: So, what if your method needs us to pass something into it? Well, the response parameters field allows you to pass in the parameters which are expected by the method. This can be a difficult concept to understand, but stick with me.</p>
+
+<p>There are only two sources that we can pass to these methods: <strong><em>(1) URL Parameters</em></strong> and <strong><em>(2) Input Data</em></strong>.</p>
+
+<p><em>Params</em> are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by it's id, so this brewery id must be passed in thru the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.</p>
+
+<pre><code>/breweries/{breweryId}
+</code></pre>
+
+<p>Ok, we can use that variable now and pass it into our method. So when someone goes to the URL:</p>
+
+<pre><code>/breweries/10
+</code></pre>
+
+<p>It will pass a value of "10" into the findBreweryById method as the first argument.</p>
+
+<pre><code class="php">&lt;?php namespace BeerApp\Brewers;
+
+/**
+ * Handles retrieving Brewers
+ * the model and related data
+ */
+class BrewersRepository
+{
+    /**
+     * Finds a Brewery By Id
+     *
+     * @param  integer $breweryId
+     * @return bool
+     */
+    public function findBreweryById($breweryId) {
+    ...
+    }
+}
+</code></pre>
+
+<p>This is all accomplised by putting this into the response parameters field:</p>
+
+<pre><code>params.breweryId
+</code></pre>
+
+<p><em>Input</em> values are the other source that can be passed into your methods. Input values are any values passed by a form to a URL. <em>Input</em> allows us to pass either all the inputs or a particular value in the input array. So you can do this:</p>
+
+<pre><code>params.breweryId, input
+</code></pre>
+
+<p>or</p>
+
+<pre><code>params.breweryId, input.location
+</code></pre>
+
+<p>If you do the first example it will come in as an array of all of the input values passed in. While the latter example only passes the value from the input with the name "location." For more routing information you can visit the <a href="http://laravel.com/docs/5.0/routing">Laravel 5 Routing Docs</a></p>
+
+<hr />
+
+<h3 id="filters-options">Filters Options</h3>
+
+<p><strong>Before</strong>: A method to execute "before" the actual page request. An example would be if the user needs to be in a specific group to see the page, we could execute a function to check the user's group upon page request.</p>
 
                     </div>
                 </div>
@@ -332,6 +455,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/pages" title="Pages">&#8592; Pages</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/templates" title="Templates">Templates &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>

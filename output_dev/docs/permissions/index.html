@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>About Devise &mdash; Devise Documentation &mdash; </title>
+    <title>Permissions &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
@@ -38,7 +38,7 @@
     <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
 
             <ul id="documentation-sidebar">
-                <li  class="active" >
+                <li >
                     <a href="/docs">About Devise</a>
                     <ul>
                         <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -120,15 +120,15 @@
                                                             <li><a href="/docs/field-types#wysiwyg">WYSIWYG</a></li>
                                                     </ul>
                                     </li>
-                                <li>
+                                <li class="active">
                 <a href="/docs/permissions">Permissions</a>
                                             <ul>
-                                                            <li><a href="/docs/permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
-                                                            <li><a href="/docs/permissions#implementing-in-templates">Implementing In Templates</a></li>
-                                                            <li><a href="/docs/permissions#implementing-on-pages">Implementing On Pages</a></li>
-                                                            <li><a href="/docs/permissions#implementing-in-routes">Implementing In Routes</a></li>
-                                                            <li><a href="/docs/permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
-                                                            <li><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#implementing-in-templates">Implementing In Templates</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#implementing-on-pages">Implementing On Pages</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#implementing-in-routes">Implementing In Routes</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
+                                                            <li class="active" ><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                     </ul>
                                     </li>
                                 <li>
@@ -164,7 +164,7 @@
             <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
 
                 <ul>
-                    <li  class="active" >
+                    <li >
                         <a href="/docs">About Devise</a>
                         <ul>
                             <li><a href="/docs#what-is-it">What Is It?</a></li>
@@ -246,15 +246,15 @@
                                                                     <li><a href="/docs/field-types#wysiwyg">WYSIWYG</a></li>
                                                             </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                     <a href="/docs/permissions">Permissions</a>
                                                     <ul>
-                                                                    <li><a href="/docs/permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
-                                                                    <li><a href="/docs/permissions#implementing-in-templates">Implementing In Templates</a></li>
-                                                                    <li><a href="/docs/permissions#implementing-on-pages">Implementing On Pages</a></li>
-                                                                    <li><a href="/docs/permissions#implementing-in-routes">Implementing In Routes</a></li>
-                                                                    <li><a href="/docs/permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
-                                                                    <li><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#implementing-in-templates">Implementing In Templates</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#implementing-on-pages">Implementing On Pages</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#implementing-in-routes">Implementing In Routes</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
+                                                                    <li class="active" ><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                             </ul>
                                             </li>
                                         <li>
@@ -300,25 +300,204 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
-                        <h1 id="about-devise">About Devise</h1>
+                        <h1 id="permissions">Permissions</h1>
 
-<h2 id="%23what-is-it%3F"><a name="what-is-it" class="ia"></a><a href="#what-is-it">#</a>What Is It?</h2>
+<p>There are two types of permissions that you can use: <em><strong>permission rules</strong></em> (regular PHP functions that you register with us) and <em><strong>permission conditions</strong></em>. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
 
-<p>Devise is a website content management system (CMS) that provides developers with an incredible set of tools they can arm their client's with. Front-end editing, robust permissions, page management, localization, scheduled page edits and releases, all on a platform that can scale to large custom applications.</p>
+<h2 id="%23preloaded-permission-rules"><a name="preloaded-permission-rules" class="ia"></a><a href="#preloaded-permission-rules">#</a>Preloaded Permission Rules</h2>
 
-<h2 id="%23couple-of-demos"><a name="couple-of-demos" class="ia"></a><a href="#couple-of-demos">#</a>Couple of Demos</h2>
+<p>Devise comes preloaded with several permission rules that are fairly common in applications our team builds. You may use these in templates or in permission conditions without having to do anything extra.</p>
 
-<p>Devise has many tools and as you get into the documentation you'll find out more about some of the more complicated examples. Let's just start off with what one of your client's might experience.</p>
+<pre><code class="php">
+isLoggedIn();
+isNotLoggedIn();
+isInGroup($groupname);
+isNotInGroup($groupname);
+hasUserName($username); // Will check both name and email
+hasEmail($email);
+hasFieldValue($field, $value); // Tests any property of the user
 
-<pre><code class="php">INSERT VIDEO HERE CREATING / EDITING THIS PAGE.
 </code></pre>
 
-<p>This is just the start. This handles the smattering of totally non data-centric content that might appear on a website. Stuff like what you are reading now. But what about data-driven data? Relationships? large data sets? We've got you covered there too.</p>
+<h6 id="preloaded-permission-rules">Preloaded permission rules</h6>
 
-<pre><code>INSERT VIDEO HERE EDITING / CREATING MODELS.
+<h2 id="%23implementing-in-templates"><a name="implementing-in-templates" class="ia"></a><a href="#implementing-in-templates">#</a>Implementing In Templates</h2>
+
+<h4 id="using-permission-functions">Using Permission Functions</h4>
+
+<p>To hide or show a specific part of a template based on a permission function you will need to something like the following:</p>
+
+<pre><code class="php">
+@if(DeviseUser::checkRule('isInGroup', ['Super Administrator']))
+    &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
+@endif
+
 </code></pre>
 
-<p>So, yea, Devise can do the heavy lifting that your application may need as well. So, ready to get started?</p>
+<pre><code class="php">
+@if(DeviseUser::isInGroup('Super Administrators'))
+    &lt;a href="/secret-beer-stash"&gt;The secret beer stash!&lt;/a&gt;
+@endif
+
+</code></pre>
+
+<h6 id="or-the-shorthand...">Or the shorthand...</h6>
+
+<h4 id="using-permission-conditions">Using Permission Conditions</h4>
+
+<pre><code class="php">
+@if(DeviseUser::checkConditions('isBeerDrinker'))
+    &lt;h1&gt;Beer Drinkers Only!&lt;/h1&gt;
+@endif
+
+</code></pre>
+
+<h6 id="checking-a-single-condition">Checking a single condition</h6>
+
+<pre><code class="php">
+@if(DeviseUser::checkConditions(
+    array(
+        'isLoggedIn',
+        'isDeviseAdmin',
+        'isNotAppAdmin',
+        'isNotEditor'
+        )
+    )
+)
+    &lt;ul&gt;
+        &lt;li&gt;{{ link_to(URL::route('create-page'), 'Create New Page', array('class'=&gt;'button')) }}&lt;/li&gt;
+    &lt;/ul&gt;
+@endif
+
+</code></pre>
+
+<h6 id="checking-multiple-conditions">Checking multiple conditions</h6>
+
+<pre><code class="php">
+@if(
+    !DeviseUser::checkConditions('isLoggedIn') &amp;&amp;
+    DeviseUser::checkConditions(
+        array(
+            'isDeviseAdmin',
+            'isNotAppAdmin'
+        )
+    )
+)
+    {{ link_to(
+        URL::route('create-page'),
+        'Create New Page',
+        array('class'=&gt;'button')
+    ) }}
+@endif
+
+</code></pre>
+
+<h6 id="advanced-example">Advanced example</h6>
+
+<h2 id="%23implementing-on-pages"><a name="implementing-on-pages" class="ia"></a><a href="#implementing-on-pages">#</a>Implementing On Pages</h2>
+
+<p>To implement permissions on Devise pages you can do it by adding your permission condition (or conditions) to the before filter in the advanced settings of the page in the administration. You can also pass multiple permission conditions by separating them with a pipe. For example<code>permissionCondition1|permissionCondition2</code>.</p>
+
+<blockquote>
+  <h4 id="note">Note</h4>
+  
+  <ul>
+  <li>If you pass multiple conditions all conditions must be true for the user to view the page.</li>
+  <li>There is no way to pass a permission rule into this field, only conditions.</li>
+  <li><em>Where</em> the user is redirected to along with the message is set in the permission settings.</li>
+  </ul>
+</blockquote>
+
+<h2 id="%23implementing-in-routes"><a name="implementing-in-routes" class="ia"></a><a href="#implementing-in-routes">#</a>Implementing In Routes</h2>
+
+<p>Implementing permissions (rules or conditions) in <code>routes.php</code> works the same way they work in templates. Just redirect the user somewhere like so:</p>
+
+<pre><code class="php">
+if(DeviseUser::checkRule('isInGroup', ['Super Administrator'])){
+    Route::get('user/profile', array('as' =&gt; 'profile', 'uses' =&gt; 'UserController@showProfile'));
+}
+
+</code></pre>
+
+<blockquote>
+  <h4 id="we-already-registered-your-permission-conditions">We Already Registered Your Permission Conditions</h4>
+  
+  <p>Any permission conditions that you have created are already registered as filters so you can feel free to use them as you wish. For more information on filters see the <a href="http://laravel.com/docs/5.0/middleware#registering-middleware">laravel documentation on filters</a></p>
+</blockquote>
+
+<pre><code class="php">
+
+Route::get('face', array('before'=&gt;'canAccessAdmin'));
+
+
+</code></pre>
+
+<h2 id="%23creating-new-permission-rules"><a name="creating-new-permission-rules" class="ia"></a><a href="#creating-new-permission-rules">#</a>Creating New Permission Rules</h2>
+
+<blockquote>
+  <blockquote>
+    <h4 id="one-rule-about-permission-functions">One rule about permission functions</h4>
+    
+    <p>All permission functions must return a boolean response to work correctly.</p>
+  </blockquote>
+</blockquote>
+
+<pre><code class="php">
+//Let's add another rule called doesDrinkBourbon
+RuleManager::addRule('doesDrinkBourbon', function() {
+    return true;
+});
+
+</code></pre>
+
+<h6 id="without-parameters">Without parameters</h6>
+
+<pre><code class="php">
+//Let's add another rule called doesDrinkBourbon
+RuleManager::addRule('drinksRightTypeOfBeer', function($type) {
+    return $type == 'stout';
+});
+
+</code></pre>
+
+<h6 id="with-a-parameter">With a parameter</h6>
+
+<p>Below is an example of where you might want to register these rules. You can do it many places but this might be a good place to start if you just have a rule or two.</p>
+
+<pre><code class="php">
+class AppServiceProvider extends ServiceProvider {
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //Let's add a rule called doesDrinkBeer
+        RuleManager::addRule('doesDrinkBeer', function() {
+            return true;
+        });
+
+        //Let's add another rule called doesDrinkBourbon
+        RuleManager::addRule('doesDrinkBourbon', function() {
+            // You'll need some actual logic in here
+            return false;
+        });
+    }
+
+    ...
+
+}
+
+</code></pre>
+
+<h6 id="%60%60%60%2Fapp%2Fproviders%2Fappserviceprovider.php%60%60%60"><code>/app/Providers/AppServiceProvider.php</code></h6>
+
+<h2 id="%23creating-new-permission-conditions"><a name="creating-new-permission-conditions" class="ia"></a><a href="#creating-new-permission-conditions">#</a>Creating New Permission Conditions</h2>
+
+<p>Permission conditions use one or multiple permission rules to create a conditional formula that will return a true or false determining if a client has whatever they need to load a route or see a particular portion of a page.</p>
+
+<p>To create a permission formula log in to the administration of your Devise application and click on, you guessed it, "Permissions". Here you can construct conditions using the web-based UI to combine the registered permission rules with <code>AND / OR</code> statements. This gives you an amazing amount of freedom to combine small/broad permissions to make very specific rules.</p>
 
                     </div>
                 </div>
@@ -332,6 +511,12 @@
                 <div class="row">
 
                     <div class="col-md-8 col-md-offset-2">
+                                                    <nav class="article">
+                                <ul class="list-unstyled">
+                                                                            <li><a class="previous btn btn-info" href="/docs/field-types" title="Field Types">&#8592; Field Types</a></li>
+                                                                                                                <li><a class="next btn btn-info" href="/docs/menus" title="Menus">Menus &#8594;</a></li>
+                                                                    </ul>
+                            </nav>
                                             </div>
 
                 </div>
