@@ -40,8 +40,7 @@ Out of the box, Devise has been configured so *front-end user registration is DI
 
 >> #### Do Not Forget to Add the Register Link
 >> So, you made the registration form open to public, but most likely you'll want to add the link to the login form or another view.
->> ##<a class="dvs-small dvs-no-decoration dvs-fg dvs-mid-gray"></a>(<?= URL::route('dvs-user-register') ?>)Not a User? Register.
-
+>> ```php <a href="<?= URL::route('dvs-user-register') ?>">Not a User? Register</a>```
 
 ##<a name="password-recovery" class="ia"></a>[#](#password-recovery)Password Recovery
 
