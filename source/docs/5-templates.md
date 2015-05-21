@@ -32,45 +32,42 @@ Just think to yourself: *"What sections will appear more than once throughout th
 
 Take a look at [Intro to Blade Syntax](#introduction-to-blade-syntax) below for more guidance on this.
 
-<div class="beginner" markdown="1">
-
 If you've never done this you'll make mistakes here, but don't worry because shuffling parts of your markup around after the fact is not a big deal; so just experiment. A lot of what determines where to put things is foresight on what's coming.
 
 A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably *layouts*. What parts of the design appear within different designs but appear in different locations? Those are probably *partials*. The rest of the designs are probably your main template files.
 
-> ####A General Rule
-> Usually, if a designer sends over 10 files, we'll probably have 10 templates.
 
-</div>
+>> ####As a General Rule
 
->>#### Remember to include Devise
->> Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:
+>> Usually, if a designer sends over 10 files, we'll probably have 10 templates.
 
->> ```html
->> @include('devise::assets')
->> ```
+###3. Remember to include Devise
 
->> Place this include within the ```<head></head>``` tags.
+Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:
 
-###3. Register that sucker
+```html
+@include('devise::assets')
+```
+
+Place this include within the ```<head></head>``` tags.
+
+###4. Register that sucker
 
 We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the new template. Log in to the administration of your application and click on *Templates* on the main menu.
 
 Click on *Register New Template* in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.
 
-###4. Apply the template to a page
+###5. Apply the template to a page
 
 In the admin head back to the *Pages Section*. Once there, either create a page or edit an existing page and then select the template we just registered in the "View Template To Use" dropdown. Now when you view the page you should see your design. (applause)
 
-###5. Add Any Blade Syntax and/or Devise Editable Areas
+###6. Add Any Blade Syntax and/or Devise Editable Areas
 
 I know what you're thinking: *"Great, I've got a static page in Devise... amazing.... but it doesn't **do** anything!*
 
 Easy bro... Easy.
 
 In the following sections we're going to show you some of the tools which are immediately available within Devise, so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.
-
-<div class="beginner" markdown="1">
 
 ##<a name="introduction-to-blade-syntax" class="ia"></a>[#](#introduction-to-blade-syntax)Introduction to Blade Syntax
 
@@ -240,5 +237,3 @@ There is a bunch of other goodies in Blade. You can even extend it and your make
 * [Laravel documentation on Blade](http://laravel.com/docs/5.0/templates)
 * [Code Bright by Dayle Rees on Blade](http://daylerees.com/codebright/blade)
 * [Laracasts on Blade](https://laracasts.com/index/blade)
-
-</div>
