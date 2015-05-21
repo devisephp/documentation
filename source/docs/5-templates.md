@@ -43,7 +43,7 @@ A good way to start is to spread out your entire design deck and identify what p
 
 </div>
 
->> ### Remember to include Devise
+>>#### Remember to include Devise
 >> Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:
 
 >> ```html
