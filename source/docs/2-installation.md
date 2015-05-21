@@ -12,6 +12,32 @@ sections:
 
 #Installation
 
+>>####Watch out
+>> If you run the installer and opt not to run application migrations be aware that if you run them after the install you will get a "Users table already exists" error. To remedy delete the ```/database/migrations/2014_10_12_000000_create_users_table.php``` and the ```/database/migrations/2014_10_12_100000_create_password_resets_table.php``` files. 
+
+##<a name="requirements" class="ia"></a>[#](#requirements)Requirements
+
+As with Laravel we need the following extensions installed:
+
+- PHP >= 5.4
+- Mcrypt PHP Extension
+- OpenSSL PHP Extension
+- Mbstring PHP Extension
+- Tokenizer PHP Extension
+
+We also require:
+
+- Laravel supported relational database. (MySQL, Postgres, SQLite, or SQL Server)
+- ImageMagick
+
+To install ImageMagick on Ubuntu / Homestead the use the following commands:
+
+```
+sudo apt-get install imagemagick
+sudo apt-get install php5-imagick
+```
+
+
 ##<a name="installing-through-the-browser" class="ia"></a>[#](#installing-through-the-browser)Installing through the browser
 
 Installing Devise via browser is simple and painless. After grabbing the latest version of Devise and then properly adding it's resources to your project, simply open a browser and navigate to your project's url. Your browser will be redirected to the installer's welcome page.
