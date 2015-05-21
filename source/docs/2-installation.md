@@ -4,6 +4,7 @@ title: Installation
 use: [docs]
 converters: [markdown]
 sections:
+    - Requirements
     - Installing through the browser
     - Installing through command line
     - Environmental Configuration
