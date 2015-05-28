@@ -63,7 +63,7 @@ Creating a page is easy. From the administration dashboard click on *ahem*... Pa
 
 ---
 
-**View Template To Use**: Templates are layouts you have placed in your ```app/view/templates``` directory. You can read more on how templates work in the [templates](Templates) section of the documentation.
+**View Template To Use**: Templates are layouts you have placed in your ```app/view/templates``` directory. You can read more on how templates work in the [templates](/docs/templates) section of the documentation.
 
 ---
 
@@ -103,7 +103,7 @@ That allows you to set a url parameter we can use to load the appropriate brewer
 
 **Footer Code**: Likewise, footer code will be injected just before the closing </body> tag. This can be used for additional JavaScript inclusions, script calls, whatever.
 
->> Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the [templatefs](Templates) documentation to see how this should be formatted.
+>> Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the [templatefs](/docs/templates) documentation to see how this should be formatted.
 
 ---
 
