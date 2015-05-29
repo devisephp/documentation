@@ -43,13 +43,22 @@ A good way to start is to spread out your entire design deck and identify what p
 
 ###3. Remember to include Devise
 
-Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:
+Devise requires a two simple includes, one in the head and another before the closing body tag of your layout, this allows Devise to inject the JavaScript magic it needs:
 
 ```html
-@include('devise::assets')
+@include('devise::styles')
 ```
 
 Place this include within the ```<head></head>``` tags.
+
+Also:
+
+```html
+@include('devise::scripts')
+```
+
+Place this include right before the closing ```</body>``` tag.
+
 
 ###4. Register that sucker
 

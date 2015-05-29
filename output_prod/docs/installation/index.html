@@ -56,6 +56,7 @@
                                 <li class="active">
                 <a href="/docs/installation">Installation</a>
                                             <ul>
+                                                            <li class="active" ><a href="/docs/installation#requirements">Requirements</a></li>
                                                             <li class="active" ><a href="/docs/installation#installing-through-the-browser">Installing through the browser</a></li>
                                                             <li class="active" ><a href="/docs/installation#installing-through-command-line">Installing through command line</a></li>
                                                             <li class="active" ><a href="/docs/installation#environmental-configuration">Environmental Configuration</a></li>
@@ -182,6 +183,7 @@
                                         <li class="active">
                     <a href="/docs/installation">Installation</a>
                                                     <ul>
+                                                                    <li class="active" ><a href="/docs/installation#requirements">Requirements</a></li>
                                                                     <li class="active" ><a href="/docs/installation#installing-through-the-browser">Installing through the browser</a></li>
                                                                     <li class="active" ><a href="/docs/installation#installing-through-command-line">Installing through command line</a></li>
                                                                     <li class="active" ><a href="/docs/installation#environmental-configuration">Environmental Configuration</a></li>
@@ -301,6 +303,39 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
                         <h1 id="installation">Installation</h1>
+
+<blockquote>
+  <blockquote>
+    <h4 id="watch-out">Watch out</h4>
+    
+    <p>If you run the installer and opt not to run application migrations be aware that if you run them after the install you will get a "Users table already exists" error. To remedy delete the <code>/database/migrations/2014_10_12_000000_create_users_table.php</code> and the <code>/database/migrations/2014_10_12_100000_create_password_resets_table.php</code> files.</p>
+  </blockquote>
+</blockquote>
+
+<h2 id="%23requirements"><a name="requirements" class="ia"></a><a href="#requirements">#</a>Requirements</h2>
+
+<p>As with Laravel we need the following extensions installed:</p>
+
+<ul>
+<li>PHP >= 5.4</li>
+<li>Mcrypt PHP Extension</li>
+<li>OpenSSL PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+</ul>
+
+<p>We also require:</p>
+
+<ul>
+<li>Laravel supported relational database. (MySQL, Postgres, SQLite, or SQL Server)</li>
+<li>ImageMagick</li>
+</ul>
+
+<p>To install ImageMagick on Ubuntu / Homestead the use the following commands:</p>
+
+<pre><code>sudo apt-get install imagemagick
+sudo apt-get install php5-imagick
+</code></pre>
 
 <h2 id="%23installing-through-the-browser"><a name="installing-through-the-browser" class="ia"></a><a href="#installing-through-the-browser">#</a>Installing through the browser</h2>
 

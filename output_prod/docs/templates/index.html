@@ -56,6 +56,7 @@
                                 <li>
                 <a href="/docs/installation">Installation</a>
                                             <ul>
+                                                            <li><a href="/docs/installation#requirements">Requirements</a></li>
                                                             <li><a href="/docs/installation#installing-through-the-browser">Installing through the browser</a></li>
                                                             <li><a href="/docs/installation#installing-through-command-line">Installing through command line</a></li>
                                                             <li><a href="/docs/installation#environmental-configuration">Environmental Configuration</a></li>
@@ -182,6 +183,7 @@
                                         <li>
                     <a href="/docs/installation">Installation</a>
                                                     <ul>
+                                                                    <li><a href="/docs/installation#requirements">Requirements</a></li>
                                                                     <li><a href="/docs/installation#installing-through-the-browser">Installing through the browser</a></li>
                                                                     <li><a href="/docs/installation#installing-through-command-line">Installing through command line</a></li>
                                                                     <li><a href="/docs/installation#environmental-configuration">Environmental Configuration</a></li>
@@ -329,64 +331,51 @@
 
 <p>Take a look at <a href="#introduction-to-blade-syntax">Intro to Blade Syntax</a> below for more guidance on this.</p>
 
-<p>&lt;</p>
-
-<p>p></p>
-
-<p>&lt;</p>
-
-<p>div class="beginner" markdown="1"></p></p>
-
 <p>If you've never done this you'll make mistakes here, but don't worry because shuffling parts of your markup around after the fact is not a big deal; so just experiment. A lot of what determines where to put things is foresight on what's coming.</p>
 
 <p>A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably <em>layouts</em>. What parts of the design appear within different designs but appear in different locations? Those are probably <em>partials</em>. The rest of the designs are probably your main template files.</p>
 
 <blockquote>
-  <h4 id="a-general-rule">A General Rule</h4>
-  
-  <p>Usually, if a designer sends over 10 files, we'll probably have 10 templates.</p>
-</blockquote>
-
-<p></div></p>
-
-<blockquote>
   <blockquote>
-    <h3 id="remember-to-include-devise">Remember to include Devise</h3>
+    <h4 id="as-a-general-rule">As a General Rule</h4>
     
-    <p>Devise requires a simple include in the head of your layout and this allows it to inject the JavaScript magic it needs:</p>
-
-<pre><code class="html">@include('devise::assets')
-</code></pre>
-    
-    <p>Place this include within the <code>&lt;head&gt;&lt;/head&gt;</code> tags.</p>
+    <p>Usually, if a designer sends over 10 files, we'll probably have 10 templates.</p>
   </blockquote>
 </blockquote>
 
-<h3 id="3.-register-that-sucker">3. Register that sucker</h3>
+<h3 id="3.-remember-to-include-devise">3. Remember to include Devise</h3>
+
+<p>Devise requires a two simple includes, one in the head and another before the closing body tag of your layout, this allows Devise to inject the JavaScript magic it needs:</p>
+
+<pre><code class="html">@include('devise::styles')
+</code></pre>
+
+<p>Place this include within the <code>&lt;head&gt;&lt;/head&gt;</code> tags.</p>
+
+<p>Also:</p>
+
+<pre><code class="html">@include('devise::scripts')
+</code></pre>
+
+<p>Place this include right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+<h3 id="4.-register-that-sucker">4. Register that sucker</h3>
 
 <p>We're pretty eager to see the design and make sure the template is loading so let's go ahead and register the new template. Log in to the administration of your application and click on <em>Templates</em> on the main menu.</p>
 
 <p>Click on <em>Register New Template</em> in the top right-hand corner of the administration. Select your template blade file from the dropdown and give it a more friendly name. Aaaaand done.</p>
 
-<h3 id="4.-apply-the-template-to-a-page">4. Apply the template to a page</h3>
+<h3 id="5.-apply-the-template-to-a-page">5. Apply the template to a page</h3>
 
 <p>In the admin head back to the <em>Pages Section</em>. Once there, either create a page or edit an existing page and then select the template we just registered in the "View Template To Use" dropdown. Now when you view the page you should see your design. (applause)</p>
 
-<h3 id="5.-add-any-blade-syntax-and%2For-devise-editable-areas">5. Add Any Blade Syntax and/or Devise Editable Areas</h3>
+<h3 id="6.-add-any-blade-syntax-and%2For-devise-editable-areas">6. Add Any Blade Syntax and/or Devise Editable Areas</h3>
 
 <p>I know what you're thinking: <em>"Great, I've got a static page in Devise... amazing.... but it doesn't <strong>do</strong> anything!</em></p>
 
 <p>Easy bro... Easy.</p>
 
 <p>In the following sections we're going to show you some of the tools which are immediately available within Devise, so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.</p>
-
-<p>&lt;</p>
-
-<p>p></p>
-
-<p>&lt;</p>
-
-<p>div class="beginner" markdown="1"></p></p>
 
 <h2 id="%23introduction-to-blade-syntax"><a name="introduction-to-blade-syntax" class="ia"></a><a href="#introduction-to-blade-syntax">#</a>Introduction to Blade Syntax</h2>
 
@@ -551,8 +540,6 @@
 <li><a href="http://daylerees.com/codebright/blade">Code Bright by Dayle Rees on Blade</a></li>
 <li><a href="https://laracasts.com/index/blade">Laracasts on Blade</a></li>
 </ul>
-
-<p></div></p>
 
                     </div>
                 </div>
