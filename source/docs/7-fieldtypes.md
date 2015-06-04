@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Field Types
+description: Below we will outline all of the field types, their values, and give you some examples for how to implement them in your project.
 use: [docs]
 converters: [markdown]
 sections:
@@ -23,8 +24,6 @@ sections:
 ---
 
 
-#Field Types
-
 ##<a name="audio" class="ia"></a>[#](#audio)Audio
 
 >####Attention
@@ -32,7 +31,7 @@ sections:
 
 ```html
 {% verbatim %}
- <audio data-devise="audio1, audio" src="{{ $page->audio1->file }}" controls loop>
+<audio data-devise="audio1, audio" src="{{ $page->audio1->file }}" controls loop>
     HTML5 audio not supported
 </audio>
 {% endverbatim %}

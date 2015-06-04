@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Pages
+description: Any site has pages. These pages might contain simple, static information like pictures and text or it might contain dynamic information from a database. In this section we will cover how to create simple pages, complex pages, pages that nobody can see. Let's get started.
 use: [docs]
 converters: [markdown]
 sections:
@@ -11,9 +12,6 @@ sections:
     - Sharing An Unpublished Page With A Non-Admin
     - Working with the Calendar
 ---
-
-#Pages
-Any site has pages. These pages might contain simple, static information like pictures and text or it might contain dynamic information from a database. In this section we will cover how to create simple pages, complex pages, pages that nobody can see. Let's get started.
 
 ##<a name="pages-and-routing" class="ia"></a>[#](#pages-and-routing)Pages and Routing
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Fields
+description: One of the greatest parts of Devise is to quickly drop in editable areas in your front-end markup. This section will show you how to do that, as well as providing some strategies for implementing editable areas.
 use: [docs]
 converters: [markdown]
 sections:
@@ -11,9 +12,6 @@ sections:
   - Editing Models
   - To Model Or Not To Model
 ---
-
-#Fields
-One of the greatest parts of Devise is to quickly drop in editable areas in your front-end markup. This section will show you how to do that, as well as providing some strategies for implementing editable areas.
 
 ##<a name="creating-your-first-editable-area" class="ia"></a>[#](#creating-your-first-editable-area)Creating Your First Editable Area
 

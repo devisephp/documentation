@@ -1,16 +1,13 @@
 ---
 layout: default
 title: Apis
+description: Devise Api's are similar to Pages, but the main difference are the options for method type. APIs are how you get data INTO your application's classes (and from there database, email, tweet, whatever). While Pages are limited to the GET method, Apis can be set as GET, POST, PUT, DELETE or ANY. Apis are intended to handle retrieving and/or processing data whereas Pages are meant to simply render a view.
 use: [docs]
 converters: [markdown]
 sections:
-    - Api Basics
     - Creating New Apis
     - Managing Apis
 ---
-
-#API Basics
-Devise Api's are similar to Pages, but the main difference are the options for method type. While Pages are limited to the GET method, Apis can be set as GET, POST, PUT, DELETE or ANY. Apis are intended to handle retrieving and/or processing data whereas Pages are meant to simply render a view. The decision to separate Pages and Apis was aimed at improving application organization by eliminating a large mismatched list of pages and apis. Also, from the CMS side of things, it enables clients to administrate pages and the developer to manage api routes.
 
 ##<a name="creating-new-apis" class="ia"></a>[#](#creating-new-apis)Creating New Apis
 
@@ -20,7 +17,7 @@ From the admin dashboard click the APIs card to go to the Apis index. On the ind
 
  **Name of Request**: This field is used as a label for the admin apis index. Currently, it's not being used for anything else on the front-end.
 
----
+
 
 ###API Routing Options
 
@@ -36,11 +33,11 @@ From the admin dashboard click the APIs card to go to the Apis index. On the ind
 
 >> In the event a browser tries to access a page with a method you have not specified. For instance, you set a page as a regular GET page and someone tries to POST data to it that user will experience a good 'ol fashioned 404 response.
 
----
+
 
 **Request Slug**: The request slug is the url for the api entry. You can structure these however you like, but it's important to note that the slug must be unique as this will be used to generate links and other routing-related functions.
 
----
+
 
 **Response Class**: Essentially, there is two parts required to attach an api route to the logic inside of the application. The response class is the first part and it points Devise to what class we want the the api to use. Any valid class name available in the application will work, but we recommend using the complete namespace for the class, like so:
 
@@ -48,7 +45,7 @@ From the admin dashboard click the APIs card to go to the Apis index. On the ind
 BeerApp\Brewers\BrewersManager
 ```
 
----
+
 
 **Response Method**: The response method is the second part of connecting an api with an actual function inside the Response Class. Now, when an api's slug is accessed by a web browser the application knows the exact class name/path and the method to execute.
 
@@ -89,7 +86,7 @@ createBrewery
 
 So, in short, when a user submits the form to create a new brewery, it would POST to our api route which knows the class and method to execute.
 
----
+
 
 **Response Parameters**: So, what if your method needs us to pass something into it? Well, the response parameters field allows you to pass in the parameters which are expected by the method. This can be a difficult concept to understand, but stick with me.
 
@@ -150,7 +147,7 @@ params.breweryId, input.location
 
 If you do the first example it will come in as an array of all of the input values passed in. While the latter example only passes the value from the input with the name "location." For more routing information you can visit the [Laravel 5 Routing Docs](http://laravel.com/docs/5.0/routing)
 
----
+
 
 ###Filters Options
 

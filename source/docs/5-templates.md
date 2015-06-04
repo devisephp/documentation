@@ -1,15 +1,13 @@
 ---
 layout: default
 title: Templates
+description: Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.
 use: [docs]
 converters: [markdown]
 sections:
   - Creating New Templates
   - Introduction to Blade Syntax
 ---
-
-#Templates
-Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.
 
 > #### A quick note about template setup
 > There are limitless ways of organizing your templates but the majority of our projects follow the structure we are suggesting here. That said, you can always branch out and find new ways to leverage Devise. There are only two "rules" for the system to operate correctly without tinkering with the guts of Devise:
@@ -135,7 +133,7 @@ A common pattern we tend to use is a three tier system. Note that **all of these
 
 With these three types of templates in mind you will ```@extend()``` and ```@include()``` from the middle-tier template files to build out a template. Here is an example of an index which represents our list of breweries:
 
-**Layout**: /resources/views/layouts/application.blade.php
+**Layout**
 
 ```html
 {% verbatim %}
@@ -157,8 +155,7 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 </html>
 {% endverbatim %}
 ```
-
----
+######/resources/views/layouts/application.blade.php
 
 **Template**: /resources/views/templates/breweries/index.blade.php
 
@@ -175,8 +172,6 @@ With these three types of templates in mind you will ```@extend()``` and ```@inc
 @stop
 {% endverbatim %}
 ```
-
----
 
 **Partial**: /resources/views/templates/_jumbotron.blade.php
 

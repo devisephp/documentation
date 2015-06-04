@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Permissions
+description: There are two types of permissions that you can use: _**permission rules**_ (regular PHP functions that you register with us) and _**permission conditions**_. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.
 use: [docs]
 converters: [markdown]
 sections:
@@ -11,12 +12,6 @@ sections:
     - Creating New Permission Rules
     - Creating New Permission Conditions
 ---
-
-#Permissions
-
-There are two types of permissions that you can use: _**permission rules**_ (regular PHP functions that you register with us) and _**permission conditions**_. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.
-
-
 
 
 ##<a name="preloaded-permission-rules" class="ia"></a>[#](#preloaded-permission-rules)Preloaded Permission Rules

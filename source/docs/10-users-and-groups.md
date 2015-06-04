@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Users & Groups
+description: Users and groups are a fundemental piece of any content management system or application. Devise comes pre-packaged with Users and Groups out of the box for easy setup. Extending and adding to this system is simple.
 use: [docs]
 converters: [markdown]
 sections:
@@ -10,8 +11,6 @@ sections:
     - Managing Users
     - Managing Groups
 ---
-
-#Users &amp; Groups
 
 ##<a name="building-a-philosophy-for-your-app" class="ia"></a>[#](#building-a-philosophy-for-your-app)Building A Philosophy For Your App
 

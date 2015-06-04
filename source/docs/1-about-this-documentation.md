@@ -1,30 +1,40 @@
 ---
 layout: default
 title: About This Documentation
+description: We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks! Even in it's first release we are attempting to supply you with robust documentation.
 use: [docs]
 converters: [markdown]
 sections:
-    - Unique Functionality
+    - Code Blocks
     - Achtung!
     - Beer!
 ---
 
-#About this Documentation
-We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks! Even in it's first release we are attempting to supply you with robust documentation.
+##<a name="code-blocks" class="ia"></a>[#](#code-blocks)Code Blocks
 
-##<a name="unique-functionality" class="ia"></a>[#](#unique-functionality%21)Unique Functionality
+When ever we want to throw some code your way it will look like the following. Notice at the bottom we may throw you a file name where you could (or possible should) find this file.
 
-We have done two things in these documents that may be unfamiliar to you.
+```html
+{% verbatim %}
+<html>
+<head>
 
-1. We have provided three modes for the documentation to provide different skill levels with the information most likely to help them. Toggle between 'Beginner', 'Advanced', and 'All' to hide and show sections that best fit your level.
+</head>
+<body>
 
-<div class="beginner" markdown="1">
-Easy there fella! This is just for the new guys!
-</div>
+<ul id="main-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/beers">Beers</a></li>
+    <li><a href="/breweries">Breweries</a></li>
+</u>
 
-<div class="advanced" markdown="1">
-Woah! Look at you! You're all grows up and you're all grows up!
-</div>
+@yield('content')
+
+</body>
+</html>
+{% endverbatim %}
+```
+######/resources/views/layouts/application.blade.php (example file name)
 
 ##<a name="achtung%21" class="ia"></a>[#](#achtung%21)Achtung!
 

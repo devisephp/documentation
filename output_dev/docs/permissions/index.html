@@ -1,169 +1,73 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html class="no-js" lang="">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <meta name="description" content="Documentation for Devise">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Permissions &mdash; Devise Documentation &mdash; </title>
 
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/devise-marketing.css">
-    <link rel="stylesheet" type="text/css" href="/css/highlightjs/github.css">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 
-    <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/lib/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/js/lib/modernizr-2.8.3.min.js"></script>
-    <script type="text/javascript" src="/js/lib/highlight.pack.js"></script>
-    <script type="text/javascript" src="/js/devise-documentation.js"></script>
+    <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
 
-<body id="documentation">
-    <header>
-        <div class="navbar navbar-fixed-top navbar-inverse">
-            <div class="container navbar-inner">
-                <a href="/"><img src="/imgs/devise-logo-mini.gif" width="140">
-                <ul class="list-inline">
-                    <li class="ml sp50"><a href="https://github.com/devisephp/cms" class="fg mid-gray important">GitHub</a></li>
-                    <li><a href="/api">API</a></li>
-                    <li><a href="/docs">Learn</a></li>
-                    <li><a href="">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <div id="documentation-sidebar-wrapper" class="hidden-sm hidden-xs">
+        <nav>
+            <ul>
+                <li><a href="/">
+                    <img src="/imgs/nav-logo.png" width="49" height="17" alt="Devise Logo">
+                </a></li>
 
-            <ul id="documentation-sidebar">
-                <li >
-                    <a href="/docs">About Devise</a>
+                <li>
+                    <a class="" href="https://github.com/devisephp">Github</a>
                     <ul>
-                        <li><a href="/docs#what-is-it">What Is It?</a></li>
-                        <li><a href="/docs#couple-of-demos">Couple of Demos</a></li>
+                        <li><a class="" href="https://github.com/devisephp/cms">CMS (Core Package)</a></li>
+                        <li><a class="" href="https://github.com/devisephp/bootstrap">Bootstrap (Boilerplate)</a></li>
+                        <li><a class="" href="https://github.com/devisephp/example">Example Project</a></li>
                     </ul>
                 </li>
-                                <li>
-                <a href="/docs/about-this-documentation/">About This Documentation</a>
-                                            <ul>
-                                                            <li><a href="/docs/about-this-documentation/#unique-functionality">Unique Functionality</a></li>
-                                                            <li><a href="/docs/about-this-documentation/#achtung%21">Achtung!</a></li>
-                                                            <li><a href="/docs/about-this-documentation/#beer%21">Beer!</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/installation/">Installation</a>
-                                            <ul>
-                                                            <li><a href="/docs/installation/#requirements">Requirements</a></li>
-                                                            <li><a href="/docs/installation/#installing-through-the-browser">Installing through the browser</a></li>
-                                                            <li><a href="/docs/installation/#installing-through-command-line">Installing through command line</a></li>
-                                                            <li><a href="/docs/installation/#environmental-configuration">Environmental Configuration</a></li>
-                                                            <li><a href="/docs/installation/#mail-and-additional-configuration">Mail and Additional Configuration</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/pages/">Pages</a>
-                                            <ul>
-                                                            <li><a href="/docs/pages/#pages-and-routing">Pages and Routing</a></li>
-                                                            <li><a href="/docs/pages/#creating-new-pages">Creating New Pages</a></li>
-                                                            <li><a href="/docs/pages/#managing-pages">Managing Pages</a></li>
-                                                            <li><a href="/docs/pages/#understanding-page-versions">Understanding page versions</a></li>
-                                                            <li><a href="/docs/pages/#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
-                                                            <li><a href="/docs/pages/#working-with-the-calendar">Working with the Calendar</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/apis/">Apis</a>
-                                            <ul>
-                                                            <li><a href="/docs/apis/#api-basics">Api Basics</a></li>
-                                                            <li><a href="/docs/apis/#creating-new-apis">Creating New Apis</a></li>
-                                                            <li><a href="/docs/apis/#managing-apis">Managing Apis</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/templates/">Templates</a>
-                                            <ul>
-                                                            <li><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
-                                                            <li><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/fields/">Fields</a>
-                                            <ul>
-                                                            <li><a href="/docs/fields/#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
-                                                            <li><a href="/docs/fields/#simple-field">Simple Field</a></li>
-                                                            <li><a href="/docs/fields/#grouping-fields">Grouping Fields</a></li>
-                                                            <li><a href="/docs/fields/#collections-of-fields">Collections of Fields</a></li>
-                                                            <li><a href="/docs/fields/#editing-models">Editing Models</a></li>
-                                                            <li><a href="/docs/fields/#to-model-or-not-to-model">To Model Or Not To Model</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/field-types/">Field Types</a>
-                                            <ul>
-                                                            <li><a href="/docs/field-types/#audio">Audio</a></li>
-                                                            <li><a href="/docs/field-types/#checkbox">Checkbox</a></li>
-                                                            <li><a href="/docs/field-types/#checkbox-group">Checkbox Group</a></li>
-                                                            <li><a href="/docs/field-types/#color">Color</a></li>
-                                                            <li><a href="/docs/field-types/#date%2Ftime">Date/Time</a></li>
-                                                            <li><a href="/docs/field-types/#file">File</a></li>
-                                                            <li><a href="/docs/field-types/#hidden">Hidden</a></li>
-                                                            <li><a href="/docs/field-types/#html">HTML</a></li>
-                                                            <li><a href="/docs/field-types/#images">Images</a></li>
-                                                            <li><a href="/docs/field-types/#link">Link</a></li>
-                                                            <li><a href="/docs/field-types/#map">Map</a></li>
-                                                            <li><a href="/docs/field-types/#select">Select</a></li>
-                                                            <li><a href="/docs/field-types/#text">Text</a></li>
-                                                            <li><a href="/docs/field-types/#textarea">Textarea</a></li>
-                                                            <li><a href="/docs/field-types/#video">Video</a></li>
-                                                            <li><a href="/docs/field-types/#wysiwyg">WYSIWYG</a></li>
-                                                    </ul>
-                                    </li>
-                                <li class="active">
-                <a href="/docs/permissions/">Permissions</a>
-                                            <ul>
-                                                            <li class="active" ><a href="/docs/permissions/#preloaded-permission-rules">Preloaded Permission Rules</a></li>
-                                                            <li class="active" ><a href="/docs/permissions/#implementing-in-templates">Implementing In Templates</a></li>
-                                                            <li class="active" ><a href="/docs/permissions/#implementing-on-pages">Implementing On Pages</a></li>
-                                                            <li class="active" ><a href="/docs/permissions/#implementing-in-routes">Implementing In Routes</a></li>
-                                                            <li class="active" ><a href="/docs/permissions/#creating-new-permission-rules">Creating New Permission Rules</a></li>
-                                                            <li class="active" ><a href="/docs/permissions/#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/menus/">Menus</a>
-                                            <ul>
-                                                            <li><a href="/docs/menus/#managing-menus">Managing Menus</a></li>
-                                                            <li><a href="/docs/menus/#implementing-menus">Implementing Menus</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/users-groups/">Users &amp; Groups</a>
-                                            <ul>
-                                                            <li><a href="/docs/users-groups/#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
-                                                            <li><a href="/docs/users-groups/#enabling-user-registration">Enabling User Registration</a></li>
-                                                            <li><a href="/docs/users-groups/#password-recovery">Password Recovery</a></li>
-                                                            <li><a href="/docs/users-groups/#managing-users">Managing Users</a></li>
-                                                            <li><a href="/docs/users-groups/#managing-groups">Managing Groups</a></li>
-                                                    </ul>
-                                    </li>
-                                <li>
-                <a href="/docs/localization/">Localization</a>
-                                            <ul>
-                                                            <li><a href="/docs/localization/#enabling-a-new-language">Enabling A New Language</a></li>
-                                                    </ul>
-                                    </li>
-                            </ul>
 
-    </div>
+                <li>
+                    <a class="" href="/docs">Documentation</a>
+                </li>
 
-    <div class="container">
+                <li>
+                    <a class="" href="#">Features</a>
+                    <ul>
+                        <li><a class="" href="/content-management-features">CMS Features</a></li>
+                        <li><a class="" href="/advanced-features">Advanced Features</a></li>
+                    </ul>
+                </li>
 
-        <div class="row">
-            <div class="visible-sm visible-xs" id="collapsed-documentation-navigation">
+                <li>
+                    <a class="dvs-active" href="/">Home</a>
+                </li>
 
+            </ul>
+        </nav>
+
+        <div id="content-wrapper">
+
+            <header><img src="/imgs/documentation-header-bg.jpg" width="100%"></header>
+
+            <section id="top">
+                <div>
+                    <h1>Permissions</h1>
+                    <p>There are two types of permissions that you can use: _**permission rules**_ (regular PHP functions that you register with us) and _**permission conditions**_. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
+                </div>
+            </section>
+
+            <section id="sculpin-docs">
                 <ul>
                     <li >
                         <a href="/docs">About Devise</a>
@@ -173,140 +77,120 @@
                         </ul>
                     </li>
                                         <li>
-                    <a href="/docs/about-this-documentation/">About This Documentation</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/about-this-documentation/#unique-functionality">Unique Functionality</a></li>
-                                                                    <li><a href="/docs/about-this-documentation/#achtung%21">Achtung!</a></li>
-                                                                    <li><a href="/docs/about-this-documentation/#beer%21">Beer!</a></li>
-                                                            </ul>
+                        <a href="/docs/about-this-documentation">About This Documentation</a>
+                                                <ul>
+                                                        <li><a href="/docs/about-this-documentation#code-blocks">Code Blocks</a></li>
+                                                        <li><a href="/docs/about-this-documentation#achtung%21">Achtung!</a></li>
+                                                        <li><a href="/docs/about-this-documentation#beer%21">Beer!</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/installation/">Installation</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/installation/#requirements">Requirements</a></li>
-                                                                    <li><a href="/docs/installation/#installing-through-the-browser">Installing through the browser</a></li>
-                                                                    <li><a href="/docs/installation/#installing-through-command-line">Installing through command line</a></li>
-                                                                    <li><a href="/docs/installation/#environmental-configuration">Environmental Configuration</a></li>
-                                                                    <li><a href="/docs/installation/#mail-and-additional-configuration">Mail and Additional Configuration</a></li>
-                                                            </ul>
+                        <a href="/docs/installation">Installation</a>
+                                                <ul>
+                                                        <li><a href="/docs/installation#requirements">Requirements</a></li>
+                                                        <li><a href="/docs/installation#installing-through-the-browser">Installing through the browser</a></li>
+                                                        <li><a href="/docs/installation#installing-through-command-line">Installing through command line</a></li>
+                                                        <li><a href="/docs/installation#environmental-configuration">Environmental Configuration</a></li>
+                                                        <li><a href="/docs/installation#mail-and-additional-configuration">Mail and Additional Configuration</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/pages/">Pages</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/pages/#pages-and-routing">Pages and Routing</a></li>
-                                                                    <li><a href="/docs/pages/#creating-new-pages">Creating New Pages</a></li>
-                                                                    <li><a href="/docs/pages/#managing-pages">Managing Pages</a></li>
-                                                                    <li><a href="/docs/pages/#understanding-page-versions">Understanding page versions</a></li>
-                                                                    <li><a href="/docs/pages/#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
-                                                                    <li><a href="/docs/pages/#working-with-the-calendar">Working with the Calendar</a></li>
-                                                            </ul>
+                        <a href="/docs/pages">Pages</a>
+                                                <ul>
+                                                        <li><a href="/docs/pages#pages-and-routing">Pages and Routing</a></li>
+                                                        <li><a href="/docs/pages#creating-new-pages">Creating New Pages</a></li>
+                                                        <li><a href="/docs/pages#managing-pages">Managing Pages</a></li>
+                                                        <li><a href="/docs/pages#understanding-page-versions">Understanding page versions</a></li>
+                                                        <li><a href="/docs/pages#sharing-an-unpublished-page-with-a-non-admin">Sharing An Unpublished Page With A Non-Admin</a></li>
+                                                        <li><a href="/docs/pages#working-with-the-calendar">Working with the Calendar</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/apis/">Apis</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/apis/#api-basics">Api Basics</a></li>
-                                                                    <li><a href="/docs/apis/#creating-new-apis">Creating New Apis</a></li>
-                                                                    <li><a href="/docs/apis/#managing-apis">Managing Apis</a></li>
-                                                            </ul>
+                        <a href="/docs/apis">Apis</a>
+                                                <ul>
+                                                        <li><a href="/docs/apis#creating-new-apis">Creating New Apis</a></li>
+                                                        <li><a href="/docs/apis#managing-apis">Managing Apis</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/templates/">Templates</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
-                                                                    <li><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
-                                                            </ul>
+                        <a href="/docs/templates">Templates</a>
+                                                <ul>
+                                                        <li><a href="/docs/templates#creating-new-templates">Creating New Templates</a></li>
+                                                        <li><a href="/docs/templates#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/fields/">Fields</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/fields/#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
-                                                                    <li><a href="/docs/fields/#simple-field">Simple Field</a></li>
-                                                                    <li><a href="/docs/fields/#grouping-fields">Grouping Fields</a></li>
-                                                                    <li><a href="/docs/fields/#collections-of-fields">Collections of Fields</a></li>
-                                                                    <li><a href="/docs/fields/#editing-models">Editing Models</a></li>
-                                                                    <li><a href="/docs/fields/#to-model-or-not-to-model">To Model Or Not To Model</a></li>
-                                                            </ul>
+                        <a href="/docs/fields">Fields</a>
+                                                <ul>
+                                                        <li><a href="/docs/fields#creating-your-first-editable-area">Creating Your First Editable Area</a></li>
+                                                        <li><a href="/docs/fields#simple-field">Simple Field</a></li>
+                                                        <li><a href="/docs/fields#grouping-fields">Grouping Fields</a></li>
+                                                        <li><a href="/docs/fields#collections-of-fields">Collections of Fields</a></li>
+                                                        <li><a href="/docs/fields#editing-models">Editing Models</a></li>
+                                                        <li><a href="/docs/fields#to-model-or-not-to-model">To Model Or Not To Model</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/field-types/">Field Types</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/field-types/#audio">Audio</a></li>
-                                                                    <li><a href="/docs/field-types/#checkbox">Checkbox</a></li>
-                                                                    <li><a href="/docs/field-types/#checkbox-group">Checkbox Group</a></li>
-                                                                    <li><a href="/docs/field-types/#color">Color</a></li>
-                                                                    <li><a href="/docs/field-types/#date%2Ftime">Date/Time</a></li>
-                                                                    <li><a href="/docs/field-types/#file">File</a></li>
-                                                                    <li><a href="/docs/field-types/#hidden">Hidden</a></li>
-                                                                    <li><a href="/docs/field-types/#html">HTML</a></li>
-                                                                    <li><a href="/docs/field-types/#images">Images</a></li>
-                                                                    <li><a href="/docs/field-types/#link">Link</a></li>
-                                                                    <li><a href="/docs/field-types/#map">Map</a></li>
-                                                                    <li><a href="/docs/field-types/#select">Select</a></li>
-                                                                    <li><a href="/docs/field-types/#text">Text</a></li>
-                                                                    <li><a href="/docs/field-types/#textarea">Textarea</a></li>
-                                                                    <li><a href="/docs/field-types/#video">Video</a></li>
-                                                                    <li><a href="/docs/field-types/#wysiwyg">WYSIWYG</a></li>
-                                                            </ul>
+                        <a href="/docs/field-types">Field Types</a>
+                                                <ul>
+                                                        <li><a href="/docs/field-types#audio">Audio</a></li>
+                                                        <li><a href="/docs/field-types#checkbox">Checkbox</a></li>
+                                                        <li><a href="/docs/field-types#checkbox-group">Checkbox Group</a></li>
+                                                        <li><a href="/docs/field-types#color">Color</a></li>
+                                                        <li><a href="/docs/field-types#date%2Ftime">Date/Time</a></li>
+                                                        <li><a href="/docs/field-types#file">File</a></li>
+                                                        <li><a href="/docs/field-types#hidden">Hidden</a></li>
+                                                        <li><a href="/docs/field-types#html">HTML</a></li>
+                                                        <li><a href="/docs/field-types#images">Images</a></li>
+                                                        <li><a href="/docs/field-types#link">Link</a></li>
+                                                        <li><a href="/docs/field-types#map">Map</a></li>
+                                                        <li><a href="/docs/field-types#select">Select</a></li>
+                                                        <li><a href="/docs/field-types#text">Text</a></li>
+                                                        <li><a href="/docs/field-types#textarea">Textarea</a></li>
+                                                        <li><a href="/docs/field-types#video">Video</a></li>
+                                                        <li><a href="/docs/field-types#wysiwyg">WYSIWYG</a></li>
+                                                    </ul>
                                             </li>
                                         <li class="active">
-                    <a href="/docs/permissions/">Permissions</a>
-                                                    <ul>
-                                                                    <li class="active" ><a href="/docs/permissions/#preloaded-permission-rules">Preloaded Permission Rules</a></li>
-                                                                    <li class="active" ><a href="/docs/permissions/#implementing-in-templates">Implementing In Templates</a></li>
-                                                                    <li class="active" ><a href="/docs/permissions/#implementing-on-pages">Implementing On Pages</a></li>
-                                                                    <li class="active" ><a href="/docs/permissions/#implementing-in-routes">Implementing In Routes</a></li>
-                                                                    <li class="active" ><a href="/docs/permissions/#creating-new-permission-rules">Creating New Permission Rules</a></li>
-                                                                    <li class="active" ><a href="/docs/permissions/#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
-                                                            </ul>
+                        <a href="/docs/permissions">Permissions</a>
+                                                <ul>
+                                                        <li class="active" ><a href="/docs/permissions#preloaded-permission-rules">Preloaded Permission Rules</a></li>
+                                                        <li class="active" ><a href="/docs/permissions#implementing-in-templates">Implementing In Templates</a></li>
+                                                        <li class="active" ><a href="/docs/permissions#implementing-on-pages">Implementing On Pages</a></li>
+                                                        <li class="active" ><a href="/docs/permissions#implementing-in-routes">Implementing In Routes</a></li>
+                                                        <li class="active" ><a href="/docs/permissions#creating-new-permission-rules">Creating New Permission Rules</a></li>
+                                                        <li class="active" ><a href="/docs/permissions#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/menus/">Menus</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/menus/#managing-menus">Managing Menus</a></li>
-                                                                    <li><a href="/docs/menus/#implementing-menus">Implementing Menus</a></li>
-                                                            </ul>
+                        <a href="/docs/menus">Menus</a>
+                                                <ul>
+                                                        <li><a href="/docs/menus#managing-menus">Managing Menus</a></li>
+                                                        <li><a href="/docs/menus#implementing-menus">Implementing Menus</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/users-groups/">Users &amp; Groups</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/users-groups/#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
-                                                                    <li><a href="/docs/users-groups/#enabling-user-registration">Enabling User Registration</a></li>
-                                                                    <li><a href="/docs/users-groups/#password-recovery">Password Recovery</a></li>
-                                                                    <li><a href="/docs/users-groups/#managing-users">Managing Users</a></li>
-                                                                    <li><a href="/docs/users-groups/#managing-groups">Managing Groups</a></li>
-                                                            </ul>
+                        <a href="/docs/users-groups">Users &amp; Groups</a>
+                                                <ul>
+                                                        <li><a href="/docs/users-groups#building-a-philosophy-for-your-app">Building A Philosophy For Your App</a></li>
+                                                        <li><a href="/docs/users-groups#enabling-user-registration">Enabling User Registration</a></li>
+                                                        <li><a href="/docs/users-groups#password-recovery">Password Recovery</a></li>
+                                                        <li><a href="/docs/users-groups#managing-users">Managing Users</a></li>
+                                                        <li><a href="/docs/users-groups#managing-groups">Managing Groups</a></li>
+                                                    </ul>
                                             </li>
                                         <li>
-                    <a href="/docs/localization/">Localization</a>
-                                                    <ul>
-                                                                    <li><a href="/docs/localization/#enabling-a-new-language">Enabling A New Language</a></li>
-                                                            </ul>
+                        <a href="/docs/localization">Localization</a>
+                                                <ul>
+                                                        <li><a href="/docs/localization#enabling-a-new-language">Enabling A New Language</a></li>
+                                                        <li><a href="/docs/localization#static-vs-dynamic">Static vs Dynamic</a></li>
+                                                    </ul>
                                             </li>
                                     </ul>
 
-            </div>
-        </div>
-
-        <div class="row mb sp25" id="difficulty-buttons">
-            <div class="col-md-offset-6 col-md-6 tar">
-                <button id="beginner-btn" class="btn difficulty" data-difficulty="beginner">Beginner</button>
-                <button id="advanced-btn" class="btn difficulty" data-difficulty="advanced">Advanced</button>
-                <button id="all-btn" class="btn difficulty" data-difficulty="all">All</button>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-8 col-md-offset-4" id="documentation-content">
-
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-
-                        <h1 id="permissions">Permissions</h1>
-
-<p>There are two types of permissions that you can use: <em><strong>permission rules</strong></em> (regular PHP functions that you register with us) and <em><strong>permission conditions</strong></em>. Permissions conditions use multiple permission rules to see if a user is allowed to see or use a particular feature of your web application.</p>
-
-<h2 id="%3Ca-name%3D%22preloaded-permission-rules%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23preloaded-permission-rules%29preloaded-permission-rules"><a name="preloaded-permission-rules" class="ia"></a><a href="#preloaded-permission-rules">#</a>Preloaded Permission Rules</h2>
+                <div>
+                    <div>
+                        <h2 id="%23preloaded-permission-rules"><a name="preloaded-permission-rules" class="ia"></a><a href="#preloaded-permission-rules">#</a>Preloaded Permission Rules</h2>
 
 <p>Devise comes preloaded with several permission rules that are fairly common in applications our team builds. You may use these in templates or in permission conditions without having to do anything extra.</p>
 
@@ -323,7 +207,7 @@ hasFieldValue($field, $value); // Tests any property of the user
 
 <h6 id="preloaded-permission-rules">Preloaded permission rules</h6>
 
-<h2 id="%3Ca-name%3D%22implementing-in-templates%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23implementing-in-templates%29implementing-in-templates"><a name="implementing-in-templates" class="ia"></a><a href="#implementing-in-templates">#</a>Implementing In Templates</h2>
+<h2 id="%23implementing-in-templates"><a name="implementing-in-templates" class="ia"></a><a href="#implementing-in-templates">#</a>Implementing In Templates</h2>
 
 <h4 id="using-permission-functions">Using Permission Functions</h4>
 
@@ -396,7 +280,7 @@ hasFieldValue($field, $value); // Tests any property of the user
 
 <h6 id="advanced-example">Advanced example</h6>
 
-<h2 id="%3Ca-name%3D%22implementing-on-pages%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23implementing-on-pages%29implementing-on-pages"><a name="implementing-on-pages" class="ia"></a><a href="#implementing-on-pages">#</a>Implementing On Pages</h2>
+<h2 id="%23implementing-on-pages"><a name="implementing-on-pages" class="ia"></a><a href="#implementing-on-pages">#</a>Implementing On Pages</h2>
 
 <p>To implement permissions on Devise pages you can do it by adding your permission condition (or conditions) to the before filter in the advanced settings of the page in the administration. You can also pass multiple permission conditions by separating them with a pipe. For example<code>permissionCondition1|permissionCondition2</code>.</p>
 
@@ -410,7 +294,7 @@ hasFieldValue($field, $value); // Tests any property of the user
   </ul>
 </blockquote>
 
-<h2 id="%3Ca-name%3D%22implementing-in-routes%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23implementing-in-routes%29implementing-in-routes"><a name="implementing-in-routes" class="ia"></a><a href="#implementing-in-routes">#</a>Implementing In Routes</h2>
+<h2 id="%23implementing-in-routes"><a name="implementing-in-routes" class="ia"></a><a href="#implementing-in-routes">#</a>Implementing In Routes</h2>
 
 <p>Implementing permissions (rules or conditions) in <code>routes.php</code> works the same way they work in templates. Just redirect the user somewhere like so:</p>
 
@@ -434,7 +318,7 @@ Route::get('face', array('before'=&gt;'canAccessAdmin'));
 
 </code></pre>
 
-<h2 id="%3Ca-name%3D%22creating-new-permission-rules%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23creating-new-permission-rules%29creating-new-permission-rules"><a name="creating-new-permission-rules" class="ia"></a><a href="#creating-new-permission-rules">#</a>Creating New Permission Rules</h2>
+<h2 id="%23creating-new-permission-rules"><a name="creating-new-permission-rules" class="ia"></a><a href="#creating-new-permission-rules">#</a>Creating New Permission Rules</h2>
 
 <blockquote>
   <blockquote>
@@ -495,64 +379,42 @@ class AppServiceProvider extends ServiceProvider {
 
 <h6 id="%60%60%60%2Fapp%2Fproviders%2Fappserviceprovider.php%60%60%60"><code>/app/Providers/AppServiceProvider.php</code></h6>
 
-<h2 id="%3Ca-name%3D%22creating-new-permission-conditions%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23creating-new-permission-conditions%29creating-new-permission-conditions"><a name="creating-new-permission-conditions" class="ia"></a><a href="#creating-new-permission-conditions">#</a>Creating New Permission Conditions</h2>
+<h2 id="%23creating-new-permission-conditions"><a name="creating-new-permission-conditions" class="ia"></a><a href="#creating-new-permission-conditions">#</a>Creating New Permission Conditions</h2>
 
 <p>Permission conditions use one or multiple permission rules to create a conditional formula that will return a true or false determining if a client has whatever they need to load a route or see a particular portion of a page.</p>
 
 <p>To create a permission formula log in to the administration of your Devise application and click on, you guessed it, "Permissions". Here you can construct conditions using the web-based UI to combine the registered permission rules with <code>AND / OR</code> statements. This gives you an amazing amount of freedom to combine small/broad permissions to make very specific rules.</p>
-
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-
-            <div class="col-md-8 col-md-offset-4" id="documentation-pagination">
-
-                <div class="row">
-
-                    <div class="col-md-8 col-md-offset-2">
-                                                    <nav class="article">
-                                <ul class="list-unstyled">
-                                                                            <li><a class="previous btn btn-info" href="/docs/field-types/" title="Field Types">&#8592; Field Types</a></li>
-                                                                                                                <li><a class="next btn btn-info" href="/docs/menus/" title="Menus">Menus &#8594;</a></li>
-                                                                    </ul>
-                            </nav>
-                                            </div>
-
-                </div>
-
-            </div>
+            </section>
 
         </div>
 
-    </div>
+    <section id="bottom">
+        Devise Logo and Devisephp.com<br>
+        Copyright &copy; 2015 <a href="http://lbm.co" target="_blank">LBM</a><br><br>
+
+        Devise content management system source code under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a><br>
+        <em>"Impediment to action advances action.<br> What stands in the way becomes the way"<em>
+        </section>
 
 
-    <footer class="tar">
-        <div class="container open-sans tiny">
-            <img class="mb sp8" src="/imgs/devise-logo-mini-black.gif" width="114" height="39" alt="Devise" />
-            <p>Devise Logo and Devisephp.com<br>
-               Copyright &copy 2015 <a href="http://lbm.co" class="strong" target="_blank">LBM</a><br><br>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="/js/vendor/retina.min.js"></script>
+        <script src="/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="/js/vendor/highlight.pack.js"></script>
+        <script src="/js/main.js"></script>
 
-               Devise content management system source code under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>
-            </p>
-        </div>
-    </footer>
+        <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-59653511-1','auto');ga('send','pageview');
+        </script>
 
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-59653511-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-
-</body>
-</html>
+    </body>
+    </html>
