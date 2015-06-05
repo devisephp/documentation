@@ -137,14 +137,53 @@ Example of how to build a simple and manageable slider:
 
 ##<a name="editing-models" class="ia"></a>[#](#editing-models)Editing Models
 
-So, now you want to edit more substancial data, like a model, from within the sidebar? Not problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you.
+So, now you want to edit more substancial data, like a model, from within the sidebar? Not problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you. But first, just a little setup:
+
+###Configuring the model-mapping
+
+Open up the model-mapping config file. This gives Devise a little knowledge about which of the model's fields to show, how they should validate, and which editor sidebar type to use with each of them. For this example we are going to edit a model called 'Beer' with a tabled called 'beers'.
+
+```
+'Beer' =>
+[
+	'rules' =>
+	[
+		'name' => 'required',
+		'description' => 'required',
+	],
+
+	'picks' =>
+	[
+		'Name' => [ 'name' => 'text' ],
+		'Description' => [ 'name' => 'wysiwyg' ],
+	],
+
+	'types' =>
+	[
+		'Name' => 'text',
+		'Description' => 'wysiwyg',
+	]
+],
+```
+###### /config/devise/model-mapping.php
+
+This will allow us to edit beers name and description field. They will both be required to save and the name field will present a plain text field sidebar while the description will display a WYSIWYG editor.
+
+### Placing the editors
+
+Now that you are properly configured you can start adding data-devise tags into your template telling Devise where you want to edit the model. 
 
 ### Just One
 ```php
 {% verbatim %}
-@php $user = DvsUser::find(2); @endphp
-<div data-devise="$user, Edit the User">
-	{{ $user->email }} has an id of {{ $user->id }}
+<!-- Note that your $beer data should probably 
+be coming from the template configuration
+And not just a direct call on your template.
+This is just poor form for the sake of the 
+demo. -->
+@php $beer = Beer::find(2);  @endphp
+<div data-devise="$beer, Edit the Beer">
+	{{ $beer->email }} has an id of {{ $beer->id }}
 </div>
 {% endverbatim %}
 ```
@@ -152,26 +191,26 @@ So, now you want to edit more substancial data, like a model, from within the si
 ### Groups
 ```php
 {% verbatim %}
-@php $users = DvsUser::where('id', '<', 4)->get(); @endphp
-@foreach ($users as $user)
-	<div data-devise="$user, User $user->id, Edit Users">
-		We might want to edit user {{ $user->id }} inside a group.
+@php $beers = Beer::where('id', '<', 4)->get(); @endphp
+@foreach ($beers as $beer)
+	<div data-devise="$beer, User $beer->id, Edit Beers">
+		We might want to edit user {{ $beer->id }} inside a group.
 	</div>
 @endforeach
 {% endverbatim %}
 ```
+######Note that your $beers data should probably be coming from the template configuration and not just a direct call on your template. This is just poor form for the sake of the demo.
 
 ### As a Single Attribute
 ```php
 {% verbatim %}
-@php $user = DvsUser::find(2); @endphp
-<div data-devise="$user->email, Edit the User Email">
-	So... {{ $user->email }} has an id of {{ $user->id }} but you already knew that right?
+@php $beer = Beer::find(2); @endphp
+<div data-devise="$beer->email, Edit the Beer Descriptoin">
+	So... {{ $beer->email }} has an id of {{ $beer->id }} but you already knew that right?
 </div>
 {% endverbatim %}
 ```
-
-<div class="beginner" markdown="1">
+######Note that your $beer data should probably be coming from the template configuration and not just a direct call on your template. This is just poor form for the sake of the demo.
 
 ##<a name="to-model-or-not-to-model" class="ia"></a>[#](#to-model-or-not-to-model)To Model Or Not To Model
 
@@ -186,5 +225,3 @@ Sometimes this is a tough question, but here are a few tips to help you decide.
 - Will this data or any of it's related data need to be searched/queried/filtered?
 
 Of course, these are not ALL the deciding factors when choosing if data should be a model or not. But, typically if one or more of those are true you might just want to make it into a model.
-
-</div>
