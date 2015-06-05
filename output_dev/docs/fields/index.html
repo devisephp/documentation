@@ -106,17 +106,19 @@
                                                     </ul>
                                             </li>
                                         <li>
+                        <a href="/docs/templates/">Templates</a>
+                                                <ul>
+                                                        <li><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
+                                                        <li><a href="/docs/templates/#getting-data-to-templates">Getting Data to Templates</a></li>
+                                                        <li><a href="/docs/templates/#getting-data-from-templates">Getting Data from Templates</a></li>
+                                                        <li><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li>
                         <a href="/docs/apis/">Apis</a>
                                                 <ul>
                                                         <li><a href="/docs/apis/#creating-new-apis">Creating New Apis</a></li>
                                                         <li><a href="/docs/apis/#managing-apis">Managing Apis</a></li>
-                                                    </ul>
-                                            </li>
-                                        <li>
-                        <a href="/docs/templates/">Templates</a>
-                                                <ul>
-                                                        <li><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
-                                                        <li><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                     </ul>
                                             </li>
                                         <li class="active">
@@ -224,6 +226,8 @@
 
 <p>Drop in attributes roughly where they appear in the markup with the following syntax:</p>
 
+<p><em>Syntax</em></p>
+
 <pre><code class="php">
 &lt;p data-devise="[propertyName], [type], [label]"&gt;
     {{ $page-&gt;propertyName-&gt;text('Default value when null') }}
@@ -244,7 +248,7 @@
 
 <p>Sometimes you will want to present several fields together as a group. This will put a single editing node on the side instead of an arrow for each field. Additionally, Devise will adjust the sidebar layout allowing the user to select from the various grouped fields. This might be desirable if the fields all make up a single component of the page.</p>
 
-<p>Syntax:</p>
+<p><em>Syntax</em></p>
 
 <pre><code class="php">
 &lt;p data-devise="[propertyName], [type], [label], [group label]"&gt;
@@ -253,7 +257,7 @@
 
 </code></pre>
 
-<p>What that might look like with a pair of fields:</p>
+<p><em>A couple of 'Real' Examples</em></p>
 
 <pre><code class="php">
 &lt;h1 data-devise="pageTitle, text, Title of Page, Main Guts"&gt;
@@ -275,7 +279,7 @@
 
 <p>A good example of a collection might be a slideshow which has several content manageable components that make up a single slide. Maybe, it has a title, description, and an image. However, you don't know how many slides your customer will have and they want to manage the content and images of the slides. Collections are a good solution for this scenario.</p>
 
-<p>Syntax example:</p>
+<p><em>Syntax example:</em></p>
 
 <pre><code class="php">
 &lt;p data-devise="collectionAlias[propertyName], [type], [label], [group label], [collection label]"&gt;
@@ -284,7 +288,7 @@
 
 </code></pre>
 
-<p>Example of how to build a simple and manageable slider:</p>
+<p><em>Example of how to build a simple and manageable slider:</em></p>
 
 <pre><code class="php">
 @foreach($page-&gt;slides as $slide)
@@ -322,20 +326,52 @@
     'picks' =&gt;
     [
         'Name' =&gt; [ 'name' =&gt; 'text' ],
-        'Description' =&gt; [ 'name' =&gt; 'wysiwyg' ],
+        'Description' =&gt; [ 'description' =&gt; 'text' ],
+        'Picture of the Beer' =&gt; [ 
+            'image_url' =&gt; 'image', 
+            'height' =&gt; 'image_height', 
+            'width' =&gt; 'image_width' 
+        ],
     ],
 
     'types' =&gt;
     [
         'Name' =&gt; 'text',
         'Description' =&gt; 'wysiwyg',
+        'Picture of the Beer' =&gt; 'image',
     ]
 ],
 </code></pre>
 
 <h6 id="%2Fconfig%2Fdevise%2Fmodel-mapping.php">/config/devise/model-mapping.php</h6>
 
-<p>This will allow us to edit beers name and description field. They will both be required to save and the name field will present a plain text field sidebar while the description will display a WYSIWYG editor.</p>
+<p>Let's break this down a little.</p>
+
+<h4 id="rules">Rules</h4>
+
+<p>First the <code>rules</code> section defines the validation rules that you want to run on for each of the fields. You don't have to run any if you like - just don't include them in the array.</p>
+
+<h4 id="picks">Picks</h4>
+
+<p>Next is the <code>picks</code> section. This tells us what the human name of the button label is, the database fields you want to save to, and, finally, what field from the Devise editor you want to save.</p>
+
+<p><em>Syntax</em></p>
+
+<pre><code>'picks' =&gt;
+[
+    'Human Name' =&gt; [  'modelAttr1' =&gt; 'fieldAttr1', 'modelAttr2' =&gt; 'fieldAttr2' ]
+]
+</code></pre>
+
+<p>You can find a list of the available field attributes for the editor type you want to use on the <a href="/docs/field-types">Field Types</a></p>
+
+<h4 id="types">Types</h4>
+
+<p>Finally, the types section defines what sidebar editor you want to use. The keys must match the keys in the picks section. Again, for the values you can use any of the types listed on the <a href="/docs/field-types">Field Types</a> page.</p>
+
+<h4 id="so-what-is-this-going-to-do%3F">So What is this going to do?</h4>
+
+<p>What this does is maps fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like.... that easy. Let's place some editors!</p>
 
 <h3 id="placing-the-editors">Placing the editors</h3>
 

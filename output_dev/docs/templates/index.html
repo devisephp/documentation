@@ -105,18 +105,20 @@
                                                         <li><a href="/docs/pages/#working-with-the-calendar">Working with the Calendar</a></li>
                                                     </ul>
                                             </li>
+                                        <li class="active">
+                        <a href="/docs/templates/">Templates</a>
+                                                <ul>
+                                                        <li class="active" ><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
+                                                        <li class="active" ><a href="/docs/templates/#getting-data-to-templates">Getting Data to Templates</a></li>
+                                                        <li class="active" ><a href="/docs/templates/#getting-data-from-templates">Getting Data from Templates</a></li>
+                                                        <li class="active" ><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
+                                                    </ul>
+                                            </li>
                                         <li>
                         <a href="/docs/apis/">Apis</a>
                                                 <ul>
                                                         <li><a href="/docs/apis/#creating-new-apis">Creating New Apis</a></li>
                                                         <li><a href="/docs/apis/#managing-apis">Managing Apis</a></li>
-                                                    </ul>
-                                            </li>
-                                        <li class="active">
-                        <a href="/docs/templates/">Templates</a>
-                                                <ul>
-                                                        <li class="active" ><a href="/docs/templates/#creating-new-templates">Creating New Templates</a></li>
-                                                        <li class="active" ><a href="/docs/templates/#introduction-to-blade-syntax">Introduction to Blade Syntax</a></li>
                                                     </ul>
                                             </li>
                                         <li>
@@ -220,11 +222,9 @@
 <p>A good way to start is to spread out your entire design deck and identify what parts of the design wrap around a bunch of pages? These are probably <em>layouts</em>. What parts of the design appear within different designs but appear in different locations? Those are probably <em>partials</em>. The rest of the designs are probably your main template files.</p>
 
 <blockquote>
-  <blockquote>
-    <h4 id="as-a-general-rule">As a General Rule</h4>
-    
-    <p>Usually, if a designer sends over 10 files, we'll probably have 10 templates.</p>
-  </blockquote>
+  <h4 id="as-a-general-rule">As a General Rule</h4>
+  
+  <p>Usually, if a designer sends over 10 files, we'll probably have 10 templates.</p>
 </blockquote>
 
 <h3 id="3.-remember-to-include-devise">3. Remember to include Devise</h3>
@@ -260,6 +260,115 @@
 <p>Easy bro... Easy.</p>
 
 <p>In the following sections we're going to show you some of the tools which are immediately available within Devise, so that you can start making some educated decisions on how you want to build whatever it is you want to build. Essentially, you have consumed all the potatoes and arrived at the meat.</p>
+
+<h2 id="%3Ca-name%3D%22getting-data-to-templates%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23getting-data-to-templates%29getting-data-to-templates"><a name="getting-data-to-templates" class="ia"></a><a href="#getting-data-to-templates">#</a>Getting Data to Templates</h2>
+
+<p>In more advanced applications where you have Models, custom custom classes, and an application data structure you’re going to need to get your data to the template. This is one of the best features of Devise so sit back and hold on to your butts!</p>
+
+<p>For this lets use the example of Beers (as usual). Let’s say you have a database of Beers and you want to show a list of all of these beers on a page. Let’s do that.</p>
+
+<p>Step 1:</p>
+
+<p>Create a file called <code>BeersRepository.php</code> in the directory <code>/app/Beer/BeersRepository.php</code>. Inside that file place the following code:</p>
+
+<pre><code class="php">&lt;?php namespace App\Beer;
+
+use App\Beer;
+
+class BeersRepository
+{
+    function __construct(Beer $Beer)
+    {
+        $this-&gt;Beer = $Beer;
+    }
+
+    function getAllBeers()
+    {
+        return $this-&gt;Beer-&gt;orderBy('name', 'DESC')-&gt;paginate();
+    }
+}
+</code></pre>
+
+<h6 id="%2Fapp%2Fbeer%2Fbeersrepository.php">/app/Beer/BeersRepository.php</h6>
+
+<blockquote>
+  <p>What the heck is that query?!</p>
+  
+  <p>If you're unfamiliar with the syntax check out the <a href="http://laravel.com/docs/master/eloquent">Laravel docs on Eloquent ORM</a>. It's magical.</p>
+</blockquote>
+
+<p>Ok, so now we have a class with a method that will return us all the Beer paginated. Great! But how do we get it on our template? Simple. Head to the 'Templates' section in the administration and click edit on the template you want to add this data to. Click 'Add New Variable'. Stay on the 'Create new Variable' tab and put a variable name of <code>beers</code>, a class path of <code>/app/Beer/BeersRepository</code> and a method name of <code>getAllBeers</code></p>
+
+<p>What we just did is make a variable available called <code>$beers</code> that will have the paginated results for your template. For this specific example you might put this code on your template somewhere:</p>
+
+<pre><code class="html">&lt;table&gt;
+@foreach($beers as $beer)
+    &lt;tr&gt;
+        &lt;td&gt;&lt;?= $beer-&gt;name ?&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;?= $beer-&gt;description ?&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;img src="&lt;?= $beer-&gt;image_url ?&gt;" width="&lt;?= $beer-&gt;width ?&gt;" height="&lt;?= $beer-&gt;height ?&gt;"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+@endforeach
+&lt;/table&gt;
+</code></pre>
+
+<h6 id="%2Fresources%2Fviews%2Ftemplates%2Fsometemplate.blade.php">/resources/views/templates/sometemplate.blade.php</h6>
+
+<h2 id="%3Ca-name%3D%22getting-data-from-templates%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23getting-data-from-templates%29getting-data-from-templates"><a name="getting-data-from-templates" class="ia"></a><a href="#getting-data-from-templates">#</a>Getting Data from Templates</h2>
+
+<p>Ok, so now how do you get data from a template <em>into</em> a class? For instance, what if someone submits a form into the system and you want to store that in the database? Well, what I would suggest is working backwards:</p>
+
+<h4 id="step-1%3A-build-out-your-classes">Step 1: Build out your classes</h4>
+
+<p>These classes can do whatever you want them to do. We're going to keep this very, very simple for this example. See the tip at the bottom of this section for a more extensive example.</p>
+
+<p>Create a class at <code>/app/Beer/BeerRules.php</code> and populate that class with the following:</p>
+
+<pre><code class="php">&lt;?php namespace App\Beer;
+
+use Illuminate\Routing\Redirector;
+
+class BeersResponseHandler
+{
+    function __construct(Redirector $Redirect)
+    {
+        $this-&gt;Redirect = $Redirect;
+    }
+
+    function doSomethingDamnIt($input)
+    {
+        dd($input);
+    }
+}
+</code></pre>
+
+<h6 id="%2Fapp%2Fbeer%2Fbeerrules.php">/app/Beer/BeerRules.php</h6>
+
+<p>Now, you need to create a POST <a href="/docs/apis">API</a> that points a route to this class. Once that is complete create your form like-a-so.</p>
+
+<pre><code class="html">&lt;?= Form::open(array('method' =&gt; 'POST', 'route' =&gt; 'whatever-the-route-to-your-api-is')) ?&gt;
+
+    &lt;div&gt;
+        &lt;?= Form::label('Name of Beer') ?&gt;
+        &lt;?= Form::text('name') ?&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;?= Form::label('Description') ?&gt;
+        &lt;?= Form::textarea('description') ?&gt;
+    &lt;/div&gt;
+
+    &lt;?= Form::submit('Do something with my Beer') ?&gt;
+&lt;?= Form::close() ?&gt;
+
+</code></pre>
+
+<p>When you submit the form you should get a <code>dd()</code> (die/dump) of the data you submitted. Congrats! See the tip below for going all ninja-advanced!</p>
+
+<blockquote>
+  <h4 id="for-a-more-complex-example">For a more complex example</h4>
+  
+  <p>We have a model generator tool within Devise. This will generate classes, API's, Pages, and templates for your model. Take a look at the <code>/app/{ModelName}/{ModelName}Manager.php</code> file and the <code>/app/{ModelName}/{ModelName}ResponseHandler.php</code> class files to see how we typically submit data and handle the requests and responses.</p>
+</blockquote>
 
 <h2 id="%3Ca-name%3D%22introduction-to-blade-syntax%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23introduction-to-blade-syntax%29introduction-to-blade-syntax"><a name="introduction-to-blade-syntax" class="ia"></a><a href="#introduction-to-blade-syntax">#</a>Introduction to Blade Syntax</h2>
 

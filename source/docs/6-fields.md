@@ -49,6 +49,8 @@ And that's it! Seriously.
 
 Drop in attributes roughly where they appear in the markup with the following syntax:
 
+*Syntax*
+
 ```php
 {% verbatim %}
 <p data-devise="[propertyName], [type], [label]">
@@ -71,7 +73,7 @@ Drop in attributes roughly where they appear in the markup with the following sy
 
 Sometimes you will want to present several fields together as a group. This will put a single editing node on the side instead of an arrow for each field. Additionally, Devise will adjust the sidebar layout allowing the user to select from the various grouped fields. This might be desirable if the fields all make up a single component of the page.
 
-Syntax:
+*Syntax*
 
 ```php
 {% verbatim %}
@@ -81,7 +83,7 @@ Syntax:
 {% endverbatim %}
 ```
 
-What that might look like with a pair of fields:
+*A couple of 'Real' Examples*
 
 ```php
 {% verbatim %}
@@ -105,7 +107,7 @@ Collections are repeatable groups of fields. You can have as many or as few as y
 
 A good example of a collection might be a slideshow which has several content manageable components that make up a single slide. Maybe, it has a title, description, and an image. However, you don't know how many slides your customer will have and they want to manage the content and images of the slides. Collections are a good solution for this scenario.
 
-Syntax example:
+*Syntax example:*
 
 ```php
 {% verbatim %}
@@ -115,7 +117,7 @@ Syntax example:
 {% endverbatim %}
 ```
 
-Example of how to build a simple and manageable slider:
+*Example of how to build a simple and manageable slider:*
 
 ```php
 {% verbatim %}
@@ -155,19 +157,49 @@ Open up the model-mapping config file. This gives Devise a little knowledge abou
 	'picks' =>
 	[
 		'Name' => [ 'name' => 'text' ],
-		'Description' => [ 'name' => 'wysiwyg' ],
+		'Description' => [ 'description' => 'text' ],
+		'Picture of the Beer' => [ 
+			'image_url' => 'image', 
+			'height' => 'image_height', 
+			'width' => 'image_width' 
+		],
 	],
 
 	'types' =>
 	[
 		'Name' => 'text',
 		'Description' => 'wysiwyg',
+		'Picture of the Beer' => 'image',
 	]
 ],
 ```
 ###### /config/devise/model-mapping.php
 
-This will allow us to edit beers name and description field. They will both be required to save and the name field will present a plain text field sidebar while the description will display a WYSIWYG editor.
+Let's break this down a little. 
+
+#### Rules
+First the ```rules``` section defines the validation rules that you want to run on for each of the fields. You don't have to run any if you like - just don't include them in the array.
+
+#### Picks
+Next is the ```picks``` section. This tells us what the human name of the button label is, the database fields you want to save to, and, finally, what field from the Devise editor you want to save. 
+
+*Syntax*
+
+```
+'picks' =>
+[
+	'Human Name' => [  'modelAttr1' => 'fieldAttr1', 'modelAttr2' => 'fieldAttr2' ]
+]
+```
+
+You can find a list of the available field attributes for the editor type you want to use on the [Field Types](/docs/field-types)
+
+#### Types
+Finally, the types section defines what sidebar editor you want to use. The keys must match the keys in the picks section. Again, for the values you can use any of the types listed on the [Field Types](/docs/field-types) page.
+
+#### So What is this going to do?
+What this does is maps fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like.... that easy. Let's place some editors!
+
 
 ### Placing the editors
 
