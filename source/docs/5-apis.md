@@ -11,7 +11,7 @@ sections:
 
 ##<a name="creating-new-apis" class="ia"></a>[#](#creating-new-apis)Creating New Apis
 
-From the admin dashboard click the APIs card to go to the Apis index. On the inddx you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.
+From the admin dashboard click the APIs card to go to the Apis index. On the index you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.
 
 ###API Settings
 
@@ -92,7 +92,7 @@ So, in short, when a user submits the form to create a new brewery, it would POS
 
 There are only two sources that we can pass to these methods: **_(1) URL Parameters_** and **_(2) Input Data_**.
 
-*Params* are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by it's id, so this brewery id must be passed in thru the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.
+*Params* are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by its id, so this brewery id must be passed in through the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.
 
 ```
 /breweries/{breweryId}
@@ -127,7 +127,7 @@ class BrewersRepository
 }
 ```
 
-This is all accomplised by putting this into the response parameters field:
+This is all accomplished by putting this into the response parameters field:
 
 ```
 params.breweryId

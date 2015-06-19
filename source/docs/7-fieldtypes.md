@@ -27,7 +27,7 @@ sections:
 ##<a name="audio" class="ia"></a>[#](#audio)Audio
 
 >####Attention
->This field requires a third-party API. Devise ships with one for [Zencoder](http://zencoder.com). Simply, provide us your application with an API key from Zencoder. **Important**: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded audio file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at [ngrok](https://ngrok.com/) or a similar tunneling project.
+>This field requires a third-party API. Devise ships with one for [Zencoder](http://zencoder.com). Simply, provide your application with an API key from Zencoder. **Important**: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded audio file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at [ngrok](https://ngrok.com/) or a similar tunneling project.
 
 ```html
 {% verbatim %}
@@ -335,7 +335,7 @@ Download file
 ##<a name="video" class="ia"></a>[#](#video)Video
 
 >####Attention
->This field requires a third-party API. Devise ships with one for [Zencoder](http://zencoder.com). Simply, provide us your application with an API key from Zencoder. **Important**: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded video file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at [ngrok](https://ngrok.com/) or a similar tunneling project.
+>This field requires a third-party API. Devise ships with one for [Zencoder](http://zencoder.com). Simply, provide your application with an API key from Zencoder. **Important**: When Zencoder receives a request from your application it passes along a callback URL that they use to send back the re-encoded video file. To do this you will need to do it from a public URL that they can actually see. To do this during development take a look at [ngrok](https://ngrok.com/) or a similar tunneling project.
 
 ```php
 {% verbatim %}
