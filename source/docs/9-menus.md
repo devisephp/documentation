@@ -13,9 +13,9 @@ sections:
 
 Menus in Devise are designed to accomodate issues the Devise Team has with their own projects. They wanted the ability to:
 
-1. Create as many "menus" as They needed.
+1. Create as many "menus" as they needed.
 1. Localize a menu and keep it in sync with the page easily.
-1. Have an unlimited nesting capbility.
+1. Have an unlimited nesting capability.
 1. Easily loop through and write a menu in a logical way.
 1. Quickly and easily link both internally and externally.
 
@@ -23,9 +23,9 @@ With these items satisfied they use the menus system for more than just a top-le
 
 ##<a name="managing-menus" class="ia"></a>[#](#managing-menus)Managing Menus
 
-Managing menus in Devise couldn't be easier. They set it up with your customers in mind so you should have very little problems using the interface to create and update your menus.
+Managing menus in Devise couldn't be easier. They are set up with your customers in mind so you should have very little problems using the interface to create and update your menus.
 
-First, click on the "Menus" option on the navigation. Here you can create a new menu by providing a name and clicking the create button. Once inside your menu is created you can update it by specifying new menu items and dragging and dropping them to set their order of appearance.
+First, click on the "Menus" option on the navigation. Here you can create a new menu by providing a name and clicking the create button. Once your menu is created you can update it by specifying new menu items and dragging and dropping them to set their order of appearance.
 
 There are two link modes for menu items: URLs and Pages. If "Page" is selected the last field will autocomplete and link itself to the page you select. This way, if that page's URL changes the menu will automatically adjust.
 
@@ -33,10 +33,10 @@ There are two link modes for menu items: URLs and Pages. If "Page" is selected t
 
 Implementing menus is simple even in more complex scenarios.
 
-First, they need to add the menu variable to the template or layout that you want the menu to be available on. If the menu is something like a main menu you probably want to add it to your layout file so you don't have to add it to _every_ template, right? But if it's a menu that only appears on one template then just add it to that single template. Here's how they do that:
+First, they need to add the menu variable to the template or layout that you want the menu to be available on. If the menu is something like a main menu you probably want to add it to your layout file so you don't have to add it to _every_ template, right? But if it's a menu that only appears on one template then just add it to that single template. Here's how to do that:
 
 1. Head to Templates
-1. Click edit on the template that they want to add a variable to
+1. Click edit on the template that you want to add a variable to
 1. Click 'Add new variable'
 1. Give it a variable name of whatever you want. For example: ```mainNavigation``` (no dollar sign needed sir/ma'am)
 1. Give it a class path of ```Devise\Menus\MenusRepository```

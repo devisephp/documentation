@@ -139,11 +139,11 @@ A good example of a collection might be a slideshow which has several content ma
 
 ##<a name="editing-models" class="ia"></a>[#](#editing-models)Editing Models
 
-So, now you want to edit more substancial data, like a model, from within the sidebar? Not problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you. But first, just a little setup:
+So, now you want to edit more substantial data, like a model, from within the sidebar? No problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you. But first, just a little setup:
 
 ###Configuring the model-mapping
 
-Open up the model-mapping config file. This gives Devise a little knowledge about which of the model's fields to show, how they should validate, and which editor sidebar type to use with each of them. For this example we are going to edit a model called 'Beer' with a tabled called 'beers'.
+Open up the model-mapping config file. This gives Devise a little knowledge about which of the model's fields to show, how they should validate, and which editor sidebar type to use with each of them. For this example we are going to edit a model called 'Beer' with a table called 'beers'.
 
 ```
 'Beer' =>
@@ -197,8 +197,8 @@ You can find a list of the available field attributes for the editor type you wa
 #### Types
 Finally, the types section defines what sidebar editor you want to use. The keys must match the keys in the picks section. Again, for the values you can use any of the types listed on the [Field Types](/docs/field-types) page.
 
-#### So What is this going to do?
-What this does is maps fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like.... that easy. Let's place some editors!
+#### So what is this going to do?
+What this does is map fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like... that easy. Let's place some editors!
 
 
 ### Placing the editors
@@ -246,14 +246,14 @@ demo. -->
 
 ##<a name="to-model-or-not-to-model" class="ia"></a>[#](#to-model-or-not-to-model)To Model Or Not To Model
 
-The question is: Should the data your users are manipulating be it's own database table as model or just a simple collection?
+The question is: Should the data your users are manipulating be its own database table as model or just a simple collection?
 
 Sometimes this is a tough question, but here are a few tips to help you decide.
 
 **It should probably be a model**
 
 - It is repeatable and can have multiple instances
-- It has related data that can be shared over those intances (i.e. blogs have categories, car has a manugacturer, or images with tags)
-- Will this data or any of it's related data need to be searched/queried/filtered?
+- It has related data that can be shared over those intances (i.e. blogs have categories, car has a manufacturer, or images with tags)
+- Will this data or any of its related data need to be searched/queried/filtered?
 
 Of course, these are not ALL the deciding factors when choosing if data should be a model or not. But, typically if one or more of those are true you might just want to make it into a model.

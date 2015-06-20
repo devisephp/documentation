@@ -182,7 +182,7 @@ RuleManager::addRule('drinksRightTypeOfBeer', function($type) {
 ######With a parameter
 
 
-Below is an example of where you might want to register these rules. You can do it many places but this might be a good place to start if you just have a rule or two.
+Below is an example of where you might want to register these rules. You can do it in many places but this might be a good place to start if you just have a rule or two.
 
 
 ```php

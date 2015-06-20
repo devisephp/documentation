@@ -53,7 +53,7 @@ Creating a page is easy. From the administration dashboard click on *ahem*... Pa
 
 ---
 
-**Short description of the page**: A place to put any notes about what this page is and what it's purpose is.
+**Short description of the page**: A place to put any notes about what this page is and what its purpose is.
 
 ---
 
@@ -101,7 +101,7 @@ That allows you to set a url parameter we can use to load the appropriate brewer
 
 **Footer Code**: Likewise, footer code will be injected just before the closing </body> tag. This can be used for additional JavaScript inclusions, script calls, whatever.
 
->> Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. see the [templatefs](/docs/templates) documentation to see how this should be formatted.
+>> Note that the meta fields, head code, and footer code must be inserted correctly in the templates your site uses. They don't just magically appear. See the [templates](/docs/templates) documentation to see how this should be formatted.
 
 ---
 
