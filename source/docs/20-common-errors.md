@@ -5,8 +5,7 @@ description: Below are some common errors that you may experience during configu
 use: [docs]
 converters: [markdown]
 sections:
-    - Enabling A New Language
-    - Static vs Dynamic
+    - Route Caching
 ---
 
 ##<a name="route-caching" class="ia"></a>[#](#route-caching)Route Caching
