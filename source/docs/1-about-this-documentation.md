@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About This Documentation
-description: We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks! Even in it's first release we are attempting to supply you with robust documentation.
+description: We know how it feels to find a new project resource, like what you see, and then find a skeleton of documentation. It sucks! Even in its first release we are attempting to supply you with robust documentation.
 use: [docs]
 converters: [markdown]
 sections:
@@ -56,9 +56,9 @@ If you've ever read a programming book you've undoubtedly seen these. If not, no
 >>> When a feature is brand new or maybe is just about to be released we will notate above it with this block.
 
 ##<a name="beer%21" class="ia"></a>[#](#beer%21)Beer!
-To make this novela a little easier to understand and use some real world examples we will use a fictitious narrative of a website about beer. We could have made a blog or a site about cats but this team loves beer. Good beer.
+To make this novel a little easier to understand and use some real world examples we will use a fictitious narrative of a website about beer. We could have made a blog or a site about cats but this team loves beer. Good beer.
 
-You love code. You love beer. Why not cracking open a cold one right now before you get started.... we'll wait while you run to the fridge.
+You love code. You love beer. Why not crack open a cold one right now before you get started.... we'll wait while you run to the fridge.
 
 
 

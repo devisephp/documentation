@@ -26,7 +26,7 @@ We also require:
 - Laravel supported relational database. (MySQL, Postgres, SQLite, or SQL Server)
 - ImageMagick
 
-To install ImageMagick on Ubuntu / Homestead the use the following commands:
+To install ImageMagick on Ubuntu / Homestead use the following commands:
 
 ```
 sudo apt-get install imagemagick
@@ -35,12 +35,12 @@ sudo apt-get install php5-imagick
 
 ##<a name="installing-through-the-browser" class="ia"></a>[#](#installing-through-the-browser)Installing through the browser
 
-Installing Devise via browser is simple and painless. After grabbing the latest version of Devise and then properly adding it's resources to your project, simply open a browser and navigate to your project's url. Your browser will be redirected to the installer's welcome page.
+Installing Devise via browser is simple and painless. After grabbing the latest version of Devise and then properly adding its resources to your project, simply open a browser and navigate to your project's url. Your browser will be redirected to the installer's welcome page.
 
 >>####Watch out
->> If you are having issues with your application's url resolving and/or being redirected to the installation welcome screen, you most likely have an issue in your "homestead.yaml" or "/etc/hosts". Review the steps listed under within the <a name="environmental-configuration" class="ia"></a>[#environmental configuration section](#environmental-configuration).
+>> If you are having issues with your application's url resolving and/or being redirected to the installation welcome screen, you most likely have an issue in your "homestead.yaml" or "/etc/hosts". Review the steps listed under the <a name="environmental-configuration" class="ia"></a>[#environmental configuration section](#environmental-configuration).
 
-Complete the form on each step to configure your environment, database, application settings and admin user credentials. Then let Devise take care of the connecting the dots and getting the application up-and-running.
+Complete the form on each step to configure your environment, database, application settings and admin user credentials. Then let Devise take care of connecting the dots and getting the application up-and-running.
 
 
 ##<a name="installing-through-command-line" class="ia"></a>[#](#installing-through-command-line)Installing Through The Command Line
@@ -131,7 +131,7 @@ Below we will cover setting up Devise, Laravel and Homestead in an OSX environme
 
 ###2. Add your site to your Homestead.yaml
 
-In you Homestead.yaml file (the main configuration file for Homestead) add an entry for devise-example.com and map it to the **application's public directory**. It should look similiar to this:
+In your Homestead.yaml file (the main configuration file for Homestead) add an entry for devise-example.com and map it to the **application's public directory**. It should look similiar to this:
 
 ```
 - map: devise-example.com

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Users & Groups
-description: Users and groups are a fundemental piece of any content management system or application. Devise comes pre-packaged with Users and Groups out of the box for easy setup. Extending and adding to this system is simple.
+description: Users and groups are a fundamental piece of any content management system or application. Devise comes pre-packaged with Users and Groups out of the box for easy setup. Extending and adding to this system is simple.
 use: [docs]
 converters: [markdown]
 sections:
@@ -22,7 +22,7 @@ By default, Devise offers admin management of users and groups. From our experie
 2. Administrative staff with public users that do log in.
 3. All users log in and have some varied experience based on their role.
 
-Scenario 1 doesn't have to worry about groups, but scenarios 2 and 3 need to think about the different roles the users will require. **In Devise a user can be in many group**, so one thing to keep in mind is sketching out groups which will have access to a particular part of your application, and then relating those users to the groups.
+Scenario 1 doesn't have to worry about groups, but scenarios 2 and 3 need to think about the different roles the users will require. **In Devise a user can be in many groups**, so one thing to keep in mind is sketching out groups which will have access to a particular part of your application, and then relating those users to the groups.
 
 Another consideration when designing your groups are things like achievements, interest groups, clans, clubs, newsletters, etc. These are actual business / application logic that have nothing to do with permissions. In these cases you may need to define permission based rules around these 'real life' groups.
 

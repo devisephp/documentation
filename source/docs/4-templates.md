@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Templates
-description: Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.
+description: Creating templates in Devise is extremely easy - especially if you are used to Laravel's Blade syntax - but it's easy no matter what your experience is with Laravel. One of our major focuses was to give developers a super-easy and quick way to take a standard sliced-and-diced HTML / CSS / JavaScript page and make it content manageable.
 use: [docs]
 converters: [markdown]
 sections:
@@ -82,7 +82,7 @@ In the following sections we're going to show you some of the tools which are im
 
 ##<a name="getting-data-to-templates" class="ia"></a>[#](#getting-data-to-templates)Getting Data to Templates
 
-In more advanced applications where you have Models, custom custom classes, and an application data structure you’re going to need to get your data to the template. This is one of the best features of Devise so sit back and hold on to your butts!
+In more advanced applications where you have Models, custom classes, and an application data structure you’re going to need to get your data to the template. This is one of the best features of Devise so sit back and hold on to your butts!
 
 For this lets use the example of Beers (as usual). Let’s say you have a database of Beers and you want to show a list of all of these beers on a page. Let’s do that. 
 
