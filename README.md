@@ -10,6 +10,7 @@ We don't have too strict of a style-guide yet for the documentation but you will
 
 This source contains everything needed to generate the documentation but the primary location you'll want to look to edit are the documents located in ```/source/docs```
 
+
 ###New sections
 
 Ensure that for any new sections you add the section to the top of the document in the sections... section. 

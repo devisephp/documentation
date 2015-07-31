@@ -87,3 +87,20 @@ Returns true if the menu item is the currently active item.
 $menuItem->activeItem
 {% endverbatim %}
 ```
+
+>>####Watch Out!
+>>If you want to know the activeItem or activeAncestor you'll need to pass the current page to the buildMenu. See below for an example.
+
+Returns true if the menu item is the currently active item.
+```php
+{% verbatim %}
+...
+'vars' => array(
+	'mainMenu' => array(
+		'Devise\Menus\MenusRepository.buildMenu' => array(
+			'Main Menu', 2, '{page}'
+		),
+	),
+...
+{% endverbatim %}
+```
