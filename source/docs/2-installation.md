@@ -47,23 +47,6 @@ Complete the form on each step to configure your environment, database, applicat
 
 Installation through the command line is as simple as:
 
-```bash
-php artisan devise:install
-```
-
-Currently, this command simply runs these commands
-
-```bash
-php artisan devise:migrate
-php artisan devise:assets
-php artisan devise:seed
-```
-
-
-##<a name="installing-devise-on-an-existing-project" class="ia"></a>[#](#installing-devise-on-an-existing-project)Installing Devise On An Existing Project
-
-If you are installing Devise "by hand" on an existing Laravel 5 project take the following steps.
-
 ###1. Add Devise to your composer
 
 ```php
@@ -77,7 +60,15 @@ If you are installing Devise "by hand" on an existing Laravel 5 project take the
 ```
 ######/composer.json
 
-###2. Add Devise service provider and facades
+###2. Composer Update from command line
+```php
+{% verbatim %}
+composer update
+{% endverbatim %}
+```
+
+
+###3. Add Devise service provider and facades
 
 ```php
 {% verbatim %}
@@ -117,7 +108,94 @@ If you are installing Devise "by hand" on an existing Laravel 5 project take the
 ######/config/app.php
 
 >####Quick Tip
-> If you run the installer and opt not to run application migrations be aware that if you run them after the install you will get a "Users table already exists" error. To remedy delete the ```/database/migrations/2014_10_12_000000_create_users_table.php``` and the ```/database/migrations/2014_10_12_100000_create_password_resets_table.php``` files.
+> If you run the installer and opt not to run application migrations be aware that if you run them after the install you will get a "Users table already exists" error. To remedy delete the following two files: 
+```/database/migrations/2014_10_12_000000_create_users_table.php
+/database/migrations/2014_10_12_100000_create_password_resets_table.php```
+
+
+###4. Run the installer
+```bash
+php artisan devise:install
+```
+
+Currently, this command simply runs these commands in the following order
+
+```bash
+php artisan devise:migrate
+php artisan devise:assets
+php artisan devise:seed
+```
+
+
+##<a name="installing-devise-on-an-existing-project" class="ia"></a>[#](#installing-devise-on-an-existing-project)Installing Devise On An Existing Project
+
+If you are installing Devise "by hand" on an existing Laravel 5 project take the following steps.
+
+###1. Add Devise to your composer
+
+```php
+{% verbatim %}
+"require": {
+    "laravel/framework": "5.*",
+    "devisephp/cms": "*",
+    "illuminate/html": "5.*"
+}
+{% endverbatim %}
+```
+######/composer.json
+
+
+###2. Composer Update from command line
+```php
+{% verbatim %}
+composer update
+{% endverbatim %}
+```
+
+
+###3. Add Devise service provider and facades
+
+```php
+{% verbatim %}
+...
+'Illuminate\Validation\ValidationServiceProvider',
+'Illuminate\View\ViewServiceProvider',
+
+/*
+ * Devise Service Provider
+ */
+'Devise\DeviseServiceProvider',
+
+/*
+ * Application Service Providers...
+ */
+'App\Providers\AppServiceProvider',
+...
+{% endverbatim %}
+```
+######/config/app.php
+
+>>####Watch Out!
+>>Make sure the deviseServiceProvider appears **above** the Application Service Providers
+
+```php
+{% verbatim %}
+/*
+ * Devise Facades...
+ */
+'Sort'            => 'Devise\Support\Sortable\SortableFacade',
+'DeviseUser'      => 'Devise\Users\DeviseUser',
+'RuleManager'     => 'Devise\Users\Permissions\RuleManagerFacade',
+'Form'            => 'Illuminate\Html\FormFacade',
+'HTML'            => 'Illuminate\Html\HtmlFacade',
+{% endverbatim %}
+```
+######/config/app.php
+
+>####Quick Tip
+> If you run the installer and opt not to run application migrations be aware that if you run them after the install you will get a "Users table already exists" error. To remedy delete the following two files: 
+```/database/migrations/2014_10_12_000000_create_users_table.php
+/database/migrations/2014_10_12_100000_create_password_resets_table.php```
 
 ##<a name="environmental-configuration" class="ia"></a>[#](#environmental-configuration)Environmental Configuration
 

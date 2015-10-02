@@ -63,7 +63,7 @@
             <section id="top">
                 <div>
                     <h1>Localization</h1>
-                    <p>Localizing is one of those features that, as a developer, can be intimidating on other systems. In Devise it&#039;s a snap. It is built in out of the box and just takes a few clicks to get it up and running.</p>
+                    <p>Localizing is one of those features that, as a developer, can be intimidating on other systems. In Devise it&#039;s a snap. It is built in out of the box and just takes a few clicks to get up and running.</p>
                 </div>
             </section>
 
@@ -188,6 +188,12 @@
                                                         <li class="active" ><a href="/docs/localization/#static-vs-dynamic">Static vs Dynamic</a></li>
                                                     </ul>
                                             </li>
+                                        <li>
+                        <a href="/docs/common-errors/">Common Errors</a>
+                                                <ul>
+                                                        <li><a href="/docs/common-errors/#route-caching">Route Caching</a></li>
+                                                    </ul>
+                                            </li>
                                     </ul>
 
                 <div>
@@ -202,7 +208,7 @@
 
 <h3 id="dynamic">Dynamic</h3>
 
-<p>First, your content managers or clients can provide a translated version of a page or menu out of the box with Devise. This is perfect if pages have dynamic content that needs to be managed in multiple lanugages. To utilize this most of the time we use the 'Copy' action next to an existing page and then select 'Translate Page'.</p>
+<p>First, your content managers or clients can provide a translated version of a page or menu out of the box with Devise. This is perfect if pages have dynamic content that needs to be managed in multiple languages. To utilize this most of the time we use the 'Copy' action next to an existing page and then select 'Translate Page'.</p>
 
 <p>You can then provide the new content for the language you selected. The pages are also connected in Devise so that if the user utilizes the language selector they will be redirected to the duplicated page in the other language.</p>
 
@@ -210,7 +216,7 @@
 
 <p>On the other hand, you may have some strings and content that is static (never changes really) that is hard-coded in to the template. Devise's localization engine leans on Laravel's localization so you can utilize the <code>trans()</code> method to translate your strings.</p>
 
-<p>To start create a file within the <code>resources/lang/{whatever the 2-character iso code is for the langs you're working with}</code> directory.</p>
+<p>To start create a file within the <code>resources/lang/{whatever the 2-character ISO code is for the languages you're working with}</code> directory.</p>
 
 <p>For example: If I was working on the about section of a site I might create the files called <code>/resources/lang/es/about.php</code> and <code>/resources/lang/en/about.php</code>. Inside each of those files I create an array that I return like so:</p>
 

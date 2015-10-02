@@ -188,6 +188,12 @@
                                                         <li><a href="/docs/localization/#static-vs-dynamic">Static vs Dynamic</a></li>
                                                     </ul>
                                             </li>
+                                        <li>
+                        <a href="/docs/common-errors/">Common Errors</a>
+                                                <ul>
+                                                        <li><a href="/docs/common-errors/#route-caching">Route Caching</a></li>
+                                                    </ul>
+                                            </li>
                                     </ul>
 
                 <div>
@@ -309,11 +315,11 @@
 
 <h2 id="%3Ca-name%3D%22editing-models%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23editing-models%29editing-models"><a name="editing-models" class="ia"></a><a href="#editing-models">#</a>Editing Models</h2>
 
-<p>So, now you want to edit more substancial data, like a model, from within the sidebar? Not problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you. But first, just a little setup:</p>
+<p>So, now you want to edit more substantial data, like a model, from within the sidebar? No problem: Just pass the model instance or the model attribute as the first parameter and Devise does the heavy lifting for you. But first, just a little setup:</p>
 
 <h3 id="configuring-the-model-mapping">Configuring the model-mapping</h3>
 
-<p>Open up the model-mapping config file. This gives Devise a little knowledge about which of the model's fields to show, how they should validate, and which editor sidebar type to use with each of them. For this example we are going to edit a model called 'Beer' with a tabled called 'beers'.</p>
+<p>Open up the model-mapping config file. This gives Devise a little knowledge about which of the model's fields to show, how they should validate, and which editor sidebar type to use with each of them. For this example we are going to edit a model called 'Beer' with a table called 'beers'.</p>
 
 <pre><code>'Beer' =&gt;
 [
@@ -369,9 +375,9 @@
 
 <p>Finally, the types section defines what sidebar editor you want to use. The keys must match the keys in the picks section. Again, for the values you can use any of the types listed on the <a href="/docs/field-types">Field Types</a> page.</p>
 
-<h4 id="so-what-is-this-going-to-do%3F">So What is this going to do?</h4>
+<h4 id="so-what-is-this-going-to-do%3F">So what is this going to do?</h4>
 
-<p>What this does is maps fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like.... that easy. Let's place some editors!</p>
+<p>What this does is map fields in your database to an editor. So when we do click on a model editor it will have 3 sub-sections: "Name", "Description", and "Picture of the Beer". Once you click on "Name" you get a text field, "Description" a wysiwyg editor, and "Picture" will give you the image editor and media browser. It's like... that easy. Let's place some editors!</p>
 
 <h3 id="placing-the-editors">Placing the editors</h3>
 
@@ -420,7 +426,7 @@ demo. --&gt;
 
 <h2 id="%3Ca-name%3D%22to-model-or-not-to-model%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23to-model-or-not-to-model%29to-model-or-not-to-model"><a name="to-model-or-not-to-model" class="ia"></a><a href="#to-model-or-not-to-model">#</a>To Model Or Not To Model</h2>
 
-<p>The question is: Should the data your users are manipulating be it's own database table as model or just a simple collection?</p>
+<p>The question is: Should the data your users are manipulating be its own database table as model or just a simple collection?</p>
 
 <p>Sometimes this is a tough question, but here are a few tips to help you decide.</p>
 
@@ -428,8 +434,8 @@ demo. --&gt;
 
 <ul>
 <li>It is repeatable and can have multiple instances</li>
-<li>It has related data that can be shared over those intances (i.e. blogs have categories, car has a manugacturer, or images with tags)</li>
-<li>Will this data or any of it's related data need to be searched/queried/filtered?</li>
+<li>It has related data that can be shared over those intances (i.e. blogs have categories, car has a manufacturer, or images with tags)</li>
+<li>Will this data or any of its related data need to be searched/queried/filtered?</li>
 </ul>
 
 <p>Of course, these are not ALL the deciding factors when choosing if data should be a model or not. But, typically if one or more of those are true you might just want to make it into a model.</p>

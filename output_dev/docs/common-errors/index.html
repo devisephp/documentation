@@ -7,7 +7,7 @@
     <meta name="description" content="Documentation for Devise">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Menus &mdash; Devise Documentation &mdash; </title>
+    <title>Common Errors &mdash; Devise Documentation &mdash; </title>
 
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css"/>
@@ -62,8 +62,8 @@
 
             <section id="top">
                 <div>
-                    <h1>Menus</h1>
-                    <p>With Devise setting up a robust menu system couldn&#039;t be easier.</p>
+                    <h1>Common Errors</h1>
+                    <p>Below are some common errors that you may experience during configuration, installation, or developing on Devise.</p>
                 </div>
             </section>
 
@@ -164,11 +164,11 @@
                                                         <li><a href="/docs/permissions/#creating-new-permission-conditions">Creating New Permission Conditions</a></li>
                                                     </ul>
                                             </li>
-                                        <li class="active">
+                                        <li>
                         <a href="/docs/menus/">Menus</a>
                                                 <ul>
-                                                        <li class="active" ><a href="/docs/menus/#managing-menus">Managing Menus</a></li>
-                                                        <li class="active" ><a href="/docs/menus/#implementing-menus">Implementing Menus</a></li>
+                                                        <li><a href="/docs/menus/#managing-menus">Managing Menus</a></li>
+                                                        <li><a href="/docs/menus/#implementing-menus">Implementing Menus</a></li>
                                                     </ul>
                                             </li>
                                         <li>
@@ -188,117 +188,29 @@
                                                         <li><a href="/docs/localization/#static-vs-dynamic">Static vs Dynamic</a></li>
                                                     </ul>
                                             </li>
-                                        <li>
+                                        <li class="active">
                         <a href="/docs/common-errors/">Common Errors</a>
                                                 <ul>
-                                                        <li><a href="/docs/common-errors/#route-caching">Route Caching</a></li>
+                                                        <li class="active" ><a href="/docs/common-errors/#route-caching">Route Caching</a></li>
                                                     </ul>
                                             </li>
                                     </ul>
 
                 <div>
                     <div>
-                        <p>Menus in Devise are designed to accomodate issues the Devise Team has with their own projects. They wanted the ability to:</p>
+                        <h2 id="%3Ca-name%3D%22route-caching%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23route-caching%29route-caching"><a name="route-caching" class="ia"></a><a href="#route-caching">#</a>Route Caching</h2>
 
-<ol>
-<li>Create as many "menus" as they needed.</li>
-<li>Localize a menu and keep it in sync with the page easily.</li>
-<li>Have an unlimited nesting capability.</li>
-<li>Easily loop through and write a menu in a logical way.</li>
-<li>Quickly and easily link both internally and externally.</li>
-</ol>
+<p>If you are seeing this error message you most likely need to clear Laravel's route cache using the following command:</p>
 
-<p>With these items satisfied they use the menus system for more than just a top-level navigation. They use it for footer navigations, sitemaps, tabbed content, or any section that <em>feels</em> menuey that needs a resortable list of items that link to something (even if that something is just a named anchor).</p>
-
-<h2 id="%3Ca-name%3D%22managing-menus%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23managing-menus%29managing-menus"><a name="managing-menus" class="ia"></a><a href="#managing-menus">#</a>Managing Menus</h2>
-
-<p>Managing menus in Devise couldn't be easier. They are set up with your customers in mind so you should have very little problems using the interface to create and update your menus.</p>
-
-<p>First, click on the "Menus" option on the navigation. Here you can create a new menu by providing a name and clicking the create button. Once your menu is created you can update it by specifying new menu items and dragging and dropping them to set their order of appearance.</p>
-
-<p>There are two link modes for menu items: URLs and Pages. If "Page" is selected the last field will autocomplete and link itself to the page you select. This way, if that page's URL changes the menu will automatically adjust.</p>
-
-<h2 id="%3Ca-name%3D%22implementing-menus%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23implementing-menus%29implementing-menus"><a name="implementing-menus" class="ia"></a><a href="#implementing-menus">#</a>Implementing Menus</h2>
-
-<p>Implementing menus is simple even in more complex scenarios.</p>
-
-<p>First, they need to add the menu variable to the template or layout that you want the menu to be available on. If the menu is something like a main menu you probably want to add it to your layout file so you don't have to add it to <em>every</em> template, right? But if it's a menu that only appears on one template then just add it to that single template. Here's how to do that:</p>
-
-<ol>
-<li>Head to Templates</li>
-<li>Click edit on the template that you want to add a variable to</li>
-<li>Click 'Add new variable'</li>
-<li>Give it a variable name of whatever you want. For example: <code>mainNavigation</code> (no dollar sign needed sir/ma'am)</li>
-<li>Give it a class path of <code>Devise\Menus\MenusRepository</code></li>
-<li>Give it a method name of <code>buildMenu</code></li>
-<li>Add a parameter: Change the type to 'Static Value' and set the value to the name of your menu.</li>
-</ol>
-
-<p>This is a snippet from the default administration template. It loops through each of the top tier menu items and then through each of their children.</p>
-
-<pre><code class="php">
-@foreach ($dvsAdminMenu as $menuGroup)
-    &lt;h5&gt;{{ $menuGroup-&gt;name }}&lt;/h5&gt;
-    &lt;ul class="dvs-admin-links"&gt;
-        @foreach ($menuGroup-&gt;children as $link)
-            &lt;li&gt;&lt;a class="{{ isActiveLink($link-&gt;url) }}" href="{{ $link-&gt;url }}"&gt;{{ $link-&gt;name }}&lt;/a&gt;&lt;/li&gt;
-        @endforeach
-    &lt;/ul&gt;
-@endforeach
-
+<pre><code>php artisan route:clear
 </code></pre>
 
-<p>Here are the properties you have access to on menu items:</p>
+<p>If you would like to utilize Laravel's route caching we suggest that you only do this on production and enable Devise's route cache support by enabling it in your .env file.</p>
 
-<p>Label of the Menu Item.</p>
-
-<pre><code class="php">
-$menuGroup-&gt;name
-
+<pre><code>DEVISE_CACHE_ENABLED=true
 </code></pre>
 
-<p>URL of the Menu Item.</p>
-
-<pre><code class="php">
-$link-&gt;url
-
-</code></pre>
-
-<p>Returns true if the menu item has a child link that is currently the active link.</p>
-
-<pre><code class="php">
-$menuItem-&gt;activeAncestor
-
-</code></pre>
-
-<p>Returns true if the menu item is the currently active item.</p>
-
-<pre><code class="php">
-$menuItem-&gt;activeItem
-
-</code></pre>
-
-<blockquote>
-  <blockquote>
-    <h4 id="watch-out%21">Watch Out!</h4>
-    
-    <p>If you want to know the activeItem or activeAncestor you'll need to pass the current page to the buildMenu. See below for an example.</p>
-  </blockquote>
-</blockquote>
-
-<p>Returns true if the menu item is the currently active item.</p>
-
-<pre><code class="php">
-...
-'vars' =&gt; array(
-    'mainMenu' =&gt; array(
-        'Devise\Menus\MenusRepository.buildMenu' =&gt; array(
-            'Main Menu', 2, '{page}'
-        ),
-    ),
-...
-
-</code></pre>
+<p>Now, whenever a page or API is added via Devise the routes cache will be refreshed.</p>
                     </div>
                 </div>
 

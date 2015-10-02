@@ -188,13 +188,19 @@
                                                         <li><a href="/docs/localization/#static-vs-dynamic">Static vs Dynamic</a></li>
                                                     </ul>
                                             </li>
+                                        <li>
+                        <a href="/docs/common-errors/">Common Errors</a>
+                                                <ul>
+                                                        <li><a href="/docs/common-errors/#route-caching">Route Caching</a></li>
+                                                    </ul>
+                                            </li>
                                     </ul>
 
                 <div>
                     <div>
                         <h2 id="%3Ca-name%3D%22creating-new-apis%22-class%3D%22ia%22%3E%3C%2Fa%3E%5B%23%5D%28%23creating-new-apis%29creating-new-apis"><a name="creating-new-apis" class="ia"></a><a href="#creating-new-apis">#</a>Creating New Apis</h2>
 
-<p>From the admin dashboard click the APIs card to go to the Apis index. On the inddx you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.</p>
+<p>From the admin dashboard click the APIs card to go to the Apis index. On the index you'll see a button in the top right-hand corner labeled "Create New Api". Click the button and you will be redirected to the Create A New Api form.</p>
 
 <h3 id="api-settings">API Settings</h3>
 
@@ -266,7 +272,7 @@ class BrewersManager
 
 <p>There are only two sources that we can pass to these methods: <strong><em>(1) URL Parameters</em></strong> and <strong><em>(2) Input Data</em></strong>.</p>
 
-<p><em>Params</em> are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by it's id, so this brewery id must be passed in thru the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.</p>
+<p><em>Params</em> are parameters that are in the slug. Using the example from the Devise Page Docs, we defined a URL to show the details of a single brewery. It does this by finding a brewery by its id, so this brewery id must be passed in through the URL. In the slug below, our parameter is named "breweryId" and it's enclosed in curly braces ({}) because this is Laravel's default syntax for route params.</p>
 
 <pre><code>/breweries/{breweryId}
 </code></pre>
@@ -298,7 +304,7 @@ class BrewersRepository
 }
 </code></pre>
 
-<p>This is all accomplised by putting this into the response parameters field:</p>
+<p>This is all accomplished by putting this into the response parameters field:</p>
 
 <pre><code>params.breweryId
 </code></pre>
