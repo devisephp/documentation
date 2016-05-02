@@ -119,7 +119,7 @@ To hide or show a specific part of a template based on a permission function you
 
 ##<a name="implementing-on-pages" class="ia"></a>[#](#implementing-on-pages)Implementing On Pages
 
-To implement permissions on Devise pages you can do it by adding your permission condition (or conditions) to the before filter in the advanced settings of the page in the administration. You can also pass multiple permission conditions by separating them with a pipe. For example```permissionCondition1|permissionCondition2```.
+To implement permissions on Devise pages you can do it by adding your permission condition (or conditions) to the middleware field in the advanced settings of the page in the administration. You mus prefix the condition with 'devise.permissions:'. This will use the 'devise.permissions' route middleware, and pass your condition as a parameter. You can also pass multiple permission conditions by separating them with a pipe. For example```devise.permissions:permissionCondition1|devise.permissions:permissionCondition2```.
 
 >####Note
 > * If you pass multiple conditions all conditions must be true for the user to view the page.
